@@ -348,6 +348,46 @@
             text-decoration: underline;
         }
 
+        /* Project Metrics */
+        .project-metrics {
+            display: flex;
+            align-items: stretch;
+            gap: 16px;
+            margin-top: 4px;
+            padding-top: 14px;
+            border-top: 1px solid var(--border);
+        }
+
+        .project-metric {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1;
+        }
+
+        .project-metric-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--fire);
+            letter-spacing: -0.5px;
+            line-height: 1;
+        }
+
+        .project-metric-label {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            line-height: 1.3;
+        }
+
+        .project-metric-separator {
+            width: 1px;
+            background: var(--border);
+            align-self: stretch;
+        }
+
         .exp-list {
             list-style: none;
             margin-top: 4px;
@@ -438,6 +478,10 @@
             .header-stat-value {
                 font-size: 20px;
             }
+
+            .project-metric-value {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
@@ -502,13 +546,24 @@
                     <div class="exp-project">
                         <span class="project-label">Ключевой проект</span>
                         <h4>Школьные сервисы для ИИ-школ</h4>
-                        <p>Проектирую пространство WebView в приложениях СберKids и СБОЛ — единую точку входа в цифровые сервисы школы. Дети видят информацию о проходах в школу, меню буфета, ачивки за действия в школе, интересные факты и геймификационные механики. Прорабатываю структуру, пользовательские сценарии и интерфейсы взаимодействия с сервисами.</p>
+                        <p>Проектирую пространство WebView в приложениях СберKids и СБОЛ — единую точку входа в цифровые сервисы школы. Дети видят информацию о проходах в школу, меню буфета, ачивки за действия в школе, интересные факты и геймификационные механики. Прорабатываю структуру, пользовательские сценарии и интерфейсы взаимодействия с сервисами. Пилотный проект, раскатанный в тестовых школах.</p>
                         <a href="https://pixso.design.sber.ru/app/design/Cwbn2SF6RQzYdNW7np5tfA?page-id=0:1" class="project-link" target="_blank">Макеты в Pixso ↗</a>
                     </div>
                     <div class="exp-project">
                         <span class="project-label">Ключевой проект</span>
                         <h4>Калькулятор вузов GigaChat</h4>
                         <p>Разработал продуктовый сценарий и интерфейс mini app сервиса на базе ИИ в Telegram и MAX. Сервис помогает подобрать университет по баллам, сориентирует по основной информации, цене обучения, проходным баллам и шансам на поступление, а GigaChat выведет персональные рекомендации.</p>
+                        <div class="project-metrics">
+                            <div class="project-metric">
+                                <span class="project-metric-value">118,5 тыс</span>
+                                <span class="project-metric-label">пользователей<br>в 2026 году</span>
+                            </div>
+                            <div class="project-metric-separator"></div>
+                            <div class="project-metric">
+                                <span class="project-metric-value">16,6 тыс</span>
+                                <span class="project-metric-label">MAU</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
