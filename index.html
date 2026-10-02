@@ -20,6 +20,76 @@
             --blue-border: rgba(0, 122, 255, 0.25);
             --border: rgba(0, 0, 0, 0.06);
             --radius: 20px;
+            --shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0E0E11;
+            --card-bg: #1A1A1F;
+            --text-primary: #F5F5F7;
+            --text-secondary: #A1A1A6;
+            --text-tertiary: #86868B;
+            --fire: #FF6A34;
+            --fire-soft: rgba(255, 106, 52, 0.12);
+            --fire-border: rgba(255, 106, 52, 0.3);
+            --blue: #0A84FF;
+            --blue-soft: rgba(10, 132, 255, 0.12);
+            --blue-border: rgba(10, 132, 255, 0.3);
+            --border: rgba(255, 255, 255, 0.08);
+            --shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .card {
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            color: var(--text-primary);
+            font-size: 20px;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
+            z-index: 1000;
+            padding: 0;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.08);
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.95);
+        }
+
+        .theme-toggle .icon-sun,
+        .theme-toggle .icon-moon {
+            display: none;
+        }
+
+        :not([data-theme="dark"]) .theme-toggle .icon-moon,
+        [data-theme="light"] .theme-toggle .icon-moon {
+            display: block;
+        }
+
+        [data-theme="dark"] .theme-toggle .icon-sun {
+            display: block;
         }
 
         * {
@@ -537,7 +607,7 @@
             
             <!-- Sber -->
             <div class="exp-item">
-                <h3>ПАО «Сбербанк России»</h3>
+                <h3>Сбер</h3>
                 <p class="exp-role">Продуктовый дизайнер · сегмент «Дети, родители, молодёжь»</p>
                 <span class="exp-date">Декабрь 2023 — настоящее время</span>
 
@@ -576,7 +646,7 @@
 
             <!-- NII CEPP -->
             <div class="exp-item">
-                <h3>ФГАУ «НИИ «ЦЭПП»</h3>
+                <h3>Минпромторг</h3>
                 <p class="exp-role">Ведущий дизайн-специалист · цифровые продукты и коммуникации</p>
                 <span class="exp-date">Июнь 2022 — Декабрь 2023</span>
                 <ul class="exp-list">
@@ -650,6 +720,31 @@
         </div>
 
     </div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" title="Переключить тему">
+        <span class="icon-moon" aria-hidden="true">🌙</span>
+        <span class="icon-sun" aria-hidden="true">☀️</span>
+    </button>
+
+    <script>
+        (function () {
+            const toggle = document.getElementById('themeToggle');
+            const root = document.documentElement;
+
+            // Restore saved theme, otherwise follow system preference
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initial = saved || (prefersDark ? 'dark' : 'light');
+            root.setAttribute('data-theme', initial);
+
+            toggle.addEventListener('click', function () {
+                const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                root.setAttribute('data-theme', next);
+                localStorage.setItem('theme', next);
+            });
+        })();
+    </script>
 
 </body>
 </html>
