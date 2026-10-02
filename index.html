@@ -68,6 +68,7 @@
             transition: transform 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
             z-index: 1000;
             padding: 0;
+            overflow: hidden;
         }
 
         .theme-toggle:hover {
@@ -78,18 +79,27 @@
             transform: scale(0.95);
         }
 
+        /* Иконки переключателя скрываются/показываются через visibility,
+           чтобы не влиять на видимость содержимого страницы */
         .theme-toggle .icon-sun,
         .theme-toggle .icon-moon {
-            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            visibility: visible;
         }
 
-        :not([data-theme="dark"]) .theme-toggle .icon-moon,
-        [data-theme="light"] .theme-toggle .icon-moon {
-            display: block;
+        .theme-toggle .icon-sun {
+            visibility: hidden;
         }
 
-        [data-theme="dark"] .theme-toggle .icon-sun {
-            display: block;
+        html[data-theme="dark"] .theme-toggle .icon-moon {
+            visibility: hidden;
+        }
+
+        html[data-theme="dark"] .theme-toggle .icon-sun {
+            visibility: visible;
         }
 
         * {
