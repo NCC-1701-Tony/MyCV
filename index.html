@@ -20,86 +20,6 @@
             --blue-border: rgba(0, 122, 255, 0.25);
             --border: rgba(0, 0, 0, 0.06);
             --radius: 20px;
-            --shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-        }
-
-        [data-theme="dark"] {
-            --bg-color: #0E0E11;
-            --card-bg: #1A1A1F;
-            --text-primary: #F5F5F7;
-            --text-secondary: #A1A1A6;
-            --text-tertiary: #86868B;
-            --fire: #FF6A34;
-            --fire-soft: rgba(255, 106, 52, 0.12);
-            --fire-border: rgba(255, 106, 52, 0.3);
-            --blue: #0A84FF;
-            --blue-soft: rgba(10, 132, 255, 0.12);
-            --blue-border: rgba(10, 132, 255, 0.3);
-            --border: rgba(255, 255, 255, 0.08);
-            --shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        body {
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .card {
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
-
-        /* Theme Toggle */
-        .theme-toggle {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: 1px solid var(--border);
-            background: var(--card-bg);
-            color: var(--text-primary);
-            font-size: 20px;
-            line-height: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            transition: transform 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
-            z-index: 1000;
-            padding: 0;
-            overflow: hidden;
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.08);
-        }
-
-        .theme-toggle:active {
-            transform: scale(0.95);
-        }
-
-        /* Иконки переключателя скрываются/показываются через visibility,
-           чтобы не влиять на видимость содержимого страницы */
-        .theme-toggle .icon-sun,
-        .theme-toggle .icon-moon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            visibility: visible;
-        }
-
-        .theme-toggle .icon-sun {
-            visibility: hidden;
-        }
-
-        html[data-theme="dark"] .theme-toggle .icon-moon {
-            visibility: hidden;
-        }
-
-        html[data-theme="dark"] .theme-toggle .icon-sun {
-            visibility: visible;
         }
 
         * {
@@ -498,6 +418,20 @@
             background: var(--blue);
         }
 
+        /* Early Career Note */
+        .early-career {
+            margin-top: 16px;
+            font-size: 13px;
+            color: var(--text-tertiary);
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .early-career strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
         /* Education */
         .edu-item {
             margin-bottom: 20px;
@@ -617,7 +551,7 @@
             
             <!-- Sber -->
             <div class="exp-item">
-                <h3>Сбер</h3>
+                <h3>ПАО «Сбербанк России»</h3>
                 <p class="exp-role">Продуктовый дизайнер · сегмент «Дети, родители, молодёжь»</p>
                 <span class="exp-date">Декабрь 2023 — настоящее время</span>
 
@@ -626,13 +560,13 @@
                     <div class="exp-project">
                         <span class="project-label">Ключевой проект</span>
                         <h4>Школьные сервисы для ИИ-школ</h4>
-                        <p>Проектирую пространство WebView в приложениях СберKids и СБОЛ — единую точку входа в цифровые сервисы школы. Дети видят информацию о проходах в школу, меню буфета, ачивки за действия в школе, интересные факты и геймификационные механики. Прорабатываю структуру, пользовательские сценарии и интерфейсы взаимодействия с сервисами. Пилотный проект, раскатанный в тестовых школах.</p>
-                        <a href="https://pixso.design.sber.ru/app/design/Cwbn2SF6RQzYdNW7np5tfA?page-id=0:1" class="project-link" target="_blank">Макеты в Pixso ↗</a>
+                        <p>Проектирую пространство WebView в приложениях СберKids и СБОЛ — единую точку входа в цифровые сервисы школы. Дети видят информацию о проходах в школу, меню буфета, ачивки за действия в школе, интересные факты и геймификационные механики. Прорабатываю структуру, пользовательские сценарии и интерфейсы взаимодействия с сервисами. Пилот запущен в 10 тестовых школах. Масштабирование на 10 000 школ запланировано на 2027 год.</p>
+                        <a href="https://pixso.design.sber.ru/app/design/Cwbn2SF6RQzYdNW7np5tfA?page-id=0:1" class="project-link" target="_blank">Макеты в Pixso · Sber ↗</a>
                     </div>
                     <div class="exp-project">
                         <span class="project-label">Ключевой проект</span>
                         <h4>Калькулятор вузов GigaChat</h4>
-                        <p>Разработал продуктовый сценарий и интерфейс mini app сервиса на базе ИИ в Telegram и MAX. Сервис помогает подобрать университет по баллам, сориентирует по основной информации, цене обучения, проходным баллам и шансам на поступление, а GigaChat выведет персональные рекомендации.</p>
+                        <p>Разработал продуктовый сценарий и интерфейс mini app сервиса на базе ИИ в Telegram и MAX. Сервис помогает подобрать университет по баллам, сориентирует по основной информации, цене обучения, проходным баллам и шансам на поступление, а GigaChat выведет персональные рекомендации. С момента запуска проведено 3 итерации обновления: интерфейс дорабатывался по результатам исследований, клиентский опыт последовательно улучшался.</p>
                         <div class="project-metrics">
                             <div class="project-metric">
                                 <span class="project-metric-value">118,5 тыс</span>
@@ -656,11 +590,12 @@
 
             <!-- NII CEPP -->
             <div class="exp-item">
-                <h3>Минпромторг</h3>
+                <h3>ФГАУ «НИИ «ЦЭПП»</h3>
                 <p class="exp-role">Ведущий дизайн-специалист · цифровые продукты и коммуникации</p>
                 <span class="exp-date">Июнь 2022 — Декабрь 2023</span>
                 <ul class="exp-list">
-                    <li>Проектировал интерфейсы сайтов и цифровых платформ.</li>
+                    <li>Проектировал интерфейсы сайтов и новой цифровой платформы для взаимодействия представителей промышленности и власти.</li>
+                    <li>Платформа ускорила обработку заявок в 3 раза и сократила обращения в поддержку в 2 раза благодаря прозрачности процесса.</li>
                     <li>Работал над структурой и визуальной подачей цифровых сервисов, упрощая взаимодействие пользователей с информацией.</li>
                 </ul>
             </div>
@@ -677,6 +612,12 @@
                     <li class="blue-dot">Формирую визуальный язык продукта и работаю над UX, чтобы пользователь получал персональные и вдохновляющие маршруты за несколько тапов.</li>
                 </ul>
             </div>
+
+            <!-- Early Career Note -->
+            <div class="early-career">
+                <strong>2018 – 2022</strong> · Графический и коммуникационный дизайн в других компаниях
+            </div>
+
         </div>
 
         <!-- Skills -->
@@ -730,31 +671,6 @@
         </div>
 
     </div>
-
-    <!-- Theme Toggle -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" title="Переключить тему">
-        <span class="icon-moon" aria-hidden="true">🌙</span>
-        <span class="icon-sun" aria-hidden="true">☀️</span>
-    </button>
-
-    <script>
-        (function () {
-            const toggle = document.getElementById('themeToggle');
-            const root = document.documentElement;
-
-            // Restore saved theme, otherwise follow system preference
-            const saved = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const initial = saved || (prefersDark ? 'dark' : 'light');
-            root.setAttribute('data-theme', initial);
-
-            toggle.addEventListener('click', function () {
-                const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-                root.setAttribute('data-theme', next);
-                localStorage.setItem('theme', next);
-            });
-        })();
-    </script>
 
 </body>
 </html>
