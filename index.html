@@ -18,15 +18,17 @@
             /* затемнено до AA (>=4.5:1) даже когда карточка лежит на цветном blob */
             --text-secondary: #636368;
             --text-tertiary: #636368;
-            /* Сочные акценты + текст, проверенный до AA (>=4.5:1) на любом фоне blobs */
-            --fire-text: #1F7A35; /* сочный зелёный текст, чуть темнее акцентного — контраст >= 4.6:1 (AA) */
-            --blue-text: #0A5AC2;
-            --fire: #4CAF50;        /* зелёный Material #4caf50 (точки, плашки, blob) */
-            --fire-soft: rgba(76, 175, 80, 0.10);
-            --fire-border: rgba(76, 175, 80, 0.30);
-            --blue: #0A84FF;        /* насыщенный «сочный» синий */
-            --blue-soft: rgba(10, 132, 255, 0.10);
-            --blue-border: rgba(10, 132, 255, 0.30);
+            /* Акценты подобраны с нуля по палитре Sber Design System NOVA:
+               сочные bright-тона для графики + затемнённые текстовые оттенки,
+               проверенные до AA (>=4.5:1) на любом фоне blobs и плашек */
+            --fire-text: #187A36;   /* насыщенный зелёный для текста — 4.5–5.4:1 (AA) */
+            --blue-text: #1F5FD0;   /* NOVA blue text tone — 4.61–5.62:1 (AA) */
+            --fire: #00C853;        /* яркий сочный зелёный (точки, blob, рамки) */
+            --fire-soft: rgba(0, 200, 83, 0.12);
+            --fire-border: rgba(0, 200, 83, 0.35);
+            --blue: #3E8EF7;        /* NOVA bright blue (плашки дат, blob, точки) */
+            --blue-soft: rgba(62, 142, 247, 0.14);
+            --blue-border: rgba(62, 142, 247, 0.35);
             --border: rgba(0, 0, 0, 0.06);
 
             /* ===== Liquid Glass (Apple) ===== */
@@ -335,6 +337,46 @@
             border-bottom: none;
         }
 
+        /* Шапка места работы — на всю ширину блока:
+           слева компания и должность, справа дата (space-between).
+           Все три элемента одной группы стоят на одной базовой линии. */
+        .exp-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            column-gap: 24px;
+            row-gap: 8px;
+            width: 100%;
+        }
+
+        .exp-head-main {
+            min-width: 0;
+        }
+
+        .exp-head-main h3 {
+            margin-bottom: 4px;
+        }
+
+        .exp-head-main .exp-role {
+            margin-bottom: 0;
+        }
+
+        /* Дата прижата вправо, вертикально центрируется относительно
+           двухстрочной шапки (компания + должность) */
+        .exp-head > .exp-date,
+        .exp-head > .exp-date-blue {
+            margin-left: auto;
+            align-self: center;
+            flex-shrink: 0;
+        }
+
+        /* Контент (список / ключевые проекты) отделён от шапки
+           единым увеличенным отступом — «где работаю» vs «что делаю» */
+        .exp-head + .exp-list,
+        .exp-head + .exp-projects {
+            margin-top: 24px;
+        }
+
         .exp-role {
             font-size: 14px;
             color: var(--text-secondary);
@@ -355,7 +397,7 @@
             border-radius: 999px;
             font-size: 13px;
             font-weight: 600;
-            width: fit-content;
+            white-space: nowrap;
         }
 
         .exp-date::before {
@@ -364,6 +406,7 @@
             height: 6px;
             background: var(--fire);
             border-radius: 50%;
+            flex-shrink: 0;
         }
 
         .exp-date-blue {
@@ -379,7 +422,7 @@
             border-radius: 999px;
             font-size: 13px;
             font-weight: 600;
-            width: fit-content;
+            white-space: nowrap;
         }
 
         .exp-date-blue::before {
@@ -388,20 +431,7 @@
             height: 6px;
             background: var(--blue);
             border-radius: 50%;
-        }
-
-        /* Единый «шаг» отступов внутри exp-item (прогрессия 10 → 20):
-           шапка (компания · роль · даты) — плотная группа,
-           перед контентом (список / ключевые проекты) — большой отступ,
-           визуально отделяющий «где работаю» от «что делаю». */
-        .exp-role + .exp-date,
-        .exp-role + .exp-date-blue {
-            margin-bottom: 0;
-        }
-
-        .exp-date + .exp-list,
-        .exp-date-blue + .exp-list {
-            margin-top: 20px;
+            flex-shrink: 0;
         }
 
         /* Key Projects */
@@ -409,35 +439,20 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 16px;
-            margin-top: 20px;
             margin-bottom: 24px;
         }
 
-        /* Отступ «шапка → ключевые проекты» = 20px, как перед списком
-           в Минпромторге и MyWay (сетка сама несёт margin-top). */
-
+        /* Внутренние блоки проектов — с большим количеством воздуха */
         .exp-project {
             background: var(--inner-glass);
             -webkit-backdrop-filter: blur(12px) saturate(160%);
             backdrop-filter: blur(12px) saturate(160%);
             border: 1px solid var(--inner-glass-border);
             border-radius: var(--inner-radius);
-            padding: 22px;
+            padding: 28px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-        }
-
-        .exp-item-heading {
-            display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .exp-item-heading h3 {
-            margin-bottom: 0;
+            gap: 14px;
         }
 
         .exp-project h4 {
@@ -461,59 +476,81 @@
             letter-spacing: 0.3px;
         }
 
+        /* Ссылки в ключевых проектах — зелёные, с подчёркиванием и стрелкой → */
         .project-link {
+            color: var(--fire-text);
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            width: fit-content;
+            transition: color 0.15s ease;
+        }
+
+        .project-link::after {
+            content: '→';
+            display: inline-block;
+            margin-left: 6px;
+            line-height: 1;
+            transition: transform 0.15s ease;
+        }
+
+        .project-link:hover {
+            color: #146B2E;
+            text-decoration: none;
+        }
+
+        .project-link:hover::after {
+            transform: translateX(3px);
+        }
+
+        .project-link:focus-visible {
+            outline: 2px solid var(--fire-text);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        /* Кнопка перехода на сайт — небольшая solid-кнопка синего цвета.
+           Отличается от пилюль дат: плотная заливка NOVA blue + белый текст,
+           компактный размер, стрелка уезжает вправо на hover */
+        .site-button {
             display: inline-flex;
             align-items: center;
-            gap: 4px;
+            gap: 7px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: var(--blue-text); /* #1F5FD0 — белый текст 5.82:1 (AA) */
+            color: #FFFFFF;
             font-size: 13px;
             font-weight: 600;
-            color: var(--blue-text);
+            letter-spacing: 0.1px;
             text-decoration: none;
-            margin-top: 4px;
             width: fit-content;
             white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(62, 142, 247, 0.28);
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
         }
 
-        .project-link.fire {
-            color: var(--fire-text);
-        }
-
-        .exp-project > .project-link.fire {
-            margin-top: auto;
-        }
-
-        /* Стрелка в конце у всех ссылок (как у пет-проекта MyWay) */
-        .project-link::after {
-            content: ' ↗';
-            font-size: 0.9em;
+        .site-button::after {
+            content: '→';
+            font-size: 1em;
             line-height: 1;
+            transition: transform 0.15s ease;
         }
 
-        /* Компенсация flex-gap (.exp-project gap: 12px),
-           чтобы отступ ссылки от заголовка был одинаковым во всех карточках */
-        .exp-project-heading {
-            margin-top: -8px;
+        .site-button:hover {
+            background: #1749A8; /* затемнение NOVA blue на hover — белый 7.4:1 */
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(62, 142, 247, 0.35);
         }
 
-        /* Заголовок слева + ссылка справа (space-between), как в исходном варианте:
-           align-items: flex-start — базовая линия не «съедает» отступ,
-           поэтому зазор h3 -> роль остаётся ровно 10px, как во всех exp-item */
-        .exp-item-heading-inline {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 12px;
-            flex-wrap: wrap;
+        .site-button:hover::after {
+            transform: translateX(3px);
         }
 
-        .exp-item-heading-inline h3 {
-            margin-bottom: 10px;
-        }
-
-        .exp-item-heading-inline .project-link {
-            margin-top: 6px; /* оптический выравнивающий отступ сверху, чтобы строки не «прыгали» */
-            font-size: 14px;
-            width: auto;
+        .site-button:focus-visible {
+            outline: 2px solid var(--blue-text);
+            outline-offset: 2px;
         }
 
         /* Project Scale (timeline) */
@@ -522,7 +559,7 @@
             align-items: stretch;
             gap: 16px;
             margin-top: auto;
-            padding-top: 14px;
+            padding-top: 18px;
             border-top: 1px solid var(--border);
         }
 
@@ -534,11 +571,10 @@
         }
 
         .project-scale-date {
-            font-size: 11px;
+            font-size: 12px;
             color: var(--text-tertiary);
             font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
+            letter-spacing: 0;
             line-height: 1.3;
         }
 
@@ -562,17 +598,13 @@
             align-self: stretch;
         }
 
-        .project-link:hover {
-            text-decoration: underline;
-        }
-
         /* Project Metrics */
         .project-metrics {
             display: flex;
             align-items: stretch;
             gap: 16px;
             margin-top: 4px;
-            padding-top: 14px;
+            padding-top: 18px;
             border-top: 1px solid var(--border);
         }
 
@@ -592,11 +624,10 @@
         }
 
         .project-metric-label {
-            font-size: 11px;
+            font-size: 12px;
             color: var(--text-tertiary);
             font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
+            letter-spacing: 0;
             line-height: 1.3;
         }
 
@@ -610,9 +641,9 @@
         .project-award {
             display: flex;
             align-items: flex-start;
-            gap: 8px;
+            gap: 10px;
             margin-top: 4px;
-            padding: 12px 14px;
+            padding: 16px 18px;
             background: var(--fire-soft);
             border: 1px solid var(--fire-border);
             -webkit-backdrop-filter: blur(8px) saturate(140%);
@@ -635,7 +666,7 @@
 
         .exp-list {
             list-style: none;
-            margin-top: 0; /* отступ задаёт шапка exp-item (см. .exp-date + .exp-list) */
+            margin-top: 0; /* отступ после шапки задаёт правило .exp-head + .exp-list (24px) */
             display: flex;
             flex-direction: column;
             gap: 14px;
@@ -661,6 +692,16 @@
 
         .exp-list li.blue-dot::before {
             background: var(--blue);
+        }
+
+        /* Кнопка сайта внутри списка — без маркера-точки, с доп. воздухом */
+        .exp-list li:has(.site-button) {
+            padding-left: 0;
+            margin-top: 6px;
+        }
+
+        .exp-list li:has(.site-button)::before {
+            content: none;
         }
 
         /* Early Career Note */
@@ -735,21 +776,26 @@
             .subtitle { font-size: 17px; }
             h3 { font-size: 20px; }
 
-            .exp-item-heading {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 6px;
+            /* На мобильном шапка остаётся «на всю ширину»:
+               компания + должность слева, дата прижимается вправо на своей строке */
+            .exp-head {
+                flex-wrap: wrap;
             }
 
-            /* На мобильном заголовок и ссылка в одну колонку, отступ как везде (10px) */
-            .exp-item-heading-inline {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0;
+            .exp-head > .exp-date,
+            .exp-head > .exp-date-blue {
+                margin-top: 10px;
             }
 
-            .exp-item-heading-inline .project-link {
-                margin-top: 0;
+            /* Контент после шапки — тот же увеличенный отступ, что и на десктопе */
+            .exp-head + .exp-list,
+            .exp-head + .exp-projects {
+                margin-top: 24px;
+            }
+
+            .exp-project {
+                padding: 22px;
+                gap: 12px;
             }
 
             .exp-list li {
@@ -841,18 +887,20 @@
             
             <!-- Sber -->
             <div class="exp-item">
-                <h3>Сбер</h3>
-                <p class="exp-role">Продуктовый дизайнер · сегмент «Дети, родители, молодёжь»</p>
-                <span class="exp-date">Декабрь 2023 — настоящее время</span>
+                <div class="exp-head">
+                    <div class="exp-head-main">
+                        <h3>Сбер</h3>
+                        <p class="exp-role">Продуктовый дизайнер · сегмент «Дети, родители, молодёжь»</p>
+                    </div>
+                    <span class="exp-date">Декабрь 2023 — настоящее время</span>
+                </div>
 
                 <!-- Key Projects -->
                 <div class="exp-projects">
                     <div class="exp-project">
                         <span class="project-label">Ключевой проект</span>
                         <h4>Школьные сервисы для ИИ-школ</h4>
-                        <div class="exp-project-heading">
-                            <a href="https://pixso.design.sber.ru/app/design/Cwbn2SF6RQzYdNW7np5tfA?page-id=0:1" class="project-link fire" target="_blank">Макеты в Pixso (Sber)</a>
-                        </div>
+                        <a href="https://pixso.design.sber.ru/app/design/Cwbn2SF6RQzYdNW7np5tfA?page-id=0:1" class="project-link" target="_blank">Макеты в Pixso (Sber)</a>
                         <p>Проектирую пространство WebView в приложениях СберKids и СБОЛ — единую точку входа в цифровые сервисы ИИ-школы. Внутри — всё, что важно ученику каждый день: информация о проходах, меню буфета, ачивки за школьные активности, интересные факты и геймификационные механики, которые превращают обычные действия в вовлекающий опыт.</p>
                         <p>Работаю полный цикл: исследую потребности школ и учеников, прорабатываю структуру и пользовательские сценарии, проектирую интерфейсы и готовлю макеты к передаче в разработку.</p>
                         <div class="project-scale">
@@ -872,7 +920,7 @@
                     <div class="exp-project">
                         <span class="project-label">Ключевой проект</span>
                         <h4>Калькулятор вузов GigaChat</h4>
-                        <a href="https://t.me/gigachat_bot?startapp=base64eyJyZWYiOiJta191bml2ZXJzaXR5IiwicGFnZSI6InVuaXZlcnNpdHkvZm9ybSJ9" class="project-link fire" target="_blank">Открыть калькулятор в Telegram</a>
+                        <a href="https://t.me/gigachat_bot?startapp=base64eyJyZWYiOiJta191bml2ZXJzaXR5IiwicGFnZSI6InVuaXZlcnNpdHkvZm9ybSJ9" class="project-link" target="_blank">Открыть калькулятор в Telegram</a>
                         <p>Разработал продуктовый сценарий и интерфейс mini app сервиса на базе ИИ в Telegram и MAX. Сервис помогает подобрать университет по баллам, сориентирует по основной информации, цене обучения, проходным баллам и шансам на поступление, а GigaChat выведет персональные рекомендации. С момента запуска проведено 3 итерации обновления: интерфейс дорабатывался по результатам исследований, клиентский опыт последовательно улучшался.</p>
                         <div class="project-metrics">
                             <div class="project-metric">
@@ -901,9 +949,13 @@
 
             <!-- NII CEPP -->
             <div class="exp-item">
-                <h3>Минпромторг</h3>
-                <p class="exp-role">Ведущий дизайн-специалист · цифровые продукты и коммуникации</p>
-                <span class="exp-date">Июнь 2022 — Декабрь 2023</span>
+                <div class="exp-head">
+                    <div class="exp-head-main">
+                        <h3>Минпромторг</h3>
+                        <p class="exp-role">Ведущий дизайн-специалист · цифровые продукты и коммуникации</p>
+                    </div>
+                    <span class="exp-date">Июнь 2022 — Декабрь 2023</span>
+                </div>
                 <ul class="exp-list">
                     <li>Проектировал интерфейсы сайтов и новой цифровой платформы для взаимодействия представителей промышленности и власти.</li>
                     <li>Платформа ускорила обработку заявок в 3 раза и сократила обращения в поддержку в 2 раза благодаря прозрачности процесса.</li>
@@ -913,17 +965,19 @@
 
             <!-- MyWay (Pet Project) -->
             <div class="exp-item">
-                <div class="exp-item-heading-inline">
-                    <h3>MyWay · пет-проект, стартап</h3>
-                    <a href="https://myway.center" class="project-link" target="_blank">Познакомиться с проектом</a>
+                <div class="exp-head">
+                    <div class="exp-head-main">
+                        <h3>MyWay · пет-проект, стартап</h3>
+                        <p class="exp-role">Lead дизайнер · дизайнер продукта</p>
+                    </div>
+                    <span class="exp-date-blue">2024 — настоящее время</span>
                 </div>
-                <p class="exp-role">Lead дизайнер · дизайнер продукта</p>
-                <span class="exp-date-blue">2024 — настоящее время</span>
                 <ul class="exp-list">
                     <li class="blue-dot">Разрабатываю мобильное приложение для путешествий, которое генерирует интересные маршруты в городах.</li>
                     <li class="blue-dot">Веду продукт end-to-end: от customer development и формирования гипотез до прототипирования и handoff в разработку. Самостоятельно принимаю продуктовые решения в условиях неопределённости.</li>
                     <li class="blue-dot">Проектирую ключевые сценарии: онбординг, персонализация маршрутов через AI, сохранение и шеринг путешествий. Фокусируюсь на снижении когнитивной нагрузки и увеличении вовлечённости.</li>
                     <li class="blue-dot">Формирую визуальный язык продукта и работаю над UX, чтобы пользователь получал персональные и вдохновляющие маршруты за несколько тапов.</li>
+                    <li class="blue-dot"><a href="https://myway.center" class="site-button" target="_blank">Сайт проекта</a></li>
                 </ul>
             </div>
 
