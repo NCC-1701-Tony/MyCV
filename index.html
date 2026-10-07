@@ -12,9 +12,9 @@
             --text-primary: #1D1D1F;
             --text-secondary: #6E6E73;
             --text-tertiary: #86868B;
-            --fire: #FF5A1F;
-            --fire-soft: rgba(255, 90, 31, 0.08);
-            --fire-border: rgba(255, 90, 31, 0.25);
+            --fire: #1FA14A;
+            --fire-soft: rgba(31, 161, 74, 0.08);
+            --fire-border: rgba(31, 161, 74, 0.25);
             --blue: #007AFF;
             --blue-soft: rgba(0, 122, 255, 0.08);
             --blue-border: rgba(0, 122, 255, 0.25);
@@ -36,6 +36,47 @@
             padding: 48px 24px;
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
+        }
+
+        /* Blurry Blob Background (animata.design) */
+        .blob-bg {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .blob {
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            padding: 32px;
+            border-radius: 6px;
+            opacity: 0.2;
+            mix-blend-mode: multiply;
+            filter: blur(64px);
+            animation: pop-blob 5s infinite ease-in-out;
+        }
+
+        .blob-first {
+            top: -40px;
+            right: -60px;
+            background-color: var(--fire); /* зелёный акцент, совпадает с UI */
+        }
+
+        .blob-second {
+            top: -40px;
+            left: -60px;
+            background-color: #60a5fa; /* blue-400 */
+            animation-delay: -2.5s;
+        }
+
+        @keyframes pop-blob {
+            0%   { transform: scale(1); }
+            33%  { transform: scale(1.2); }
+            66%  { transform: scale(0.8); }
+            100% { transform: scale(1); }
         }
 
         /* Bento Grid */
@@ -247,50 +288,28 @@
             margin-bottom: 12px;
         }
 
-        .exp-date {
-            display: inline-flex;
+        /* Стаж: простой текст «начало — полоска — конец», визуально отделён от кнопок-ссылок */
+        .exp-period {
+            display: flex;
             align-items: center;
-            gap: 6px;
-            padding: 5px 12px;
-            background: var(--fire-soft);
-            color: var(--fire);
-            border: 1px solid var(--fire-border);
-            border-radius: 100px;
-            font-size: 13px;
-            font-weight: 600;
+            gap: 10px;
             margin-bottom: 18px;
-            width: fit-content;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            letter-spacing: 0.2px;
         }
 
-        .exp-date::before {
-            content: '';
-            width: 6px;
-            height: 6px;
+        .exp-period-line {
+            width: 28px;
+            height: 2px;
+            border-radius: 2px;
             background: var(--fire);
-            border-radius: 50%;
+            flex-shrink: 0;
         }
 
-        .exp-date-blue {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 5px 12px;
-            background: var(--blue-soft);
-            color: var(--blue);
-            border: 1px solid var(--blue-border);
-            border-radius: 100px;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 18px;
-            width: fit-content;
-        }
-
-        .exp-date-blue::before {
-            content: '';
-            width: 6px;
-            height: 6px;
+        .exp-period.blue .exp-period-line {
             background: var(--blue);
-            border-radius: 50%;
         }
 
         /* Key Projects */
@@ -313,10 +332,9 @@
 
         .project-heading {
             display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            gap: 12px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
         }
 
         .exp-project h4 {
@@ -348,17 +366,30 @@
             font-weight: 600;
             color: var(--blue);
             text-decoration: none;
-            margin-top: 4px;
             width: fit-content;
             white-space: nowrap;
+            padding: 7px 14px;
+            border-radius: 999px;
+            border: 1.5px solid rgba(0, 122, 255, 0.35);
+            background: rgba(0, 122, 255, 0.06);
+            transition: background 0.2s ease, border-color 0.2s ease;
         }
 
         .project-link.fire {
             color: var(--fire);
+            border-color: rgba(31, 161, 74, 0.35);
+            background: rgba(31, 161, 74, 0.06);
         }
 
         .exp-project > .project-link.fire {
             margin-top: auto;
+        }
+
+        /* Стрелка в конце у всех ссылок-кнопок (как у пет-проекта MyWay) */
+        .project-link::after {
+            content: ' ↗';
+            font-size: 0.9em;
+            line-height: 1;
         }
 
         /* Project Scale (timeline) */
@@ -408,7 +439,14 @@
         }
 
         .project-link:hover {
-            text-decoration: underline;
+            text-decoration: none;
+            background: rgba(0, 122, 255, 0.2);
+            border-color: rgba(0, 122, 255, 1);
+        }
+
+        .project-link.fire:hover {
+            background: rgba(31, 161, 74, 0.2);
+            border-color: rgba(31, 161, 74, 1);
         }
 
         /* Project Metrics */
@@ -545,6 +583,19 @@
             body {
                 padding: 24px 16px;
             }
+            .blob {
+                width: 260px;
+                height: 260px;
+                filter: blur(48px);
+            }
+            .blob-first {
+                top: -30px;
+                right: -40px;
+            }
+            .blob-second {
+                top: -30px;
+                left: -40px;
+            }
             .bento-grid {
                 grid-template-columns: 1fr;
                 gap: 12px;
@@ -599,6 +650,12 @@
 </head>
 <body>
 
+    <!-- Blurry Blob background -->
+    <div class="blob-bg">
+        <div class="blob blob-first"></div>
+        <div class="blob blob-second"></div>
+    </div>
+
     <div class="bento-grid">
         
         <!-- Header -->
@@ -650,7 +707,11 @@
             <div class="exp-item">
                 <h3>ПАО «Сбербанк России»</h3>
                 <p class="exp-role">Продуктовый дизайнер · сегмент «Дети, родители, молодёжь»</p>
-                <span class="exp-date">Декабрь 2023 — настоящее время</span>
+                <div class="exp-period">
+                    <span>Декабрь 2023</span>
+                    <span class="exp-period-line"></span>
+                    <span>настоящее время</span>
+                </div>
 
                 <!-- Key Projects -->
                 <div class="exp-projects">
@@ -678,7 +739,10 @@
                     </div>
                     <div class="exp-project">
                         <span class="project-label">Ключевой проект</span>
-                        <h4>Калькулятор вузов GigaChat</h4>
+                        <div class="project-heading">
+                            <h4>Калькулятор вузов GigaChat</h4>
+                            <a href="https://t.me/gigachat_bot?startapp=base64eyJyZWYiOiJta191bml2ZXJzaXR5IiwicGFnZSI6InVuaXZlcnNpdHkvZm9ybSJ9" class="project-link fire" target="_blank">Открыть калькулятор в Telegram</a>
+                        </div>
                         <p>Разработал продуктовый сценарий и интерфейс mini app сервиса на базе ИИ в Telegram и MAX. Сервис помогает подобрать университет по баллам, сориентирует по основной информации, цене обучения, проходным баллам и шансам на поступление, а GigaChat выведет персональные рекомендации. С момента запуска проведено 3 итерации обновления: интерфейс дорабатывался по результатам исследований, клиентский опыт последовательно улучшался.</p>
                         <div class="project-metrics">
                             <div class="project-metric">
@@ -695,7 +759,6 @@
                             <span class="project-award-icon">🏆</span>
                             <span><strong>Победитель премии Customer Force Awards</strong> в номинации «Удобство и комфорт / Лучший digital-опыт. Банки»</span>
                         </div>
-                        <a href="https://t.me/gigachat_bot?startapp=base64eyJyZWYiOiJta191bml2ZXJzaXR5IiwicGFnZSI6InVuaXZlcnNpdHkvZm9ybSJ9" class="project-link fire" target="_blank">Открыть калькулятор в Telegram ↗</a>
                     </div>
                 </div>
 
@@ -710,7 +773,11 @@
             <div class="exp-item">
                 <h3>ФГАУ «НИИ «ЦЭПП»</h3>
                 <p class="exp-role">Ведущий дизайн-специалист · цифровые продукты и коммуникации</p>
-                <span class="exp-date">Июнь 2022 — Декабрь 2023</span>
+                <div class="exp-period">
+                    <span>Июнь 2022</span>
+                    <span class="exp-period-line"></span>
+                    <span>Декабрь 2023</span>
+                </div>
                 <ul class="exp-list">
                     <li>Проектировал интерфейсы сайтов и новой цифровой платформы для взаимодействия представителей промышленности и власти.</li>
                     <li>Платформа ускорила обработку заявок в 3 раза и сократила обращения в поддержку в 2 раза благодаря прозрачности процесса.</li>
@@ -722,7 +789,7 @@
             <div class="exp-item">
                 <div class="project-heading">
                     <h3>MyWay · пет-проект, стартап</h3>
-                    <a href="https://myway.center" class="project-link" target="_blank">Познакомиться с проектом ↗</a>
+                    <a href="https://myway.center" class="project-link" target="_blank">Познакомиться с проектом</a>
                 </div>
                 <p class="exp-role">Ведущий дизайнер · дизайнер продукта</p>
                 <span class="exp-date-blue">2024 — настоящее время</span>
