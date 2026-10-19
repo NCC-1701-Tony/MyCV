@@ -3,178 +3,217 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Антон Данилов — продуктовый дизайнер</title>
+<title>Антон Данилов, продуктовый дизайнер</title>
 <meta name="description" content="Продуктовый дизайнер, 8 лет в digital. AI-продукты и экосистемные сервисы: от исследования до запуска.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+/* Scene: рекрутер или нанимающий руководитель смотрит резюме днём на ноутбуке,
+   быстро, часто с телефона между встречами. Светлая тема, кобальт как несущий цвет. */
 :root{
-  --bg:#F3F4F7;
-  --surface:#FFFFFF;
-  --ink:#12141A;
-  --muted:#5A6171;
-  --line:#DCDFE6;
-  --accent:#3350F5;
-  --accent-ink:#FFFFFF;
-  --accent-soft:#E6EAFF;
-  --bar-old:#C9CDD8;
-  --bar-mid:#8B94AB;
-  --font:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --bg:        oklch(97.6% 0.006 267);
+  --surface:   oklch(99.2% 0.003 267);
+  --ink:       oklch(22% 0.02 267);
+  --muted:     oklch(46% 0.02 267);
+  --line:      oklch(89% 0.01 267);
+  --cobalt:    oklch(52% 0.22 267);
+  --cobalt-ink:oklch(47% 0.22 267);   /* кобальт для текста на светлом фоне */
+  --cobalt-soft:oklch(94% 0.04 267);
+  --on-cobalt: oklch(97.5% 0.008 267);
+
+  --hero-bg:   var(--cobalt);
+  --hero-ink:  var(--on-cobalt);
+  --hero-muted:oklch(92% 0.04 267);
+  --bar-1:     oklch(97.5% 0.008 267 / .22);
+  --bar-2:     oklch(97.5% 0.008 267 / .42);
+  --bar-3:     var(--on-cobalt);
+  --bar-3-ink: var(--cobalt-ink);
+
+  --font: "Onest", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --ease: cubic-bezier(.16,1,.3,1);
 }
 @media (prefers-color-scheme:dark){
   :root{
-    --bg:#0F1117;
-    --surface:#171A23;
-    --ink:#ECEEF4;
-    --muted:#9AA1B2;
-    --line:#2A2F3C;
-    --accent:#7D91FF;
-    --accent-ink:#0F1117;
-    --accent-soft:#222849;
-    --bar-old:#303648;
-    --bar-mid:#586078;
+    --bg:        oklch(17.5% 0.02 267);
+    --surface:   oklch(21.5% 0.022 267);
+    --ink:       oklch(93% 0.01 267);
+    --muted:     oklch(72% 0.02 267);
+    --line:      oklch(30% 0.025 267);
+    --cobalt:    oklch(44% 0.2 267);
+    --cobalt-ink:oklch(78% 0.13 267);
+    --cobalt-soft:oklch(28% 0.07 267);
+    --hero-bg:   oklch(40% 0.19 267);
+    --bar-3-ink: oklch(40% 0.19 267);
   }
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{
   margin:0;background:var(--bg);color:var(--ink);
-  font-family:var(--font);font-size:16px;line-height:1.55;
+  font-family:var(--font);font-size:17px;line-height:1.55;
   -webkit-font-smoothing:antialiased;
 }
 a{color:inherit}
-a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+:focus-visible{outline:3px solid var(--cobalt-ink);outline-offset:3px;border-radius:6px}
+.hero :focus-visible{outline-color:var(--on-cobalt)}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+svg{flex:none}
 
-/* ---------- Hero ---------- */
-.hero{padding:56px 0 40px}
+/* ---------- Hero: кобальт несёт поверхность ---------- */
+.hero{background:var(--hero-bg);color:var(--hero-ink);padding:clamp(40px,7vw,88px) 0 clamp(32px,5vw,56px)}
+.hero-top{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:40px 64px;align-items:end}
 .hero h1{
-  margin:0;font-weight:800;letter-spacing:-0.035em;line-height:.98;
-  font-size:clamp(44px,9vw,104px);
+  margin:0;font-weight:800;letter-spacing:-0.035em;line-height:1;
+  font-size:clamp(40px,6.4vw,76px);
 }
-.hero .role{
-  margin:18px 0 0;font-size:clamp(20px,2.6vw,28px);font-weight:600;letter-spacing:-0.01em;
-}
-.hero .lead{
-  margin:14px 0 0;max-width:60ch;color:var(--muted);font-size:clamp(16px,1.6vw,19px);
-}
-.contacts{display:flex;flex-wrap:wrap;gap:10px;margin:28px 0 0;padding:0;list-style:none}
+.hero .role{margin:14px 0 0;font-size:clamp(19px,2.2vw,24px);font-weight:600;letter-spacing:-0.01em}
+.hero .lead{margin:22px 0 0;max-width:58ch;color:var(--hero-muted);font-size:clamp(16px,1.5vw,18px)}
+.contacts{margin:0;padding:0;list-style:none;display:grid;gap:4px;justify-self:end;width:100%;max-width:340px}
 .contacts a,.contacts span{
-  display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;
-  border-radius:999px;font-weight:500;font-size:15px;text-decoration:none;
-  background:var(--surface);border:1px solid var(--line);
+  display:flex;align-items:center;gap:12px;min-height:48px;padding:0 4px;
+  text-decoration:none;font-weight:500;font-size:17px;
+  border-bottom:1px solid oklch(97.5% 0.008 267 / .28);
 }
-.contacts a.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.contacts a:hover{border-color:var(--accent)}
-.contacts svg{flex:none}
+.contacts a:hover{border-bottom-color:var(--on-cobalt)}
 
-/* ---------- Career line ---------- */
-.career{margin-top:44px}
-.career h2{margin:0 0 14px;font-size:15px;font-weight:600;color:var(--muted)}
-.track{position:relative;height:96px;border-bottom:1px solid var(--line)}
+.career{margin-top:clamp(36px,5vw,64px)}
+.career h2{margin:0 0 14px;font-size:15px;font-weight:600;color:var(--hero-muted)}
+.track{position:relative;height:100px}
 .seg{
-  position:absolute;height:34px;border-radius:8px;padding:0 10px;
-  display:flex;align-items:center;font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;
-  transform-origin:left center;animation:grow .9s cubic-bezier(.2,.7,.2,1) both;
+  position:absolute;height:38px;border-radius:10px;padding:0 12px;
+  display:flex;align-items:center;font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;
+  transform-origin:left center;animation:grow .9s var(--ease) both;
 }
-.seg.a{left:0;width:51.1%;top:0;background:var(--bar-old);color:var(--ink);animation-delay:0s}
-.seg.b{left:51.1%;width:16.1%;top:0;background:var(--bar-mid);color:#fff;animation-delay:.25s}
-.seg.c{left:67.3%;width:32.7%;top:0;background:var(--accent);color:var(--accent-ink);animation-delay:.5s}
-.seg.d{left:68.2%;width:31.8%;top:42px;background:var(--accent-soft);color:var(--accent);border:1px solid var(--accent);animation-delay:.75s}
-.axis{display:flex;justify-content:space-between;padding-top:8px;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
-@keyframes grow{from{transform:scaleX(0);opacity:.2}to{transform:scaleX(1);opacity:1}}
+.seg.a{left:0;width:51.1%;top:0;background:var(--bar-1);animation-delay:.05s}
+.seg.b{left:51.1%;width:16.1%;top:0;background:var(--bar-2);animation-delay:.25s}
+.seg.c{left:67.3%;width:32.7%;top:0;background:var(--bar-3);color:var(--bar-3-ink);animation-delay:.45s}
+.seg.d{left:68.2%;width:31.8%;top:48px;border:1.5px solid var(--on-cobalt);animation-delay:.65s}
+.seg .short{display:none}
+.axis{display:flex;justify-content:space-between;padding-top:10px;border-top:1px solid oklch(97.5% 0.008 267 / .28);font-size:13px;color:var(--hero-muted);font-variant-numeric:tabular-nums}
+@keyframes grow{from{transform:scaleX(0);opacity:.3}to{transform:scaleX(1);opacity:1}}
 @media (prefers-reduced-motion:reduce){.seg{animation:none}}
 
-/* ---------- Layout ---------- */
-.grid{display:grid;grid-template-columns:300px 1fr;gap:48px;padding:24px 20px 72px}
-aside .block{padding:0 0 28px}
-aside h2,main h2{margin:0 0 12px;font-size:15px;font-weight:700;letter-spacing:-0.005em}
-main > section > h2{font-size:28px;letter-spacing:-0.02em;margin-bottom:20px}
-aside p,aside li{margin:0;color:var(--ink);font-size:15px}
-aside ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
-.muted{color:var(--muted)}
-aside ul.tags,.tags{display:flex;flex-direction:row;flex-wrap:wrap;gap:8px}
-.tags li{padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-size:14px}
-.edu li{display:grid;grid-template-columns:44px 1fr;gap:10px}
-.edu .y{color:var(--muted);font-variant-numeric:tabular-nums}
-.edu b{display:block;font-weight:600}
-
-/* ---------- Experience ---------- */
-.job{padding:28px 0;border-top:1px solid var(--line)}
+/* ---------- Experience ledger ---------- */
+main{padding:clamp(44px,6vw,80px) 0 0}
+.section-title{margin:0 0 clamp(24px,3vw,40px);font-size:clamp(28px,3.4vw,38px);font-weight:700;letter-spacing:-0.025em;line-height:1.1}
+.job{
+  display:grid;grid-template-columns:190px minmax(0,1fr);gap:8px 48px;
+  padding:clamp(28px,3.5vw,44px) 0;border-top:1px solid var(--line);
+}
 .job:first-of-type{border-top:0;padding-top:0}
-.job-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 24px}
-.job h3{margin:0;font-size:22px;letter-spacing:-0.015em;font-weight:700}
-.job .when{
-  color:var(--accent);background:var(--accent-soft);font-weight:600;font-size:14px;
-  padding:3px 12px;border-radius:999px;font-variant-numeric:tabular-nums;
-  -webkit-print-color-adjust:exact;print-color-adjust:exact;
-}
-.job .pos{margin:2px 0 0;color:var(--muted)}
-.job ul.plain{margin:14px 0 0;padding-left:20px}
-.job ul.plain li{margin:6px 0;max-width:68ch}
+.when{padding-top:6px}
+.when b{display:block;color:var(--cobalt-ink);font-weight:700;font-size:16px;font-variant-numeric:tabular-nums;letter-spacing:-0.005em}
+.when span{display:block;margin-top:2px;color:var(--muted);font-size:14px}
+.job h3{margin:0;font-size:clamp(24px,2.6vw,30px);letter-spacing:-0.02em;font-weight:700;line-height:1.15}
+.pos{margin:4px 0 0;color:var(--muted)}
+.job ul.plain{margin:16px 0 0;padding-left:20px}
+.job ul.plain li{margin:8px 0;max-width:66ch}
+.ext{margin:16px 0 0}
+.ext a{color:var(--cobalt-ink);font-weight:600;text-underline-offset:4px}
 
-.case{margin-top:20px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px}
-.case h4{margin:0;font-size:19px;letter-spacing:-0.01em;font-weight:700}
+/* case blocks */
+.case{margin-top:24px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(20px,3vw,32px)}
+.case + .case{margin-top:16px}
+.case h4{margin:0;font-size:clamp(19px,2vw,22px);letter-spacing:-0.015em;font-weight:700}
 .case p{margin:10px 0 0;max-width:66ch}
-.case .link{
-  display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-weight:600;font-size:15px;
-  color:var(--accent);text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:1px;
-}
-.case .link:hover{opacity:.8}
 
-.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 32px;margin:22px 0 0;max-width:520px}
-.stat b{display:block;font-size:40px;line-height:1;font-weight:800;letter-spacing:-0.03em;font-variant-numeric:tabular-nums}
-.stat span{display:block;margin-top:6px;font-size:14px;color:var(--muted);max-width:18ch}
-.award{
-  margin-top:20px;display:flex;gap:12px;align-items:flex-start;
-  padding:14px 16px;border-radius:12px;background:var(--accent-soft);
-}
-.award svg{flex:none;margin-top:2px;color:var(--accent)}
-.award p{margin:0;font-size:15px}
+.metrics{margin-top:24px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 32px;max-width:560px}
+.metrics .m-sub{margin-top:8px}
+.m-main b{display:block;font-size:clamp(44px,5.4vw,60px);line-height:1;font-weight:800;letter-spacing:-0.04em;color:var(--cobalt-ink);font-variant-numeric:tabular-nums}
+.m-main span{display:block;margin-top:8px;font-size:15px;color:var(--muted);max-width:26ch}
+.m-note{grid-column:1/-1;margin:0!important;font-size:14px;color:var(--muted)}
+.m-sub{display:flex;gap:10px;align-items:baseline;padding-top:14px;border-top:1px solid var(--line);font-size:15px;color:var(--muted)}
+.m-sub b{font-size:22px;font-weight:700;letter-spacing:-0.02em;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
 
-.rollout{display:flex;align-items:stretch;gap:0;margin:20px 0 0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
-.rollout div{flex:1;padding:14px 16px}
-.rollout div + div{border-left:1px solid var(--line);background:var(--accent-soft)}
-.rollout small{display:block;color:var(--muted);font-size:13px}
-.rollout b{display:block;font-size:20px;font-weight:700;letter-spacing:-0.01em;margin-top:2px}
+.award{margin-top:22px;display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:12px;background:var(--cobalt-soft)}
+.award svg{margin-top:3px;color:var(--cobalt-ink)}
+.award p{margin:0;font-size:15px;max-width:none}
+
+.actions{margin-top:22px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 20px;border-radius:999px;
+  background:var(--cobalt);color:var(--on-cobalt);font-weight:600;font-size:16px;text-decoration:none;
+  transition:transform .25s var(--ease),background-color .2s;
+}
+.btn:hover{background:oklch(46% 0.22 267)}
+.btn:active{transform:translateY(1px) scale(.985)}
+.link{display:inline-flex;align-items:center;gap:6px;color:var(--cobalt-ink);font-weight:600;font-size:16px;text-underline-offset:4px}
+
+.rollout{display:grid;grid-template-columns:1fr 1fr;margin-top:20px;max-width:560px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.rollout div{padding:14px 18px}
+.rollout div + div{background:var(--cobalt-soft);border-left:1px solid var(--line)}
+.rollout small{display:block;color:var(--muted);font-size:14px}
+.rollout b{display:block;font-size:22px;letter-spacing:-0.015em;margin-top:2px}
 .rollout span{font-size:14px;color:var(--muted)}
 
-.skills-row{margin-top:18px;display:grid;gap:10px}
-.skills-row p{margin:0;max-width:68ch}
-.skills-row b{font-weight:600}
+.nda{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);display:flex;gap:12px;align-items:flex-start;color:var(--muted)}
+.nda svg{margin-top:3px;color:var(--cobalt-ink)}
+.nda p{margin:0;font-size:15px;max-width:62ch}
+.nda b{color:var(--ink);font-weight:600}
+
+.habits{margin-top:22px;display:grid;gap:12px}
+.habits p{margin:0;max-width:66ch}
+.habits b{font-weight:600}
+
+/* ---------- Skills and education ---------- */
+.more{padding:clamp(24px,4vw,48px) 0 clamp(56px,8vw,96px)}
+.more-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:40px 64px;border-top:1px solid var(--line);padding-top:clamp(32px,4vw,48px)}
+.more h2{margin:0 0 14px;font-size:18px;font-weight:700;letter-spacing:-0.01em}
+.more section + section{margin-top:32px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.tags li{padding:6px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-size:15px}
+.tools{margin:0;font-size:17px;max-width:48ch}
+.edu{margin:0;padding:0;list-style:none;display:grid;gap:16px}
+.edu li{display:grid;grid-template-columns:48px 1fr;gap:12px}
+.edu .y{color:var(--cobalt-ink);font-weight:700;font-variant-numeric:tabular-nums}
+.edu b{display:block;font-weight:600}
+.edu small{display:block;font-size:15px;color:var(--muted)}
+.uni{margin:0 0 14px;color:var(--muted)}
+.more p.plain{margin:0}
 
 /* ---------- Responsive ---------- */
-.seg .short{display:none}
 @media (max-width:860px){
-  .grid{grid-template-columns:1fr;gap:8px}
-  main{order:-1}
+  .hero-top{grid-template-columns:1fr;align-items:start}
+  .contacts{justify-self:start;max-width:none}
+  .job{grid-template-columns:1fr;gap:4px}
+  .when{display:flex;gap:10px;align-items:baseline;padding-top:0;margin-bottom:6px}
+  .when span{margin:0}
+  .more-grid{grid-template-columns:1fr}
   .seg .full{display:none}
   .seg .short{display:inline}
-  .hero{padding-top:36px}
-  .seg{font-size:11px;padding:0 6px}
-  .track{height:88px}
-  .seg.d{top:40px}
+  .seg{font-size:12px;padding:0 8px}
+  .track{height:92px}
+  .seg.d{top:46px}
 }
 @media (max-width:520px){
-  .rollout{flex-direction:column}
+  body{font-size:16px}
+  .metrics{gap:18px 16px}
+  .m-main b{font-size:40px}
+  .m-sub{flex-direction:column;gap:2px}
+  .rollout{grid-template-columns:1fr}
   .rollout div + div{border-left:0;border-top:1px solid var(--line)}
-  .stat b{font-size:26px;white-space:nowrap}
-  .stats{gap:20px 16px}
 }
 
 /* ---------- Print / PDF ---------- */
 @page{size:A4;margin:12mm}
 @media print{
-  :root{--bg:#fff;--surface:#fff;--ink:#000;--muted:#444;--line:#ccc;--accent:#1f36c9;--accent-ink:#fff;--accent-soft:#eef0ff;--bar-old:#ddd;--bar-mid:#999}
-  body{font-size:11pt;background:#fff}
-  .wrap{max-width:none;padding:0}
-  .hero{padding:0 0 12px}
-  .hero h1{font-size:40pt}
-  .contacts a,.contacts span{min-height:0;padding:2px 10px}
-  .seg{animation:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .case,.job,.award,.rollout{break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .grid{gap:28px;padding-bottom:0}
+  :root{
+    --bg:#fff;--surface:#fff;--ink:#111;--muted:#444;--line:#cfcfcf;--cobalt-ink:#1f36c9;--cobalt-soft:#eef0ff;
+    --hero-bg:transparent;--hero-ink:#111;--hero-muted:#444;
+    --bar-1:#e4e4e4;--bar-2:#bdbdbd;--bar-3:#1f36c9;--bar-3-ink:#fff;
+  }
+  body{font-size:10.5pt;background:#fff}
+  .hero{padding:0 0 10mm}
+  .hero h1{font-size:34pt}
+  .contacts a,.contacts span{border-bottom-color:#cfcfcf;min-height:0;padding:2px 0}
+  .seg.d{border-color:#1f36c9}
+  .axis,.career h2{color:#444;border-color:#cfcfcf}
+  .seg,.award,.rollout div,.case{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .seg{animation:none}
+  .job,.case{break-inside:avoid}
+  .btn{background:none;color:#1f36c9;border:1px solid #1f36c9}
+  main{padding-top:8mm}
 }
 </style>
 </head>
@@ -182,30 +221,34 @@ aside ul.tags,.tags{display:flex;flex-direction:row;flex-wrap:wrap;gap:8px}
 
 <header class="hero">
   <div class="wrap">
-    <h1>Антон Данилов</h1>
-    <p class="role">Продуктовый дизайнер</p>
-    <p class="lead">Проектирую AI-продукты и экосистемные сервисы: от исследования до запуска. Связываю потребности пользователей с бизнес-метриками. Последний запуск — калькулятор вузов GigaChat: 128+ тыс. пользователей, сессий на клиента в 3 раза больше за 3 месяца после запуска, награда Customer Force Awards.</p>
+    <div class="hero-top">
+      <div>
+        <h1>Антон Данилов</h1>
+        <p class="role">Продуктовый дизайнер</p>
+        <p class="lead">Проектирую AI-продукты и экосистемные сервисы от исследования до запуска и связываю потребности пользователей с бизнес-метриками. Последний запуск: калькулятор вузов GigaChat, 128+ тыс. пользователей, сессий на клиента в 3 раза больше за 3 месяца после запуска, награда Customer Force Awards.</p>
+      </div>
 
-    <ul class="contacts">
-      <li>
-        <a class="primary" href="mailto:tony.dnls@yandex.ru">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-          tony.dnls@yandex.ru
-        </a>
-      </li>
-      <li>
-        <a href="tel:+79250536329">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
-          +7 925 053-63-29
-        </a>
-      </li>
-      <li>
-        <span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
-          Москва
-        </span>
-      </li>
-    </ul>
+      <ul class="contacts">
+        <li>
+          <a href="mailto:tony.dnls@yandex.ru">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            tony.dnls@yandex.ru
+          </a>
+        </li>
+        <li>
+          <a href="tel:+79250536329">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+            +7 925 053-63-29
+          </a>
+        </li>
+        <li>
+          <span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            Москва
+          </span>
+        </li>
+      </ul>
+    </div>
 
     <div class="career" role="img" aria-label="Карьера с 2018 года: графический и коммуникационный дизайн 2018–2022, Минпромторг 2022–2023, Сбер с декабря 2023 по настоящее время, параллельно проект MyWay с 2024 года">
       <h2>8 лет в дизайне</h2>
@@ -220,124 +263,82 @@ aside ul.tags,.tags{display:flex;flex-direction:row;flex-wrap:wrap;gap:8px}
   </div>
 </header>
 
-<div class="wrap grid">
+<main>
+  <div class="wrap">
+    <h2 class="section-title">Опыт</h2>
 
-  <aside>
-    <div class="block">
-      <h2>Навыки</h2>
-      <ul class="tags">
-        <li>Product design</li>
-        <li>UX research</li>
-        <li>User flows</li>
-        <li>Информационная архитектура</li>
-        <li>Прототипирование</li>
-        <li>Дизайн-системы</li>
-        <li>Generative AI</li>
-        <li>Работа со стейкхолдерами</li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <h2>Инструменты</h2>
-      <ul class="tags">
-        <li>Figma</li>
-        <li>Pixso</li>
-        <li>Photoshop</li>
-        <li>Illustrator</li>
-        <li>Lightroom</li>
-        <li>Jira</li>
-        <li>Confluence</li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <h2>Образование</h2>
-      <p class="muted" style="margin-bottom:10px">Российский новый университет</p>
-      <ul class="edu">
-        <li><span class="y">2026</span><span><b>Аспирантура</b><span class="muted">Управление в социальных и экономических системах</span></span></li>
-        <li><span class="y">2021</span><span><b>Магистратура</b><span class="muted">Реклама и связи с общественностью</span></span></li>
-        <li><span class="y">2019</span><span><b>Бакалавриат</b><span class="muted">Информационные системы и инженерно-компьютерные технологии</span></span></li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <h2>Языки</h2>
-      <p>Английский, B2</p>
-    </div>
-
-    <div class="block">
-      <h2>Вне работы</h2>
-      <p>Аналоговая фотография, циклические виды спорта, путешествия</p>
-    </div>
-  </aside>
-
-  <main>
-    <section>
-      <h2>Опыт</h2>
-
-      <article class="job">
-        <div class="job-head">
-          <h3>Сбер</h3>
-          <span class="when">декабрь 2023 — сейчас, 2 г. 10 мес.</span>
-        </div>
+    <article class="job">
+      <div class="when"><b>дек 2023 – сейчас</b><span>2 г. 10 мес.</span></div>
+      <div>
+        <h3>Сбер</h3>
         <p class="pos">Продуктовый дизайнер, сегмент «Дети, родители, молодёжь»</p>
 
-        <div class="case">
-          <h4>Калькулятор вузов GigaChat</h4>
-          <p>Спроектировал сценарии сервиса end-to-end и интерфейс mini app на базе ИИ в Telegram и MAX. Сервис подбирает университет по баллам ЕГЭ, показывает стоимость обучения, проходные баллы и шансы на поступление, а GigaChat даёт персональные рекомендации. После запуска сделали 3 итерации: интерфейс дорабатывали по результатам исследований. К росту привели шкала шансов на поступление и рекомендации от GigaChat: за 3 месяца после первого запуска проникновение в продукт выросло на 30%, а количество сессий на клиента в 3 раза.</p>
-          <div class="stats">
-            <div class="stat"><b>128+ тыс.</b><span>пользователей в 2026 году</span></div>
-            <div class="stat"><b>16,6 тыс.</b><span>MAU</span></div>
-            <div class="stat"><b>+30%</b><span>проникновение в продукт за 3 месяца после запуска</span></div>
-            <div class="stat"><b>×3</b><span>сессий на клиента за 3 месяца после запуска</span></div>
+        <section class="case" aria-labelledby="case-gc">
+          <h4 id="case-gc">Калькулятор вузов GigaChat</h4>
+          <p>Спроектировал сценарии сервиса end-to-end и интерфейс mini app на базе ИИ в Telegram и MAX. Сервис подбирает университет по баллам ЕГЭ, показывает стоимость обучения, проходные баллы и шансы на поступление, а GigaChat даёт персональные рекомендации. После запуска сделали 3 итерации: интерфейс дорабатывали по результатам исследований. К росту привели шкала шансов на поступление и рекомендации от GigaChat.</p>
+
+          <div class="metrics">
+            <div class="m-main"><b>+30%</b><span>проникновение в продукт</span></div>
+            <div class="m-main"><b>×3</b><span>сессий на клиента</span></div>
+            <p class="m-note">За 3 месяца после первого запуска</p>
+            <div class="m-sub"><b>128+ тыс.</b><span>пользователей в 2026 году</span></div>
+            <div class="m-sub"><b>16,6 тыс.</b><span>MAU</span></div>
           </div>
+
           <div class="award">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg>
             <p><b>Победитель Customer Force Awards</b> в номинации «Удобство и комфорт / Лучший digital-опыт. Банки».</p>
           </div>
-          <a class="link" href="https://t.me/gigachat_bot?startapp=base64eyJyZWYiOiJta191bml2ZXJzaXR5IiwicGFnZSI6InVuaXZlcnNpdHkvZm9ybSJ9" target="_blank" rel="noopener">
-            Открыть калькулятор в Telegram
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
-          </a>
-        </div>
 
-        <div class="case">
-          <h4>Школьные сервисы для ИИ-школ</h4>
+          <div class="actions">
+            <a class="btn" href="case-gigachat.html" target="_blank" rel="noopener">
+              Смотреть презентацию кейса
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+            <a class="link" href="https://t.me/gigachat_bot?startapp=base64eyJyZWYiOiJta191bml2ZXJzaXR5IiwicGFnZSI6InVuaXZlcnNpdHkvZm9ybSJ9" target="_blank" rel="noopener">
+              Открыть калькулятор в Telegram
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </section>
+
+        <section class="case" aria-labelledby="case-school">
+          <h4 id="case-school">Школьные сервисы для ИИ-школ</h4>
           <p>Проектирую пространство WebView в приложениях СберKids и СБОЛ: единую точку входа в цифровые сервисы ИИ-школы. Внутри информация о проходах, меню буфета, ачивки за школьные активности, интересные факты и геймификация, которая превращает обычные действия в вовлекающий опыт. Работаю полный цикл: исследую потребности школ и учеников, прорабатываю структуру и сценарии, готовлю макеты к передаче в разработку.</p>
           <div class="rollout" aria-label="План запуска">
             <div><small>Ноябрь 2026, пилот</small><b>10 школ</b><span>тестовый запуск</span></div>
             <div><small>Q2 2027, план</small><b>10 000 школ</b><span>по всей России</span></div>
           </div>
-          <a class="link" href="https://pixso.design.sber.ru/app/design/Cwbn2SF6RQzYdNW7np5tfA?page-id=0:1" target="_blank" rel="noopener">
-            Макеты в Pixso
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
-          </a>
-        </div>
+          <div class="nda">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+            <p><b>Проект находится под NDA</b>, поэтому макетов здесь нет. Процесс и принятые решения расскажу на интервью.</p>
+          </div>
+        </section>
 
-        <div class="skills-row">
+        <div class="habits">
           <p><b>Работа в команде.</b> Веду проекты в связке с продакт-менеджерами, разработчиками и смежными командами. Защищаю дизайн-решения перед руководством сегмента, аргументируя пользовательской ценностью и влиянием на бизнес.</p>
           <p><b>Продуктовое мышление.</b> Связываю решения с метриками: удержанием, вовлечённостью, конверсией. Участвую в формировании roadmap и приоритизации задач.</p>
         </div>
-      </article>
+      </div>
+    </article>
 
-      <article class="job">
-        <div class="job-head">
-          <h3>Минпромторг</h3>
-          <span class="when">июнь 2022 — декабрь 2023, 1 г. 6 мес.</span>
-        </div>
+    <article class="job">
+      <div class="when"><b>июн 2022 – дек 2023</b><span>1 г. 6 мес.</span></div>
+      <div>
+        <h3>Минпромторг</h3>
         <p class="pos">Ведущий дизайн-специалист, цифровые продукты и коммуникации</p>
         <ul class="plain">
           <li>Проектировал интерфейсы сайтов и новой цифровой платформы для взаимодействия представителей промышленности и власти.</li>
           <li>Платформа ускорила обработку заявок в 3 раза и вдвое сократила обращения в поддержку благодаря прозрачности процесса.</li>
           <li>Переработал информационную архитектуру и навигацию, чтобы подача заявок и отслеживание статуса стали понятны неподготовленным пользователям.</li>
         </ul>
-      </article>
+      </div>
+    </article>
 
-      <article class="job">
-        <div class="job-head">
-          <h3>MyWay</h3>
-          <span class="when">2024 — сейчас</span>
-        </div>
+    <article class="job">
+      <div class="when"><b>2024 – сейчас</b><span>свой проект</span></div>
+      <div>
+        <h3>MyWay</h3>
         <p class="pos">Lead-дизайнер, дизайнер продукта, собственный стартап</p>
         <ul class="plain">
           <li>Разрабатываю мобильное приложение для путешествий, которое генерирует интересные маршруты по городам.</li>
@@ -345,25 +346,68 @@ aside ul.tags,.tags{display:flex;flex-direction:row;flex-wrap:wrap;gap:8px}
           <li>Проектирую онбординг, AI-персонализацию маршрутов, сохранение и шеринг поездок. Снижаю когнитивную нагрузку: персональный маршрут за несколько тапов.</li>
           <li>Формирую визуальный язык продукта.</li>
         </ul>
-        <p style="margin:14px 0 0">
-          <a href="https://myway.center" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">myway.center</a>
-        </p>
-      </article>
+        <p class="ext"><a href="https://myway.center" target="_blank" rel="noopener">myway.center</a></p>
+      </div>
+    </article>
 
-      <article class="job">
-        <div class="job-head">
-          <h3>Другие компании</h3>
-          <span class="when">2018 — 2022</span>
-        </div>
+    <article class="job">
+      <div class="when"><b>2018 – 2022</b><span>4 года</span></div>
+      <div>
+        <h3>Другие компании</h3>
         <p class="pos">Графический и коммуникационный дизайн</p>
         <ul class="plain">
           <li>Работал с digital-проектами, брендингом и коммуникациями.</li>
         </ul>
-      </article>
-    </section>
-  </main>
+      </div>
+    </article>
+  </div>
+</main>
 
-</div>
+<footer class="more">
+  <div class="wrap">
+    <div class="more-grid">
+      <div>
+        <section>
+          <h2>Навыки</h2>
+          <ul class="tags">
+            <li>Product design</li>
+            <li>UX research</li>
+            <li>User flows</li>
+            <li>Информационная архитектура</li>
+            <li>Прототипирование</li>
+            <li>Дизайн-системы</li>
+            <li>Generative AI</li>
+            <li>Работа со стейкхолдерами</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Инструменты</h2>
+          <p class="tools">Figma, Pixso, Photoshop, Illustrator, Lightroom, Jira, Confluence</p>
+        </section>
+      </div>
+
+      <div>
+        <section>
+          <h2>Образование</h2>
+          <p class="uni">Российский новый университет</p>
+          <ul class="edu">
+            <li><span class="y">2026</span><span><b>Аспирантура</b><small>Управление в социальных и экономических системах</small></span></li>
+            <li><span class="y">2021</span><span><b>Магистратура</b><small>Реклама и связи с общественностью</small></span></li>
+            <li><span class="y">2019</span><span><b>Бакалавриат</b><small>Информационные системы и инженерно-компьютерные технологии</small></span></li>
+          </ul>
+        </section>
+        <section>
+          <h2>Языки</h2>
+          <p class="plain">Английский, B2</p>
+        </section>
+        <section>
+          <h2>Вне работы</h2>
+          <p class="plain">Аналоговая фотография, циклические виды спорта, путешествия</p>
+        </section>
+      </div>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
