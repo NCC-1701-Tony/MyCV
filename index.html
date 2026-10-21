@@ -102,6 +102,10 @@ svg{flex:none}
 }
 .btn-hero:hover{box-shadow:0 0 0 4px oklch(97.5% 0.008 267 / .25)}
 .btn-hero:active{transform:translateY(1px) scale(.985)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.hero-actions .btn-hero{margin-top:0}
+.btn-hero-ghost{background:transparent;color:var(--hero-ink);box-shadow:inset 0 0 0 1.5px oklch(97.5% 0.008 267 / .55)}
+.btn-hero-ghost:hover{box-shadow:inset 0 0 0 1.5px var(--on-cobalt)}
 
 .career{margin-top:clamp(36px,5vw,64px)}
 .career h2{margin:0 0 14px;font-size:15px;font-weight:600;color:var(--hero-muted)}
@@ -248,7 +252,7 @@ main{padding:clamp(44px,6vw,80px) 0 0}
   .job,.case{break-inside:avoid}
   .btn,.btn-hero{background:none;color:#1f36c9;border:1px solid #1f36c9}
   main{padding-top:8mm}
-  .float{display:none}
+  .float,.btn-hero-ghost{display:none}
 }
 </style>
 </head>
@@ -261,10 +265,16 @@ main{padding:clamp(44px,6vw,80px) 0 0}
         <h1>Антон Данилов</h1>
         <p class="role">Продуктовый дизайнер</p>
         <p class="lead">Проектирую AI-продукты и сервисы экосистемы Сбера: от исследования до запуска и итераций по метрикам. Последний запуск: калькулятор вузов GigaChat, 128+ тыс. пользователей и в 3 раза больше сессий на клиента за 3 месяца. Проект победил в Customer Force Awards.</p>
+        <div class="hero-actions">
         <a class="btn-hero" href="portfolio.html">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
           Портфолио
         </a>
+        <a class="btn-hero btn-hero-ghost" href="Anton_Danilov_CV.pdf" download>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+          Скачать PDF
+        </a>
+        </div>
       </div>
 
       <ul class="contacts">
