@@ -81,6 +81,13 @@ svg{flex:none}
   border-bottom:1px solid oklch(97.5% 0.008 267 / .28);
 }
 .contacts a:hover{border-bottom-color:var(--on-cobalt)}
+.btn-hero{
+  display:inline-flex;align-items:center;gap:10px;min-height:48px;margin-top:26px;padding:0 22px;border-radius:999px;
+  background:var(--on-cobalt);color:var(--bar-3-ink);font-weight:700;font-size:16px;text-decoration:none;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+}
+.btn-hero:hover{box-shadow:0 0 0 4px oklch(97.5% 0.008 267 / .25)}
+.btn-hero:active{transform:translateY(1px) scale(.985)}
 
 .career{margin-top:clamp(36px,5vw,64px)}
 .career h2{margin:0 0 14px;font-size:15px;font-weight:600;color:var(--hero-muted)}
@@ -215,7 +222,7 @@ main{padding:clamp(44px,6vw,80px) 0 0}
   .seg,.award,.rollout div,.case{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .seg{animation:none}
   .job,.case{break-inside:avoid}
-  .btn{background:none;color:#1f36c9;border:1px solid #1f36c9}
+  .btn,.btn-hero{background:none;color:#1f36c9;border:1px solid #1f36c9}
   main{padding-top:8mm}
 }
 </style>
@@ -229,6 +236,10 @@ main{padding:clamp(44px,6vw,80px) 0 0}
         <h1>Антон Данилов</h1>
         <p class="role">Продуктовый дизайнер</p>
         <p class="lead">Проектирую AI-продукты и сервисы экосистемы Сбера: от исследования до запуска и итераций по метрикам. Последний запуск: калькулятор вузов GigaChat, 128+ тыс. пользователей и в 3 раза больше сессий на клиента за 3 месяца. Проект победил в Customer Force Awards.</p>
+        <a class="btn-hero" href="portfolio.html">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          Портфолио
+        </a>
       </div>
 
       <ul class="contacts">
@@ -347,8 +358,8 @@ main{padding:clamp(44px,6vw,80px) 0 0}
           <li>Формирую визуальный язык продукта от бренда до дизайн-системы.</li>
         </ul>
         <div class="actions">
-          <a class="btn" href="https://myway.center" target="_blank" rel="noopener">
-            Сайт проекта
+          <a class="btn" href="MyWay-case.html" target="_blank" rel="noopener">
+            Смотреть кейс
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
           </a>
         </div>
