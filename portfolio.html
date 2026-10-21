@@ -67,8 +67,19 @@ svg{flex:none}
 .top{background:var(--hero-bg);color:var(--on-cobalt);padding:clamp(24px,4vw,40px) 0 clamp(36px,6vw,64px)}
 .back{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 4px;margin-left:-4px;font-weight:600;text-decoration:none;color:var(--hero-muted)}
 .back:hover{color:var(--on-cobalt)}
-.top h1{margin:clamp(20px,4vw,40px) 0 0;font-size:clamp(40px,6.4vw,76px);font-weight:800;letter-spacing:-0.035em;line-height:1}
-.top p{margin:14px 0 0;font-size:clamp(17px,1.8vw,20px);color:var(--hero-muted);max-width:52ch}
+.top-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:32px 64px;align-items:end;margin-top:clamp(20px,4vw,40px)}
+.eyebrow{margin:0;font-size:15px;font-weight:600;color:var(--hero-muted)}
+.top h1{margin:10px 0 0;font-size:clamp(40px,6.4vw,76px);font-weight:800;letter-spacing:-0.035em;line-height:1}
+.top .lead{margin:18px 0 0;font-size:clamp(17px,1.8vw,20px);color:var(--hero-muted);max-width:40ch}
+
+/* Оглавление: строки ведут к проектам ниже */
+.toc{margin:0;padding:0;list-style:none;border-top:1px solid oklch(97.5% 0.008 267 / .28)}
+.toc a{display:flex;justify-content:space-between;align-items:baseline;gap:16px;min-height:52px;padding:12px 0;border-bottom:1px solid oklch(97.5% 0.008 267 / .28);text-decoration:none;font-weight:600;line-height:1.3}
+.toc span{color:var(--hero-muted);font-weight:500;font-size:14px;white-space:nowrap}
+.toc a:hover{border-bottom-color:var(--on-cobalt)}
+.toc a:hover span{color:var(--on-cobalt)}
+.project h2{scroll-margin-top:24px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 
 /* ---------- Проекты ---------- */
 main{padding:clamp(36px,6vw,72px) 0 clamp(56px,8vw,96px)}
@@ -102,6 +113,20 @@ a.cover:hover img{transform:scale(1.02)}
 .nda.gov{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
 .nda-note{margin:10px 0 0;font-size:15px;color:var(--muted);max-width:44ch}
 
+/* ---------- Плавающая кнопка: появляется, когда шапка ушла из вида ---------- */
+.float{position:fixed;z-index:10;right:max(20px,calc(env(safe-area-inset-right,0px) + 16px));bottom:max(20px,calc(env(safe-area-inset-bottom,0px) + 16px));
+  display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 20px 0 16px;border-radius:999px;
+  background:var(--cobalt);color:var(--on-cobalt);font-weight:600;font-size:16px;text-decoration:none;
+  box-shadow:0 6px 20px oklch(30% 0.12 267 / .28);
+  transition:opacity .3s var(--ease),transform .3s var(--ease),visibility .3s,background-color .2s}
+.float:hover{background:oklch(46% 0.22 267)}
+.float.is-hidden{opacity:0;visibility:hidden;transform:translateY(12px)}
+@media (prefers-reduced-motion:reduce){.float{transition:none}}
+@media print{.float{display:none}}
+
+@media (max-width:760px){
+  .top-grid{grid-template-columns:1fr;align-items:start}
+}
 @media (max-width:600px){
   .project{grid-template-columns:1fr;gap:20px}
   .cover{width:min(100%,240px)}
@@ -116,8 +141,21 @@ a.cover:hover img{transform:scale(1.02)}
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18 9 12l6-6"/></svg>
       Резюме
     </a>
-    <h1>Портфолио</h1>
-    <p>Антон Данилов, продуктовый дизайнер. Два открытых кейса и два проекта, о которых расскажу на интервью.</p>
+    <div class="top-grid">
+      <div>
+        <p class="eyebrow">Антон Данилов, продуктовый дизайнер</p>
+        <h1>Портфолио</h1>
+        <p class="lead">ИИ-сервисы Сбера, стартап и госплатформа. Два кейса с макетами, о двух проектах расскажу на интервью.</p>
+      </div>
+      <nav aria-label="Проекты">
+        <ul class="toc">
+          <li><a href="#p-gc">Калькулятор вузов GigaChat <span>Кейс</span></a></li>
+          <li><a href="#p-mw">MyWay <span>Кейс</span></a></li>
+          <li><a href="#p-school">Школьные сервисы для ИИ-школ <span>NDA</span></a></li>
+          <li><a href="#p-gisp">ГИСП, Минпромторг <span>Госпроект</span></a></li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </header>
 
@@ -212,6 +250,20 @@ a.cover:hover img{transform:scale(1.02)}
 
   </div>
 </main>
+
+<a class="float" href="index.html">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18 9 12l6-6"/></svg>
+  Резюме
+</a>
+<script>
+/* Прячем плавающую кнопку, пока видна шапка со своей ссылкой «Резюме» */
+(function(){
+  var btn=document.querySelector('.float'), top=document.querySelector('.top');
+  if(!btn||!top||!('IntersectionObserver' in window)) return;
+  btn.classList.add('is-hidden');
+  new IntersectionObserver(function(e){btn.classList.toggle('is-hidden',e[0].isIntersecting)}).observe(top);
+})();
+</script>
 
 </body>
 </html>
