@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Антон Данилов, продуктовый дизайнер</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Исходник для Anton_Danilov_CV.pdf: строго одна страница A4.
+   Пересборка: открыть в Chrome → Печать → Сохранить как PDF, поля «Нет», фон включён. */
+@page{size:A4;margin:0}
+:root{
+  --cobalt:#3150dc;--cobalt-ink:#2440c8;--cobalt-soft:#eef1ff;
+  --ink:#16181f;--muted:#5a5f6e;--line:#dfe2ea;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  width:210mm;height:297mm;overflow:hidden;margin-inline:auto;background:#fff;color:var(--ink);
+  font-family:"Inter",system-ui,sans-serif;font-size:8.2pt;line-height:1.36;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+}
+a{color:var(--cobalt-ink);text-decoration:none;border-bottom:1px solid currentColor;font-weight:600}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+
+/* Шапка */
+header{background:var(--cobalt);color:#fff;padding:7.5mm 11mm 5.5mm;display:grid;grid-template-columns:1fr auto;gap:8mm;align-items:start}
+h1{margin:0;font-size:23pt;font-weight:800;letter-spacing:-0.03em;line-height:1.05}
+.role{margin-top:1.6mm;font-size:11pt;font-weight:600}
+.lead{margin-top:2.6mm;max-width:124mm;color:#e3e8ff;font-size:8.6pt;line-height:1.4}
+.contacts{display:grid;gap:1.6mm;justify-items:end;font-size:9pt;font-weight:500;padding-top:1mm}
+.contacts a{color:#fff;border:0;font-weight:500}
+
+/* Колонки */
+.cols{display:grid;grid-template-columns:1fr 55mm;gap:0 6mm;padding:5mm 11mm 0;align-items:start}
+.side{border-left:1px solid var(--line);padding-left:5mm;align-self:stretch}
+h2{margin:0 0 2mm;font-size:10pt;font-weight:700;letter-spacing:-0.01em}
+.side section + section{margin-top:3mm}
+
+.job{padding:2.6mm 0;border-top:1px solid var(--line)}
+.job:first-of-type{border-top:0;padding-top:0}
+.head{display:flex;justify-content:space-between;align-items:baseline;gap:4mm}
+h3{margin:0;font-size:11pt;font-weight:700;letter-spacing:-0.01em}
+.when{color:var(--cobalt-ink);font-weight:700;font-size:8.6pt;white-space:nowrap}
+.pos{color:var(--muted);margin-top:0.6mm}
+.job ul{margin-top:1.6mm}
+.job li{position:relative;padding-left:3.6mm;margin-top:0.8mm}
+.job li::before{content:"";position:absolute;left:0.6mm;top:0.62em;width:1.2mm;height:1.2mm;border-radius:50%;background:var(--ink)}
+.job > p:not(.pos){margin-top:1.4mm}
+.ext{display:inline-block;margin-top:1.6mm}
+
+.case{margin-top:2mm;border:1px solid var(--line);border-radius:2.4mm;padding:2.2mm 3mm}
+.case h4{margin:0 0 1.2mm;font-size:9.4pt;font-weight:700;display:flex;justify-content:space-between;gap:4mm}
+.case h4 a{font-size:8.4pt}
+.metrics{display:flex;gap:7mm;align-items:baseline;margin-top:1.4mm}
+.metrics b{font-size:14pt;font-weight:800;color:var(--cobalt-ink);letter-spacing:-0.03em;margin-right:1mm}
+.metrics.sub b{font-size:10pt;color:var(--ink);letter-spacing:-0.01em}
+.metrics span{color:var(--muted)}
+.note{margin-top:1mm;color:var(--muted);font-size:7.4pt;line-height:1.3}
+.award{margin-top:1.6mm;background:var(--cobalt-soft);border-radius:1.6mm;padding:1.6mm 2.6mm}
+
+.tags{display:flex;flex-wrap:wrap;gap:1.2mm}
+.tags li{border:1px solid var(--line);border-radius:99px;padding:0.3mm 2mm;font-size:7.6pt}
+.uni{color:var(--muted);margin-bottom:2mm}
+.edu{display:grid;gap:1.6mm}
+.edu li{display:grid;grid-template-columns:11mm 1fr;gap:1.4mm}
+.edu .y{color:var(--cobalt-ink);font-weight:700}
+.edu b{display:block;font-weight:600}
+.edu small{display:block;color:var(--muted);font-size:7.8pt;line-height:1.3}
+.links{display:grid;gap:1.6mm;justify-items:start}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Антон Данилов</h1>
+    <p class="role">Продуктовый дизайнер · 8 лет в дизайне</p>
+    <p class="lead">4+ года в продуктовом дизайне, до этого 4 года в графическом дизайне, фотографии и коммуникациях. Веду AI-сервисы Сбера от исследования до роста метрик, в стартапе MyWay отвечаю за дизайн как лид. Последний запуск: калькулятор вузов GigaChat, победитель Customer Force Awards.</p>
+  </div>
+  <ul class="contacts">
+    <li><a href="mailto:tony.dnls@yandex.ru">tony.dnls@yandex.ru</a></li>
+    <li><a href="tel:+79250536329">+7 925 053-63-29</a></li>
+    <li><a href="https://t.me/Tony_Wwide">@Tony_Wwide</a></li>
+    <li><a href="https://hh.ru/resume/4c7c6559ff084a51260039ed1f724e4e436a34">Резюме на hh.ru</a></li>
+    <li>Москва</li>
+  </ul>
+</header>
+
+<div class="cols">
+  <main>
+    <h2>Опыт</h2>
+
+    <article class="job">
+      <div class="head"><h3>Сбер</h3><span class="when">дек 2023 – сейчас</span></div>
+      <p class="pos">Продуктовый дизайнер, сегмент «Дети, родители, молодёжь»</p>
+
+      <section class="case">
+        <h4>Калькулятор вузов GigaChat <a href="https://ncc-1701-tony.github.io/MyCV/case-gigachat.html">Смотреть кейс ↗</a></h4>
+        <p>Спроектировал сценарии end-to-end и интерфейс AI mini app в Telegram и MAX: подбор вуза по баллам ЕГЭ, стоимость, проходные баллы, шансы на поступление и персональные рекомендации GigaChat. После запуска провели 3 итерации по A/B-тестам и опросам; рост дали шкала шансов и рекомендации GigaChat. Единственный дизайнер в команде с PM, аналитиком и разработчиками.</p>
+        <div class="metrics"><span><b>+30%</b>конверсия в целевое действие</span><span><b>×3</b>сессий на клиента</span></div>
+        <div class="metrics sub"><span><b>128+ тыс.</b>пользователей в 2026</span><span><b>16,6 тыс.</b>MAU в пик сезона</span></div>
+        <p class="note">За 3 месяца после запуска против первой версии. Целевое действие: подобрать список вузов и перейти на страницу вуза. Сервис сезонный, пик в мае–августе.</p>
+        <p class="award"><b>Победитель Customer Force Awards</b>, «Удобство и комфорт / Лучший digital-опыт. Банки»</p>
+      </section>
+
+      <section class="case">
+        <h4>Школьные сервисы для ИИ-школ</h4>
+        <p>Проектирую WebView в СберKids и СБОЛ: единая точка входа в сервисы школы (проходы, меню буфета, ачивки, геймификация). Полный цикл от исследования потребностей школ и учеников до передачи в разработку. Первая версия с 1 сентября 2026 в закрытом тесте в 10 школах, расширенный функционал к ноябрьскому релизу спроектирован. Цель программы: 10 000 школ к Q2 2027. Проект под NDA.</p>
+      </section>
+    </article>
+
+    <article class="job">
+      <div class="head"><h3>MyWay</h3><span class="when">май 2024 – сейчас</span></div>
+      <p class="pos">Lead-дизайнер, стартап (параллельно)</p>
+      <ul>
+        <li>Приложение, которое генерирует маршруты по городам. Веду дизайн от customer development до передачи в разработку, участвую в продуктовых решениях.</li>
+        <li>Онбординг, AI-персонализация маршрутов, сохранение и шеринг. Вывел приложение от гипотез до релиза в Google Play в июне 2026.</li>
+        <li>Визуальный язык от бренда до дизайн-системы с нуля: 27 компонентов, 192 переменные, 100+ экранов в 10 сценариях.</li>
+      </ul>
+      <a class="ext" href="https://ncc-1701-tony.github.io/MyCV/MyWay-case.html">Смотреть кейс ↗</a>
+    </article>
+
+    <article class="job">
+      <div class="head"><h3>Минпромторг</h3><span class="when">июн 2022 – дек 2023</span></div>
+      <p class="pos">Ведущий дизайн-специалист, цифровые продукты и коммуникации</p>
+      <ul>
+        <li>Проектировал ГИСП, платформу, через которую 100+ крупных предприятий подают заявки в Минпромторг, а также отчётные сайты и лендинги министерства.</li>
+        <li>Убрал лишние шаги из подачи заявки и сделал статусы прозрачными: после релиза заявки обрабатываются в 3 раза быстрее, обращений в поддержку вдвое меньше.</li>
+        <li>Переработал информационную архитектуру: подача заявок и статусы понятны без подготовки.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <div class="head"><h3>Фриланс</h3><span class="when">2018 – 2022</span></div>
+      <p class="pos">Графический и коммуникационный дизайн, фотография для университета и частных клиентов.</p>
+    </article>
+  </main>
+
+  <aside class="side">
+    <section>
+      <h2>Исследования</h2>
+      <ul class="tags"><li>Глубинные интервью</li><li>Юзабилити-тесты</li><li>CJM</li><li>JTBD</li><li>A/B-тесты</li><li>Опросы аудитории</li></ul>
+    </section>
+    <section>
+      <h2>Проектирование</h2>
+      <ul class="tags"><li>User flows</li><li>Информационная архитектура</li><li>Прототипирование</li><li>Дизайн-системы</li><li>AI-интерфейсы</li><li>Telegram Mini Apps</li><li>Работа со стейкхолдерами</li></ul>
+    </section>
+    <section>
+      <h2>Инструменты</h2>
+      <ul class="tags"><li>Figma</li><li>FigJam</li><li>Pixso</li><li>Photoshop</li><li>Illustrator</li><li>Lightroom</li><li>Jira</li><li>Confluence</li><li>HTML/CSS</li></ul>
+    </section>
+    <section>
+      <h2>Образование</h2>
+      <p class="uni">Российский новый университет</p>
+      <ul class="edu">
+        <li><span class="y">2026</span><span><b>Аспирантура</b><small>Управление в социальных и экономических системах</small></span></li>
+        <li><span class="y">2021</span><span><b>Магистратура</b><small>Реклама и связи с общественностью</small></span></li>
+        <li><span class="y">2019</span><span><b>Бакалавриат</b><small>Информационные системы и инженерно-компьютерные технологии</small></span></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Языки</h2>
+      <p>Английский, B2</p>
+    </section>
+    <section>
+      <h2>Вне работы</h2>
+      <p>Аналоговая фотография, циклические виды спорта, путешествия</p>
+    </section>
+    <section>
+      <h2>Онлайн-версия</h2>
+      <div class="links">
+        <a href="https://ncc-1701-tony.github.io/MyCV/">ncc-1701-tony.github.io/MyCV</a>
+        <a href="https://ncc-1701-tony.github.io/MyCV/portfolio.html">Портфолио: 3 проекта</a>
+      </div>
+    </section>
+  </aside>
+</div>
+
+</body>
+</html>
