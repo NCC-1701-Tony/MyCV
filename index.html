@@ -196,6 +196,16 @@ main{padding:clamp(44px,6vw,80px) 0 0}
 .uni{margin:0 0 14px;color:var(--muted)}
 .more p.plain{margin:0}
 
+/* ---------- Плавающая кнопка: появляется, когда шапка ушла из вида ---------- */
+.float{position:fixed;z-index:10;right:max(20px,calc(env(safe-area-inset-right,0px) + 16px));bottom:max(20px,calc(env(safe-area-inset-bottom,0px) + 16px));
+  display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 16px 0 20px;border-radius:999px;
+  background:var(--cobalt);color:var(--on-cobalt);font-weight:600;font-size:16px;text-decoration:none;
+  box-shadow:0 6px 20px oklch(30% 0.12 267 / .28);
+  transition:opacity .3s var(--ease),transform .3s var(--ease),visibility .3s,background-color .2s}
+.float:hover{background:oklch(46% 0.22 267)}
+.float.is-hidden{opacity:0;visibility:hidden;transform:translateY(12px)}
+@media (prefers-reduced-motion:reduce){.float{transition:none}}
+
 /* ---------- Responsive ---------- */
 @media (max-width:860px){
   .hero-top{grid-template-columns:1fr;align-items:start}
@@ -238,6 +248,7 @@ main{padding:clamp(44px,6vw,80px) 0 0}
   .job,.case{break-inside:avoid}
   .btn,.btn-hero{background:none;color:#1f36c9;border:1px solid #1f36c9}
   main{padding-top:8mm}
+  .float{display:none}
 }
 </style>
 </head>
@@ -448,6 +459,20 @@ main{padding:clamp(44px,6vw,80px) 0 0}
     </div>
   </div>
 </footer>
+
+<a class="float" href="portfolio.html">
+  Портфолио
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+</a>
+<script>
+/* Прячем плавающую кнопку, пока видна шапка со своей кнопкой «Портфолио» */
+(function(){
+  var btn=document.querySelector('.float'), top=document.querySelector('.hero');
+  if(!btn||!top||!('IntersectionObserver' in window)) return;
+  btn.classList.add('is-hidden');
+  new IntersectionObserver(function(e){btn.classList.toggle('is-hidden',e[0].isIntersecting)}).observe(top);
+})();
+</script>
 
 </body>
 </html>
