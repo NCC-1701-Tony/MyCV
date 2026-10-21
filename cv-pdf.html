@@ -20,7 +20,7 @@
 html,body{margin:0}
 body{
   width:210mm;height:297mm;overflow:hidden;margin-inline:auto;background:#fff;color:var(--ink);
-  font-family:"Inter",system-ui,sans-serif;font-size:8.6pt;line-height:1.38;
+  font-family:"Inter",system-ui,sans-serif;font-size:8.2pt;line-height:1.36;
   -webkit-print-color-adjust:exact;print-color-adjust:exact;
 }
 a{color:var(--cobalt-ink);text-decoration:none;border-bottom:1px solid currentColor;font-weight:600}
@@ -28,20 +28,20 @@ p{margin:0}
 ul{margin:0;padding:0;list-style:none}
 
 /* Шапка */
-header{background:var(--cobalt);color:#fff;padding:9mm 12mm 7mm;display:grid;grid-template-columns:1fr auto;gap:8mm;align-items:start}
-h1{margin:0;font-size:25pt;font-weight:800;letter-spacing:-0.03em;line-height:1.05}
-.role{margin-top:2.2mm;font-size:12pt;font-weight:600}
-.lead{margin-top:3.5mm;max-width:118mm;color:#e3e8ff;font-size:9pt;line-height:1.42}
+header{background:var(--cobalt);color:#fff;padding:7.5mm 11mm 5.5mm;display:grid;grid-template-columns:1fr auto;gap:8mm;align-items:start}
+h1{margin:0;font-size:23pt;font-weight:800;letter-spacing:-0.03em;line-height:1.05}
+.role{margin-top:1.6mm;font-size:11pt;font-weight:600}
+.lead{margin-top:2.6mm;max-width:124mm;color:#e3e8ff;font-size:8.6pt;line-height:1.4}
 .contacts{display:grid;gap:1.6mm;justify-items:end;font-size:9pt;font-weight:500;padding-top:1mm}
 .contacts a{color:#fff;border:0;font-weight:500}
 
 /* Колонки */
-.cols{display:grid;grid-template-columns:1fr 57mm;gap:0 8mm;padding:6mm 12mm 0}
-.side{border-left:1px solid var(--line);padding-left:6mm}
-h2{margin:0 0 2.6mm;font-size:10.5pt;font-weight:700;letter-spacing:-0.01em}
-.side section + section{margin-top:4.6mm}
+.cols{display:grid;grid-template-columns:1fr 55mm;gap:0 6mm;padding:5mm 11mm 0;align-items:start}
+.side{border-left:1px solid var(--line);padding-left:5mm;align-self:stretch}
+h2{margin:0 0 2mm;font-size:10pt;font-weight:700;letter-spacing:-0.01em}
+.side section + section{margin-top:3mm}
 
-.job{padding:3.4mm 0;border-top:1px solid var(--line)}
+.job{padding:2.6mm 0;border-top:1px solid var(--line)}
 .job:first-of-type{border-top:0;padding-top:0}
 .head{display:flex;justify-content:space-between;align-items:baseline;gap:4mm}
 h3{margin:0;font-size:11pt;font-weight:700;letter-spacing:-0.01em}
@@ -53,20 +53,20 @@ h3{margin:0;font-size:11pt;font-weight:700;letter-spacing:-0.01em}
 .job > p:not(.pos){margin-top:1.4mm}
 .ext{display:inline-block;margin-top:1.6mm}
 
-.case{margin-top:2.4mm;border:1px solid var(--line);border-radius:2.4mm;padding:2.6mm 3.4mm}
+.case{margin-top:2mm;border:1px solid var(--line);border-radius:2.4mm;padding:2.2mm 3mm}
 .case h4{margin:0 0 1.2mm;font-size:9.4pt;font-weight:700;display:flex;justify-content:space-between;gap:4mm}
 .case h4 a{font-size:8.4pt}
-.metrics{display:flex;gap:7mm;align-items:baseline;margin-top:2mm}
-.metrics b{font-size:15pt;font-weight:800;color:var(--cobalt-ink);letter-spacing:-0.03em;margin-right:1mm}
+.metrics{display:flex;gap:7mm;align-items:baseline;margin-top:1.4mm}
+.metrics b{font-size:14pt;font-weight:800;color:var(--cobalt-ink);letter-spacing:-0.03em;margin-right:1mm}
 .metrics.sub b{font-size:10pt;color:var(--ink);letter-spacing:-0.01em}
 .metrics span{color:var(--muted)}
-.note{margin-top:1mm;color:var(--muted);font-size:7.8pt}
-.award{margin-top:2mm;background:var(--cobalt-soft);border-radius:1.6mm;padding:1.6mm 2.6mm}
+.note{margin-top:1mm;color:var(--muted);font-size:7.4pt;line-height:1.3}
+.award{margin-top:1.6mm;background:var(--cobalt-soft);border-radius:1.6mm;padding:1.6mm 2.6mm}
 
-.tags{display:flex;flex-wrap:wrap;gap:1.4mm}
-.tags li{border:1px solid var(--line);border-radius:99px;padding:0.5mm 2.2mm;font-size:8pt}
+.tags{display:flex;flex-wrap:wrap;gap:1.2mm}
+.tags li{border:1px solid var(--line);border-radius:99px;padding:0.3mm 2mm;font-size:7.6pt}
 .uni{color:var(--muted);margin-bottom:2mm}
-.edu{display:grid;gap:2mm}
+.edu{display:grid;gap:1.6mm}
 .edu li{display:grid;grid-template-columns:11mm 1fr;gap:1.4mm}
 .edu .y{color:var(--cobalt-ink);font-weight:700}
 .edu b{display:block;font-weight:600}
@@ -79,12 +79,12 @@ h3{margin:0;font-size:11pt;font-weight:700;letter-spacing:-0.01em}
 <header>
   <div>
     <h1>Антон Данилов</h1>
-    <p class="role">Продуктовый дизайнер · 8 лет в дизайне</p>
-    <p class="lead">Проектирую AI-продукты и сервисы экосистемы Сбера: от исследования до запуска и итераций по метрикам. Последний запуск: калькулятор вузов GigaChat, победитель Customer Force Awards.</p>
+    <p class="role">Продуктовый дизайнер · 8 лет в дизайне</p>
+    <p class="lead">4+ года в продуктовом дизайне, до этого 4 года в графическом дизайне, фотографии и коммуникациях. Веду AI-сервисы Сбера от исследования до роста метрик, в стартапе MyWay отвечаю за дизайн как лид. Последний запуск: калькулятор вузов GigaChat, победитель Customer Force Awards.</p>
   </div>
   <ul class="contacts">
     <li><a href="mailto:tony.dnls@yandex.ru">tony.dnls@yandex.ru</a></li>
-    <li><a href="tel:+79250536329">+7 925 053-63-29</a></li>
+    <li><a href="tel:+79250536329">+7 925 053-63-29</a></li>
     <li><a href="https://t.me/Tony_Wwide">@Tony_Wwide</a></li>
     <li>Москва</li>
   </ul>
@@ -95,69 +95,71 @@ h3{margin:0;font-size:11pt;font-weight:700;letter-spacing:-0.01em}
     <h2>Опыт</h2>
 
     <article class="job">
-      <div class="head"><h3>Сбер</h3><span class="when">дек 2023 – сейчас</span></div>
+      <div class="head"><h3>Сбер</h3><span class="when">дек 2023 – сейчас</span></div>
       <p class="pos">Продуктовый дизайнер, сегмент «Дети, родители, молодёжь»</p>
 
       <section class="case">
         <h4>Калькулятор вузов GigaChat <a href="https://ncc-1701-tony.github.io/MyCV/case-gigachat.html">Смотреть кейс ↗</a></h4>
-        <p>Спроектировал сценарии end-to-end и интерфейс AI mini app в Telegram и MAX: подбор вуза по баллам ЕГЭ, стоимость, проходные баллы, шансы на поступление и персональные рекомендации GigaChat. После запуска провели 3 итерации по результатам A/B-тестов и опросов аудитории; рост дали шкала шансов и рекомендации GigaChat.</p>
-        <div class="metrics"><span><b>+30%</b>проникновение в продукт</span><span><b>×3</b>сессий на клиента</span></div>
-        <div class="metrics sub"><span><b>128+ тыс.</b>пользователей</span><span><b>16,6 тыс.</b>MAU</span></div>
-        <p class="note">+30% и ×3 за 3 месяца после первого запуска; пользователи за 2026 год.</p>
-        <p class="award"><b>Победитель Customer Force Awards</b>, «Удобство и комфорт / Лучший digital-опыт. Банки»</p>
+        <p>Спроектировал сценарии end-to-end и интерфейс AI mini app в Telegram и MAX: подбор вуза по баллам ЕГЭ, стоимость, проходные баллы, шансы на поступление и персональные рекомендации GigaChat. После запуска провели 3 итерации по A/B-тестам и опросам; рост дали шкала шансов и рекомендации GigaChat. Единственный дизайнер в команде с PM, аналитиком и разработчиками.</p>
+        <div class="metrics"><span><b>+30%</b>конверсия в целевое действие</span><span><b>×3</b>сессий на клиента</span></div>
+        <div class="metrics sub"><span><b>128+ тыс.</b>пользователей в 2026</span><span><b>16,6 тыс.</b>MAU в пик сезона</span></div>
+        <p class="note">За 3 месяца после запуска против первой версии. Целевое действие: подобрать список вузов и перейти на страницу вуза. Сервис сезонный, пик в мае–августе.</p>
+        <p class="award"><b>Победитель Customer Force Awards</b>, «Удобство и комфорт / Лучший digital-опыт. Банки»</p>
       </section>
 
       <section class="case">
         <h4>Школьные сервисы для ИИ-школ</h4>
-        <p>Проектирую WebView в СберKids и СБОЛ: единая точка входа в сервисы школы (проходы, меню буфета, ачивки, геймификация). Полный цикл от исследования потребностей школ и учеников до передачи в разработку. Пилот в 10 школах в ноябре 2026, план на Q2 2027: 10 000 школ. Проект под NDA.</p>
+        <p>Проектирую WebView в СберKids и СБОЛ: единая точка входа в сервисы школы (проходы, меню буфета, ачивки, геймификация). Полный цикл от исследования потребностей школ и учеников до передачи в разработку. Первая версия с 1 сентября 2026 в закрытом тесте в 10 школах, расширенный функционал к ноябрьскому релизу спроектирован. Цель программы: 10 000 школ к Q2 2027. Проект под NDA.</p>
       </section>
     </article>
 
     <article class="job">
-      <div class="head"><h3>MyWay</h3><span class="when">2024 – сейчас</span></div>
+      <div class="head"><h3>MyWay</h3><span class="when">май 2024 – сейчас</span></div>
       <p class="pos">Lead-дизайнер, стартап (параллельно)</p>
       <ul>
-        <li>Мобильное приложение, которое генерирует маршруты по городам. Веду дизайн от customer development до передачи в разработку, участвую в продуктовых решениях.</li>
-        <li>Онбординг, AI-персонализация маршрутов, сохранение и шеринг; формирую визуальный язык продукта от бренда до дизайн-системы.</li>
+        <li>Приложение, которое генерирует маршруты по городам. Веду дизайн от customer development до передачи в разработку, участвую в продуктовых решениях.</li>
+        <li>Онбординг, AI-персонализация маршрутов, сохранение и шеринг. Вывел приложение от гипотез до релиза в Google Play в июне 2026.</li>
+        <li>Визуальный язык от бренда до дизайн-системы с нуля: 27 компонентов, 192 переменные, 100+ экранов в 10 сценариях.</li>
       </ul>
       <a class="ext" href="https://ncc-1701-tony.github.io/MyCV/MyWay-case.html">Смотреть кейс ↗</a>
     </article>
 
     <article class="job">
-      <div class="head"><h3>Минпромторг</h3><span class="when">июн 2022 – дек 2023</span></div>
-      <p class="pos">Ведущий дизайн-специалист, цифровые продукты и коммуникации</p>
+      <div class="head"><h3>Минпромторг</h3><span class="when">июн 2022 – дек 2023</span></div>
+      <p class="pos">Ведущий дизайн-специалист, цифровые продукты и коммуникации</p>
       <ul>
-        <li>Проектировал сайты и ГИСП, платформу, через которую 100+ крупных предприятий подают заявки в Минпромторг.</li>
-        <li>Платформа ускорила обработку заявок в 3 раза и вдвое сократила обращения в поддержку.</li>
-        <li>Переработал информационную архитектуру: подача заявок и статусы стали понятны неподготовленным пользователям.</li>
+        <li>Проектировал ГИСП, платформу, через которую 100+ крупных предприятий подают заявки в Минпромторг, а также отчётные сайты и лендинги министерства.</li>
+        <li>Убрал лишние шаги из подачи заявки и сделал статусы прозрачными: после релиза заявки обрабатываются в 3 раза быстрее, обращений в поддержку вдвое меньше.</li>
+        <li>Переработал информационную архитектуру: подача заявок и статусы понятны без подготовки.</li>
       </ul>
     </article>
 
     <article class="job">
-      <div class="head"><h3>Фриланс и образование</h3><span class="when">2018 – 2022</span></div>
-      <p class="pos">Графический и коммуникационный дизайн на фрилансе и в сфере образования: digital-проекты, брендинг, коммуникации.</p>
+      <div class="head"><h3>Фриланс</h3><span class="when">2018 – 2022</span></div>
+      <p class="pos">Графический и коммуникационный дизайн, фотография для университета и частных клиентов.</p>
     </article>
   </main>
 
   <aside class="side">
     <section>
-      <h2>Навыки</h2>
-      <ul class="tags">
-        <li>Product design</li><li>UX research</li><li>A/B-тесты</li><li>Опросы аудитории</li><li>User flows</li>
-        <li>Информационная архитектура</li><li>Прототипирование</li><li>Дизайн-системы</li><li>Generative AI</li><li>Работа со стейкхолдерами</li>
-      </ul>
+      <h2>Исследования</h2>
+      <ul class="tags"><li>Глубинные интервью</li><li>Юзабилити-тесты</li><li>CJM</li><li>JTBD</li><li>A/B-тесты</li><li>Опросы аудитории</li></ul>
+    </section>
+    <section>
+      <h2>Проектирование</h2>
+      <ul class="tags"><li>User flows</li><li>Информационная архитектура</li><li>Прототипирование</li><li>Дизайн-системы</li><li>AI-интерфейсы</li><li>Telegram Mini Apps</li><li>Работа со стейкхолдерами</li></ul>
     </section>
     <section>
       <h2>Инструменты</h2>
-      <ul class="tags"><li>Figma</li><li>Pixso</li><li>Photoshop</li><li>Illustrator</li><li>Lightroom</li><li>Jira</li><li>Confluence</li></ul>
+      <ul class="tags"><li>Figma</li><li>FigJam</li><li>Pixso</li><li>Photoshop</li><li>Illustrator</li><li>Lightroom</li><li>Jira</li><li>Confluence</li><li>HTML/CSS</li></ul>
     </section>
     <section>
       <h2>Образование</h2>
       <p class="uni">Российский новый университет</p>
       <ul class="edu">
-        <li><span class="y">2026</span><span><b>Аспирантура</b><small>Управление в социальных и экономических системах</small></span></li>
-        <li><span class="y">2021</span><span><b>Магистратура</b><small>Реклама и связи с общественностью</small></span></li>
-        <li><span class="y">2019</span><span><b>Бакалавриат</b><small>Информационные системы и инженерно-компьютерные технологии</small></span></li>
+        <li><span class="y">2026</span><span><b>Аспирантура</b><small>Управление в социальных и экономических системах</small></span></li>
+        <li><span class="y">2021</span><span><b>Магистратура</b><small>Реклама и связи с общественностью</small></span></li>
+        <li><span class="y">2019</span><span><b>Бакалавриат</b><small>Информационные системы и инженерно-компьютерные технологии</small></span></li>
       </ul>
     </section>
     <section>
@@ -169,10 +171,10 @@ h3{margin:0;font-size:11pt;font-weight:700;letter-spacing:-0.01em}
       <p>Аналоговая фотография, циклические виды спорта, путешествия</p>
     </section>
     <section>
-      <h2>Онлайн-версия и портфолио</h2>
+      <h2>Онлайн-версия</h2>
       <div class="links">
         <a href="https://ncc-1701-tony.github.io/MyCV/">ncc-1701-tony.github.io/MyCV</a>
-        <a href="https://ncc-1701-tony.github.io/MyCV/portfolio.html">Портфолио: 3 проекта</a>
+        <a href="https://ncc-1701-tony.github.io/MyCV/portfolio.html">Портфолио: 3 проекта</a>
       </div>
     </section>
   </aside>
