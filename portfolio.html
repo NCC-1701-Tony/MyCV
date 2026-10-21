@@ -85,6 +85,7 @@ a.cover:hover img{transform:scale(1.02)}
 .btn:active{transform:translateY(1px) scale(.985)}
 
 .nda{display:inline-flex;align-items:center;gap:8px;margin-top:22px;min-height:40px;padding:0 14px;border-radius:999px;background:var(--cobalt-soft);color:var(--cobalt-ink);font-weight:600;font-size:15px}
+.nda.gov{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
 .nda-note{margin:10px 0 0;font-size:15px;color:var(--muted);max-width:44ch}
 
 @media (max-width:860px){
@@ -101,7 +102,7 @@ a.cover:hover img{transform:scale(1.02)}
       Резюме
     </a>
     <h1>Портфолио</h1>
-    <p>Антон Данилов, продуктовый дизайнер. Два открытых кейса и один проект под NDA.</p>
+    <p>Антон Данилов, продуктовый дизайнер. Два открытых кейса и два проекта, о которых расскажу на интервью.</p>
   </div>
 </header>
 
@@ -168,6 +169,31 @@ a.cover:hover img{transform:scale(1.02)}
         <p class="nda-note">Макетов здесь нет. Процесс и принятые решения расскажу на интервью.</p>
       </div>
     </article>
+
+    <article class="project" aria-labelledby="p-gisp">
+      <div class="cover locked" aria-hidden="true">
+        <span class="lock">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M4 10h16M12 3 4 7v3h16V7l-8-4z"/><path d="M6 10v8M10 10v8M14 10v8M18 10v8"/></svg>
+        </span>
+      </div>
+      <div>
+        <p class="where">Минпромторг России, 2022–2023</p>
+        <h2 id="p-gisp">ГИСП: платформа взаимодействия промышленности и власти</h2>
+        <p class="desc">Спроектировал интерфейсы ГИСП: через неё крупные предприятия подают заявки в Минпромторг и ФГАУ «НИИ ЦЭПП» и следят за их статусом. Разобрал процесс обработки заявок, убрал лишние шаги и сделал статусы прозрачными. Переработал информационную архитектуру, чтобы ключевые сценарии были понятны неподготовленным пользователям.</p>
+        <ul class="facts">
+          <li><b>×3</b>быстрее обработка заявок</li>
+          <li><b>×2</b>меньше обращений в поддержку</li>
+          <li><b>100+</b>крупных предприятий: Северсталь, Норникель, Новомосковский Азот и другие</li>
+        </ul>
+        <p class="nda-note">Ускорение и снижение обращений по сравнению с прежним процессом, замер сразу после релиза.</p>
+        <span class="nda gov">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M12 3 4 7v3h16V7l-8-4z"/><path d="M7 10v8M12 10v8M17 10v8"/></svg>
+          Государственный проект
+        </span>
+        <p class="nda-note">Публичных макетов нет. Процесс, решения и метрики расскажу на интервью.</p>
+      </div>
+    </article>
+
 
   </div>
 </main>
