@@ -118,9 +118,12 @@ svg{flex:none}
 .seg.a{left:0;width:51.1%;top:0;background:var(--bar-1);animation-delay:.05s}
 .seg.b{left:51.1%;width:16.1%;top:0;background:var(--bar-2);animation-delay:.25s}
 .seg.c{left:67.3%;width:32.7%;top:0;background:var(--bar-3);color:var(--bar-3-ink);animation-delay:.45s}
-.seg.d{left:68.2%;width:31.8%;top:48px;border:1.5px solid var(--on-cobalt);animation-delay:.65s}
+.seg.d{left:72%;width:28%;top:48px;border:1.5px solid var(--on-cobalt);animation-delay:.65s}
 .seg .short{display:none}
-.axis{display:flex;justify-content:space-between;padding-top:10px;border-top:1px solid oklch(97.5% 0.008 267 / .28);font-size:13px;color:var(--hero-muted);font-variant-numeric:tabular-nums}
+.axis{position:relative;height:28px;border-top:1px solid oklch(97.5% 0.008 267 / .28);font-size:13px;color:var(--hero-muted);font-variant-numeric:tabular-nums}
+/* Шкала: янв 2018 = 0%, окт 2026 = 100%, год ≈ 11,36% */
+.axis span{position:absolute;top:10px;transform:translateX(-50%)}
+.axis span:first-child{transform:none}
 @keyframes grow{from{transform:scaleX(0);opacity:.3}to{transform:scaleX(1);opacity:1}}
 @media (prefers-reduced-motion:reduce){.seg{animation:none}}
 
@@ -319,7 +322,7 @@ main{padding:clamp(44px,6vw,80px) 0 0}
         <div class="seg c">Сбер</div>
         <div class="seg d"><span class="full">MyWay, стартап</span><span class="short">MyWay</span></div>
       </div>
-      <div class="axis" aria-hidden="true"><span>2018</span><span>2020</span><span>2022</span><span>2024</span><span>2026</span></div>
+      <div class="axis" aria-hidden="true"><span style="left:0">2018</span><span style="left:22.7%">2020</span><span style="left:45.5%">2022</span><span style="left:68.2%">2024</span><span style="left:90.9%">2026</span></div>
     </div>
   </div>
 </header>
@@ -329,7 +332,7 @@ main{padding:clamp(44px,6vw,80px) 0 0}
     <h2 class="section-title">Опыт</h2>
 
     <article class="job">
-      <div class="when"><b>дек 2023 – сейчас</b><span>2 г. 10 мес.</span></div>
+      <div class="when"><b>дек 2023 – сейчас</b><span data-since="2023-12">2 г. 10 мес.</span></div>
       <div>
         <h3>Сбер</h3>
         <p class="pos">Продуктовый дизайнер, сегмент «Дети, родители, молодёжь»</p>
@@ -493,6 +496,17 @@ main{padding:clamp(44px,6vw,80px) 0 0}
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
 </a>
 <script>
+/* Стаж «с даты по сейчас» пересчитывается при открытии, в разметке остаётся запасной текст */
+(function(){
+  var now=new Date();
+  document.querySelectorAll('[data-since]').forEach(function(el){
+    var p=el.getAttribute('data-since').split('-');
+    var m=(now.getFullYear()*12+now.getMonth()+1)-(+p[0]*12+ +p[1]);
+    if(m<1) return;
+    var y=Math.floor(m/12), r=m%12;
+    el.textContent=(y?y+'\u00a0г.':'')+(y&&r?' ':'')+(r?r+'\u00a0мес.':'');
+  });
+})();
 /* Прячем плавающую кнопку, пока видна шапка со своей кнопкой «Портфолио» */
 (function(){
   var btn=document.querySelector('.float'), top=document.querySelector('.hero');
