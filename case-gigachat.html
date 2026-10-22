@@ -250,13 +250,17 @@ h2{font-family:var(--f-display);font-weight:600;font-size:var(--h2);line-height:
 .rs-sec .side{display:flex;flex-direction:column;gap:22px}
 .rs-sec .side p{font-size:25px;line-height:1.4;color:var(--mute-d)}
 .rs-note{font-family:var(--f-mono);font-size:16px;letter-spacing:.04em;line-height:1.5;color:var(--mute-d);margin-top:22px}
-/* bars: one series, values labelled directly, so no legend */
-.rs-bars{display:flex;flex-direction:column;gap:18px}
-.rs-bars li{display:grid;grid-template-columns:380px minmax(0,1fr) 110px;align-items:center;gap:24px;font-size:25px}
-.rs-bars .t{height:22px;background:rgba(200,204,209,.12);border-radius:4px;overflow:hidden}
-.rs-bars .t i{display:block;height:100%;width:var(--p);background:#c8ccd1;border-radius:0 4px 4px 0}
+/* bars: label and value sit above the track, so every row has the same rhythm; two highlighted rows differ by lightness and weight */
+.rs-bars{display:flex;flex-direction:column;gap:26px}
+.rs-bars li{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:12px 24px;font-size:25px;line-height:1.2;color:var(--mute-d)}
+.rs-bars .t{grid-column:1/-1;height:14px;background:rgba(200,204,209,.1);border-radius:4px;overflow:hidden}
+.rs-bars .t i{display:block;height:100%;width:var(--p);background:#6f747a;border-radius:0 4px 4px 0}
+.rs-bars b{font-weight:500;font-variant-numeric:tabular-nums;text-align:right}
+.rs-bars li.hl{color:var(--paper);font-weight:600}
+.rs-bars li.hl b{font-weight:600}
 .rs-bars li.hl .t i{background:#f1f2f3}
-.rs-bars b{font-weight:600;font-variant-numeric:tabular-nums;text-align:right}
+.rs-key{display:flex;align-items:center;gap:12px;font-size:21px;color:var(--mute-d);margin-bottom:30px}
+.rs-key i{width:28px;height:14px;border-radius:4px;background:#f1f2f3;flex:none}
 .rs-tbl{display:flex;flex-direction:column}
 .rs-tbl li{display:grid;grid-template-columns:150px minmax(0,1.15fr) minmax(0,1fr);gap:36px;padding:26px 0;border-bottom:1.5px solid rgba(200,204,209,.25);font-size:24px;line-height:1.4}
 .rs-tbl li.h{font-family:var(--f-mono);font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute-d);padding-top:0}
@@ -288,10 +292,10 @@ h2{font-family:var(--f-display);font-weight:600;font-size:var(--h2);line-height:
   .rs-sec h3{font-size:25px}
   .rs-sec .side{gap:12px}.rs-sec .side p{font-size:16px}
   .rs-note{font-size:11px;margin-top:12px}
-  .rs-bars{gap:14px}
-  .rs-bars li{grid-template-columns:minmax(0,1fr) 52px;gap:6px 12px;font-size:15px}
-  .rs-bars li span:first-child{grid-column:1/-1}
-  .rs-bars .t{height:14px}
+  .rs-bars{gap:18px}
+  .rs-bars li{font-size:15px;gap:8px 12px}
+  .rs-bars .t{height:10px}
+  .rs-key{font-size:13px;gap:10px;margin-bottom:20px}.rs-key i{width:22px;height:10px}
   .rs-tbl li{grid-template-columns:1fr;gap:6px;padding:18px 0;font-size:15px}
   .rs-tbl li.h{display:none}
   .rs-tbl small{font-size:11px}
@@ -371,15 +375,16 @@ h2{font-family:var(--f-display);font-weight:600;font-size:var(--h2);line-height:
             <p>Большинству важны сразу несколько источников: сайт вуза, рейтинги, навигаторы с проходными баллами, совет семьи. Ни один из них не отвечает на все вопросы, поэтому картину человек собирает сам.</p>
           </div>
           <div>
+            <p class="rs-key"><i aria-hidden="true"></i>Источники, где абитуриент сам ищет баллы и условия приёма</p>
             <ol class="rs-bars" aria-label="Источники информации при выборе вуза, доля ответивших «важно» или «очень важно»">
-              <li class="hl"><span>Официальный сайт вуза</span><span class="t"><i style="--p:66.2%"></i></span><b>66,2%</b></li>
-              <li><span>Личное посещение вуза</span><span class="t"><i style="--p:61.3%"></i></span><b>61,3%</b></li>
-              <li><span>Рейтинги вузов</span><span class="t"><i style="--p:57.5%"></i></span><b>57,5%</b></li>
-              <li class="hl"><span>Навигаторы с проходными баллами</span><span class="t"><i style="--p:57.2%"></i></span><b>57,2%</b></li>
-              <li><span>Совет родителей и родных</span><span class="t"><i style="--p:52.3%"></i></span><b>52,3%</b></li>
-              <li><span>Соцсети и мессенджеры</span><span class="t"><i style="--p:43.5%"></i></span><b>43,5%</b></li>
-              <li><span>СМИ</span><span class="t"><i style="--p:40.9%"></i></span><b>40,9%</b></li>
-              <li><span>Совет школьных учителей</span><span class="t"><i style="--p:29%"></i></span><b>29,0%</b></li>
+              <li class="hl"><span>Официальный сайт вуза</span><b>66,2%</b><span class="t"><i style="--p:66.2%"></i></span></li>
+              <li><span>Личное посещение вуза</span><b>61,3%</b><span class="t"><i style="--p:61.3%"></i></span></li>
+              <li><span>Рейтинги вузов</span><b>57,5%</b><span class="t"><i style="--p:57.5%"></i></span></li>
+              <li class="hl"><span>Навигаторы с проходными баллами</span><b>57,2%</b><span class="t"><i style="--p:57.2%"></i></span></li>
+              <li><span>Совет родителей и родных</span><b>52,3%</b><span class="t"><i style="--p:52.3%"></i></span></li>
+              <li><span>Соцсети и мессенджеры</span><b>43,5%</b><span class="t"><i style="--p:43.5%"></i></span></li>
+              <li><span>СМИ</span><b>40,9%</b><span class="t"><i style="--p:40.9%"></i></span></li>
+              <li><span>Совет школьных учителей</span><b>29,0%</b><span class="t"><i style="--p:29%"></i></span></li>
             </ol>
             <p class="rs-note">Можно было отметить несколько ответов. Онлайн-опрос РСР и RAEX, 14–23 июня 2022, более 1000 человек с опытом поступления.</p>
           </div>
