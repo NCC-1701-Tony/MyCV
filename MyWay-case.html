@@ -924,6 +924,68 @@ a:focus-visible{outline:2px solid var(--cobalt-400);outline-offset:2px}
 .ba-wrap{padding-bottom:8px}
 @media (max-width:980px){.ba4{grid-template-columns:minmax(0,1fr)}.ba-pair{max-width:560px}}
 @media (max-width:760px){.ba-arrow{width:32px;height:32px}.ba-pair{gap:10px}}
+/* ---- Research (01 Product): key facts + expandable details ---- */
+.rs-block .head2{align-items:end}
+.rs-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:clamp(32px,4vw,48px)}
+.rs-card{background:var(--gray-50);border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:10px;box-shadow:0 0 0 1px var(--line) inset}
+.rs-card.hl{background:var(--cobalt-50);box-shadow:0 0 0 1px var(--cobalt-100) inset}
+.rs-card>b{font-size:clamp(36px,4.2vw,56px);font-weight:700;letter-spacing:-.045em;line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap}
+.rs-card.hl>b{color:var(--accent)}
+.rs-card>b i{font-style:normal;font-size:.5em;letter-spacing:-.02em;margin-left:.08em;color:var(--mute);font-weight:600}
+.rs-card p{font-size:15px;line-height:1.45;color:var(--mute)}
+.rs-card small{margin-top:auto;padding-top:6px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.rs{margin-top:28px}
+.rs>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:12px;font-size:15px;font-weight:600;color:var(--accent);padding:12px 22px;border-radius:999px;background:var(--cobalt-50);box-shadow:0 0 0 1px var(--cobalt-100) inset;transition:background-color .2s ease;user-select:none}
+.rs>summary::-webkit-details-marker{display:none}
+.rs>summary::before{content:"+";font-size:1.4em;line-height:.7;font-weight:500}
+.rs[open]>summary::before{content:"−"}
+.rs>summary .c{display:none}.rs[open]>summary .o{display:none}.rs[open]>summary .c{display:inline}
+.rs>summary:focus-visible{outline:2px solid var(--cobalt-400);outline-offset:2px}
+@media (hover:hover) and (pointer:fine){.rs>summary:hover{background:var(--cobalt-100)}}
+.rs-body{display:flex;flex-direction:column;gap:clamp(48px,6vw,80px);padding-top:clamp(40px,5vw,64px)}
+.rs-sec{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:clamp(24px,5vw,72px);padding-top:24px;border-top:1px solid var(--line)}
+.rs-sec h4{margin:0;font-size:22px;font-weight:700;letter-spacing:-.02em;line-height:1.2;text-wrap:balance}
+.rs-sec .side p{margin-top:10px;font-size:15.5px;line-height:1.5;color:var(--mute);text-wrap:pretty}
+.rs-note{margin-top:16px;font-family:var(--f-mono);font-size:12px;line-height:1.55;color:var(--mute)}
+/* one series, values labelled directly, so no legend */
+.rs-bars li{display:grid;grid-template-columns:260px minmax(0,1fr) 52px;gap:16px;align-items:center;padding:7px 0;font-size:15.5px}
+.rs-bars .t{height:14px;border-radius:999px;background:var(--gray-100);overflow:hidden}
+.rs-bars .t i{display:block;height:100%;width:var(--p);background:var(--cobalt-200);border-radius:999px}
+.rs-bars li.hl .t i{background:var(--cobalt-500)}
+.rs-bars li.hl span:first-child{font-weight:600}
+.rs-bars b{font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.rs-tbl li{display:grid;grid-template-columns:120px minmax(0,1.15fr) minmax(0,1fr);gap:24px;padding:18px 0;border-bottom:1px solid var(--line);font-size:15.5px;line-height:1.5}
+.rs-tbl li.h{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);padding-top:0}
+.rs-tbl small{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);padding-top:3px}
+.rs-tbl .m{color:var(--mute)}
+.rs-tbl .s b{font-weight:600}
+.rs-out{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.rs-out>div{background:var(--gray-50);border-radius:22px;padding:22px;box-shadow:0 0 0 1px var(--line) inset}
+.rs-out b{display:block;font-size:22px;font-weight:700;letter-spacing:-.02em;color:var(--accent)}
+.rs-out span{display:block;margin-top:8px;font-size:15px;line-height:1.45;color:var(--mute)}
+.rs-list li{padding:12px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.5;color:var(--mute)}
+.rs-list li:first-child{padding-top:0}
+.rs-list a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--gray-300);text-underline-offset:3px}
+@media (hover:hover) and (pointer:fine){.rs-list a:hover{color:var(--accent);text-decoration-color:currentColor}}
+@media (prefers-reduced-motion:reduce){.rs>summary{transition:none}}
+@media (max-width:980px){
+  .rs-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rs-sec{grid-template-columns:minmax(0,1fr);gap:18px}
+}
+@media (max-width:760px){
+  .rs-cards{gap:10px}
+  .rs-card{padding:16px;border-radius:18px;gap:8px}
+  .rs-card>b{font-size:34px}
+  .rs-card p{font-size:14px}
+  .rs-card small{font-size:10.5px;letter-spacing:.04em}
+  .rs>summary{width:100%;justify-content:center}
+  .rs-bars li{grid-template-columns:minmax(0,1fr) 44px;gap:6px 12px;font-size:15px}
+  .rs-bars li span:first-child{grid-column:1 / -1}
+  .rs-tbl li{grid-template-columns:minmax(0,1fr);gap:6px;font-size:15px}
+  .rs-tbl li.h{display:none}
+  .rs-tbl .s::before{content:"В MyWay: ";font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+  .rs-out{grid-template-columns:minmax(0,1fr);gap:10px}
+}
 @media (max-width:1100px){.mi-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:980px){.sp{grid-template-columns:minmax(0,1fr)}.an-grid{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:760px){
@@ -967,7 +1029,8 @@ a:focus-visible{outline:2px solid var(--cobalt-400);outline-offset:2px}
 </header>
 
 <section class="band s-voice" id="product" aria-labelledby="h-prod">
-  <div class="wrap voice-grid">
+  <div class="wrap">
+  <div class="voice-grid">
     <div>
       <p class="kicker"><b>01</b> Продукт</p>
       <h2 class="h" id="h-prod">Ценность с первого свайпа</h2>
@@ -980,6 +1043,100 @@ a:focus-visible{outline:2px solid var(--cobalt-400);outline-offset:2px}
       <li><q>Проверка</q><span>Юзабилити-тест прошёл положительно ещё на прошлом интерфейсе. Логика сохранилась, новый визуал пойдёт на отдельный тест.</span></li>
       <li><q>Команда</q><span>Веду трёх дизайнеров. В продукте ещё 3 разработчика, тестировщик и CEO.</span></li>
     </ul>
+  </div>
+    <div class="ds-block rs-block" id="research">
+      <div class="head2">
+        <div>
+          <p class="kicker"><b>1.1</b> Исследование</p>
+          <h3>Поездки становятся короче, а план на день по-прежнему собирают вручную</h3>
+        </div>
+        <p class="copy">Люди всё чаще едут на день-два в соседний город или область. Идеи, что посмотреть, разбросаны по соцсетям, форумам и отзывам, и маршрут из них приходится собирать самому. MyWay сводит это к выбору города и паре свайпов.</p>
+      </div>
+      <div class="rs-cards">
+        <div class="rs-card"><b>164<i>млн</i></b><p>поездок по России за 11 месяцев 2025 года, на 7,5% больше, чем годом раньше</p><small>СберАналитика, 2025</small></div>
+        <div class="rs-card hl"><b>85<i>%</i></b><p>бронирований жилья пришлось на поездки на 1–3 дня. Таких броней стало на 29% больше за год</p><small>Яндекс Путешествия, 2025</small></div>
+        <div class="rs-card"><b>51<i>%</i></b><p>в последней короткой поездке ехали в соседний регион, ещё 26% путешествовали по своей области</p><small>Отелло, 2025</small></div>
+        <div class="rs-card"><b>10<i>%</i></b><p>решают, какие места посмотреть, уже на месте. Остальные собирают идеи по соцсетям, форумам и отзывам</p><small>Новости Mail и VK Места, 2026</small></div>
+      </div>
+      <details class="rs">
+        <summary><span class="o">Открыть исследование</span><span class="c">Свернуть исследование</span></summary>
+        <div class="rs-body">
+
+          <div class="rs-sec">
+            <div class="side">
+              <h4>Где ищут, что посмотреть</h4>
+              <p>Единого источника нет. Идеи приходят из видео блогеров, с форумов и из отзывов, и ни один из них сам не превращается в маршрут. На сайте MyWay описан тот же путь: поиск, статьи, YouTube, карты и Telegram-каналы.</p>
+            </div>
+            <div>
+              <ol class="rs-bars" aria-label="Источники информации при планировании путешествия, доля респондентов">
+                <li><span>Соцсети и видео блогеров</span><span class="t"><i style="--p:24%"></i></span><b>24%</b></li>
+                <li><span>Туристические сайты и форумы</span><span class="t"><i style="--p:23%"></i></span><b>23%</b></li>
+                <li><span>Отзывы друзей и знакомых</span><span class="t"><i style="--p:20%"></i></span><b>20%</b></li>
+                <li><span>Отзывы на сервисах бронирования</span><span class="t"><i style="--p:20%"></i></span><b>20%</b></li>
+                <li class="hl"><span>Решают, что посмотреть, уже на месте</span><span class="t"><i style="--p:10%"></i></span><b>10%</b></li>
+              </ol>
+              <p class="rs-note">Опрос Новости Mail и VK Места, 1–12 октября 2026, более 8200 респондентов. Показаны доли, которые приводит релиз; формулировка вопроса в нём не раскрыта.</p>
+            </div>
+          </div>
+
+          <div class="rs-sec">
+            <div class="side">
+              <h4>Пять барьеров и ответ на каждый</h4>
+              <p>Каждый барьер мешает быстро решить, как провести день в городе. Для каждого указано, какая часть MyWay его снимает.</p>
+            </div>
+            <ol class="rs-tbl">
+              <li class="h"><span>Барьер</span><span>Почему это сложно</span><span>Что делает MyWay</span></li>
+              <li><small>Время</small><span class="m">Короткие поездки стали основным форматом: больше 85% броней на 1–3 дня, в среднем на две ночи. На город остаётся день, а поиск мест, по оценке команды MyWay, занимает 1–2 часа.</span><span class="s"><b>Колода маршрутов</b> сразу после выбора города. Искать и сравнивать ничего не нужно.</span></li>
+              <li><small>Источники</small><span class="m">Идеи разбросаны по соцсетям, форумам и отзывам. Ни один источник не набирает и четверти ответов.</span><span class="s"><b>Маршруты и места</b> в одной колоде. AI пишет описания и теги: чем место интересно и зачем туда идти.</span></li>
+              <li><small>Выбор</small><span class="m">Длинный список мешает решиться. В классическом эксперименте с джемами при 24 вкусах купили 3% подошедших, при 6 вкусах 30%.</span><span class="s"><b>Одна карточка за раз.</b> Вправо сохранить, влево «Не моё», и отклонённое всегда можно вернуть.</span></li>
+              <li><small>Логистика</small><span class="m">Половина едет в короткую поездку на своей машине, четверть на поезде или электричке. Порядок точек и переходы между ними человек выстраивает сам.</span><span class="s"><b>Готовый маршрут:</b> точки по порядку, транспорт между ними и карта с теми же номерами.</span></li>
+              <li><small>Сейчас или заранее</small><span class="m">73% начинают готовиться к путешествию за два месяца и раньше, а 10% выбирают места уже в городе. Нужны оба сценария.</span><span class="s"><b>«Погнали»</b> запускает маршрут сразу, а «Мой путь» хранит сохранённое и собирает свой маршрут заранее.</span></li>
+            </ol>
+          </div>
+
+          <div class="rs-sec">
+            <div class="side">
+              <h4>Вывод</h4>
+              <p>Человеку в новом городе не хватает не информации, а готового решения на сегодня. Поэтому сценарий MyWay держится на трёх вещах.</p>
+            </div>
+            <div class="rs-out">
+              <div><b>Сразу</b><span>Выбрал город и видишь маршруты, без поиска по статьям и картам</span></div>
+              <div><b>Готово</b><span>Маршрут уже выстроен по времени и впечатлениям: точки, порядок, транспорт</span></div>
+              <div><b>Под себя</b><span>Свайпами отсеять лишнее, сохранить нужное и собрать свой путь заранее</span></div>
+            </div>
+          </div>
+
+          <div class="rs-sec">
+            <div class="side">
+              <h4>Ограничения</h4>
+            </div>
+            <ul class="rs-list">
+              <li>Яндекс Путешествия считают бронирования жилья в своём сервисе, поэтому поездки на день без ночёвки в эти данные не попадают. СберАналитика оценивает поездки по обезличенным данным о покупках.</li>
+              <li>Опрос Отелло проводился онлайн среди 1000 человек 18–55 лет из городов с населением от 500 тыс. Опрос Новости Mail проводился на портале. Обе выборки не репрезентативны для всех путешественников.</li>
+              <li>1–2 часа на поиск мест взяты с сайта MyWay. Это оценка команды, а не замер, поэтому здесь она допущение.</li>
+              <li>Эффект перегрузки выбором воспроизводится не всегда: метаанализ 2010 года нашёл средний эффект, близкий к нулю. Здесь он аргумент за простой выбор, а не закон.</li>
+              <li>Здесь собраны открытые данные о рынке. Результаты тестов алгоритма и юзабилити-тестов MyWay в этот блок не вошли.</li>
+            </ul>
+          </div>
+
+          <div class="rs-sec">
+            <div class="side">
+              <h4>Источники</h4>
+            </div>
+            <ol class="rs-list">
+              <li><a href="https://sberanalytics.ru/researches/travel-expenses" target="_blank" rel="noopener">СберАналитика. В 2025 году россияне совершили 164 млн поездок по России, декабрь 2025</a></li>
+              <li><a href="https://www.trn-news.ru/analytics/210941" target="_blank" rel="noopener">TRN. Яндекс Путешествия: как отдыхали россияне в 2025 году, февраль 2026</a></li>
+              <li><a href="https://welcometimes.ru/news/etim-letom-v-trende-u-rossiyan-korotkie-puteshestviya" target="_blank" rel="noopener">Welcome Times. Отелло и ЮMoney: короткие путешествия на 1–3 дня, июль 2025</a></li>
+              <li><a href="https://vk.company/ru/press/releases/12440/" target="_blank" rel="noopener">VK. Опрос Новости Mail и VK Места о путешествиях, октябрь 2026</a></li>
+              <li><a href="https://doi.org/10.1037/0022-3514.79.6.995" target="_blank" rel="noopener">Iyengar S., Lepper M. When choice is demotivating, 2000</a></li>
+              <li><a href="https://doi.org/10.1086/651235" target="_blank" rel="noopener">Scheibehenne B., Greifeneder R., Todd P. Can there ever be too many options? 2010</a></li>
+              <li><a href="https://myway.center" target="_blank" rel="noopener">MyWay. Сайт проекта</a></li>
+            </ol>
+          </div>
+
+        </div>
+      </details>
+    </div>
   </div>
 </section>
 
