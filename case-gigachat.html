@@ -236,13 +236,15 @@ h2{font-family:var(--f-display);font-weight:600;font-size:var(--h2);line-height:
 .rs-card .v i{font-style:normal;font-size:.5em;letter-spacing:-.02em;margin-left:.1em;color:var(--mute-d);font-weight:400}
 .rs-card p{font-size:24px;line-height:1.36;color:var(--paper)}
 .rs-card small{margin-top:auto;padding-top:10px;font-family:var(--f-mono);font-size:16px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute-d)}
-.rs{margin-top:44px}
-.rs>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:18px;font-family:var(--f-mono);font-size:var(--small);letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:var(--paper);padding:18px 30px;border-radius:99px;border:1.5px solid rgba(200,204,209,.45);transition:background .2s,border-color .2s}
+.rs{margin-top:64px}
+.rs>summary{list-style:none;cursor:pointer;display:flex;width:fit-content;margin-inline:auto;align-items:center;justify-content:center;gap:20px;font-family:var(--f-mono);font-size:var(--small);letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--ink);background:var(--paper);padding:26px 52px;border-radius:99px;transition:background .2s,transform .2s;user-select:none}
 .rs>summary::-webkit-details-marker{display:none}
-.rs>summary:hover{background:#2c3034;border-color:#e8eaec}
-.rs>summary:focus-visible{outline:2px solid #e8eaec;outline-offset:4px}
-.rs>summary::before{content:"+";font-size:1.5em;line-height:.6;font-weight:400}
-.rs[open]>summary::before{content:"−"}
+.rs>summary:hover{background:var(--paper-2)}
+.rs>summary:active{transform:scale(.98)}
+.rs>summary:focus-visible{outline:2px solid var(--paper);outline-offset:6px}
+.rs>summary::after{content:"";flex:none;width:.6em;height:.6em;border-right:.14em solid currentColor;border-bottom:.14em solid currentColor;transform:translateY(-.2em) rotate(45deg);transition:transform .25s}
+.rs[open]>summary::after{transform:translateY(.15em) rotate(-135deg)}
+@media (prefers-reduced-motion:reduce){.rs>summary,.rs>summary::after{transition:none}}
 .rs>summary .c{display:none}.rs[open]>summary .o{display:none}.rs[open]>summary .c{display:inline}
 .rs-body{display:flex;flex-direction:column;gap:88px;padding-top:72px}
 .rs-sec{display:grid;grid-template-columns:520px minmax(0,1fr);gap:96px;border-top:2px solid var(--mute-d);padding-top:40px}
@@ -280,13 +282,13 @@ h2{font-family:var(--f-display);font-weight:600;font-size:var(--h2);line-height:
 @media (max-width:820px){
   .slide.research{min-height:0}
   .rs-top{grid-template-columns:1fr;gap:22px}
-  .rs-cards{grid-template-columns:1fr 1fr;gap:12px;margin-top:30px}
+  .rs-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:30px}
   .rs-card{padding:20px 18px;border-radius:20px;gap:8px}
   .rs-card .v{font-size:34px}
   .rs-card p{font-size:14px}
   .rs-card small{font-size:10px;letter-spacing:.04em}
-  .rs{margin-top:26px}
-  .rs>summary{font-size:12px;padding:14px 22px;gap:12px;width:100%;justify-content:center}
+  .rs{margin-top:32px}
+  .rs>summary{font-size:13px;padding:19px 24px;gap:14px;width:100%}
   .rs-body{gap:52px;padding-top:40px}
   .rs-sec{grid-template-columns:1fr;gap:24px;padding-top:24px}
   .rs-sec h3{font-size:25px}
@@ -305,6 +307,7 @@ h2{font-family:var(--f-display);font-weight:600;font-size:var(--h2);line-height:
   .rs-out b{font-size:20px}.rs-out span{font-size:15px}
   .rs-list li{font-size:14px;padding:14px 0}
 }
+@media (max-width:360px){.rs-card{padding:18px 14px}}
 @media (prefers-reduced-motion:reduce){.slide.on [data-r]{animation:none}}
 </style>
 
@@ -355,15 +358,15 @@ h2{font-family:var(--f-display);font-weight:600;font-size:var(--h2);line-height:
     <div class="rs-top">
       <div class="stack" style="gap:30px">
         <p class="eyebrow" data-r>Исследование</p>
-        <h2 data-r style="--i:1;max-width:18ch">Данные о приёме есть, но собирать их приходится вручную</h2>
+        <h2 data-r style="--i:1;max-width:18ch">Данные о приёме есть, но собирать их приходится вручную</h2>
       </div>
-      <p class="copy mute" data-r style="--i:2">Абитуриент выбирает из сотен вузов и десятков конкурсов. Проходные баллы, цены и шансы лежат на разных сайтах, и сравнивать их приходится самому.</p>
+      <p class="copy mute" data-r style="--i:2">Абитуриент выбирает из сотен вузов и десятков конкурсов. Проходные баллы, цены и шансы лежат на разных сайтах, и сравнивать их приходится самому.</p>
     </div>
     <div class="rs-cards" data-r style="--i:2">
-      <div class="rs-card"><div class="v">815</div><p>вузов в мониторинге приёма. Правила, баллы и цены каждый публикует на своём сайте</p><small>ВШЭ, 2025 · объясняем.рф</small></div>
-      <div class="rs-card"><div class="v">до 25</div><p>конкурсов на одного абитуриента: 5 вузов и до 5 направлений в каждом, бюджет и платное отдельно</p><small>объясняем.рф, правила 2024</small></div>
-      <div class="rs-card"><div class="v">+13,9<i>%</i></div><p>рост стоимости обучения при инфляции 8,9%. Год учёбы стоит в среднем 2,7 месяца работы</p><small>ВШЭ, приём 2025</small></div>
-      <div class="rs-card"><div class="v">83,4<i>%</i></div><p>называют бюджетное место важным при выборе. Шанс пройти на него приходится оценивать самому</p><small>РСР и RAEX, 2022</small></div>
+      <div class="rs-card"><div class="v">815</div><p>вузов в мониторинге приёма. Правила, баллы и цены каждый публикует на своём сайте</p><small>ВШЭ, 2025 · объясняем.рф</small></div>
+      <div class="rs-card"><div class="v">до 25</div><p>конкурсов на одного абитуриента: 5 вузов и до 5 направлений в каждом, бюджет и платное отдельно</p><small>объясняем.рф, правила 2024</small></div>
+      <div class="rs-card"><div class="v">+13,9<i>%</i></div><p>рост стоимости обучения при инфляции 8,9%. Год учёбы стоит в среднем 2,7 месяца работы</p><small>ВШЭ, приём 2025</small></div>
+      <div class="rs-card"><div class="v">83,4<i>%</i></div><p>называют бюджетное место важным при выборе. Шанс пройти на него приходится оценивать самому</p><small>РСР и RAEX, 2022</small></div>
     </div>
     <details class="rs" id="research">
       <summary><span class="o">Открыть исследование</span><span class="c">Свернуть исследование</span></summary>
@@ -371,50 +374,50 @@ h2{font-family:var(--f-display);font-weight:600;font-size:var(--h2);line-height:
 
         <div class="rs-sec">
           <div class="side">
-            <h3>Как выбирают вуз сейчас</h3>
-            <p>Большинству важны сразу несколько источников: сайт вуза, рейтинги, навигаторы с проходными баллами, совет семьи. Ни один из них не отвечает на все вопросы, поэтому картину человек собирает сам.</p>
+            <h3>Как выбирают вуз сейчас</h3>
+            <p>Большинству важны сразу несколько источников: сайт вуза, рейтинги, навигаторы с проходными баллами, совет семьи. Ни один из них не отвечает на все вопросы, поэтому картину человек собирает сам.</p>
           </div>
           <div>
-            <p class="rs-key"><i aria-hidden="true"></i>Источники, где абитуриент сам ищет баллы и условия приёма</p>
+            <p class="rs-key"><i aria-hidden="true"></i>Источники, где абитуриент сам ищет баллы и условия приёма</p>
             <ol class="rs-bars" aria-label="Источники информации при выборе вуза, доля ответивших «важно» или «очень важно»">
               <li class="hl"><span>Официальный сайт вуза</span><b>66,2%</b><span class="t"><i style="--p:66.2%"></i></span></li>
               <li><span>Личное посещение вуза</span><b>61,3%</b><span class="t"><i style="--p:61.3%"></i></span></li>
               <li><span>Рейтинги вузов</span><b>57,5%</b><span class="t"><i style="--p:57.5%"></i></span></li>
-              <li class="hl"><span>Навигаторы с проходными баллами</span><b>57,2%</b><span class="t"><i style="--p:57.2%"></i></span></li>
-              <li><span>Совет родителей и родных</span><b>52,3%</b><span class="t"><i style="--p:52.3%"></i></span></li>
-              <li><span>Соцсети и мессенджеры</span><b>43,5%</b><span class="t"><i style="--p:43.5%"></i></span></li>
+              <li class="hl"><span>Навигаторы с проходными баллами</span><b>57,2%</b><span class="t"><i style="--p:57.2%"></i></span></li>
+              <li><span>Совет родителей и родных</span><b>52,3%</b><span class="t"><i style="--p:52.3%"></i></span></li>
+              <li><span>Соцсети и мессенджеры</span><b>43,5%</b><span class="t"><i style="--p:43.5%"></i></span></li>
               <li><span>СМИ</span><b>40,9%</b><span class="t"><i style="--p:40.9%"></i></span></li>
               <li><span>Совет школьных учителей</span><b>29,0%</b><span class="t"><i style="--p:29%"></i></span></li>
             </ol>
-            <p class="rs-note">Можно было отметить несколько ответов. Онлайн-опрос РСР и RAEX, 14–23 июня 2022, более 1000 человек с опытом поступления.</p>
+            <p class="rs-note">Можно было отметить несколько ответов. Онлайн-опрос РСР и RAEX, 14–23 июня 2022, более 1000 человек с опытом поступления.</p>
           </div>
         </div>
 
         <div class="rs-sec">
           <div class="side">
-            <h3>Пять проблем и откуда они берутся</h3>
-            <p>Каждая проблема соответствует одному из пяти вопросов абитуриента. Справа видно, какой экран калькулятора на него отвечает.</p>
+            <h3>Пять проблем и откуда они берутся</h3>
+            <p>Каждая проблема соответствует одному из пяти вопросов абитуриента. Справа видно, какой экран калькулятора на него отвечает.</p>
           </div>
           <ol class="rs-tbl">
-            <li class="h"><span>Вопрос</span><span>Почему это сложно</span><span>Что делает калькулятор</span></li>
-            <li><small>Подбор</small><span class="m">В мониторинге ВШЭ 815 вузов, и каждый публикует условия приёма на своём сайте. Сравнить их можно только вручную или через сторонние навигаторы.</span><span class="s"><b>Один список</b> вузов по введённым баллам, с фильтром и сортировкой</span></li>
-            <li><small>Цена</small><span class="m">Обучение подорожало на 13,9% за год при инфляции 8,9%. На платной основе в 2025 году зачислили около 227 тыс. человек, почти 39% приёма.</span><span class="s"><b>Цена за год</b> в карточке вуза рядом с проходными баллами</span></li>
-            <li><small>Баллы</small><span class="m">Проходной балл известен только по итогам прошлых лет. Средний балл на бюджет по стране почти не меняется (70,2 и 70,1), но о конкретной программе он ничего не говорит.</span><span class="s"><b>Проходной балл с динамикой</b> год к году и пояснением, что она значит</span></li>
-            <li><small>Шансы</small><span class="m">Бюджет важен для 83,4% поступающих, а конкурсов у одного человека может быть до 25. Сопоставлять свои баллы с каждым из них приходится самому.</span><span class="s"><b>Шкала шансов</b> из четырёх состояний, от «очень реалистично» до «только платное»</span></li>
-            <li><small>Что дальше</small><span class="m">Решение часто принимают вместе с семьёй: совет родителей важен для 52,3%. Таблица цифр не объясняет, что выбрать и почему.</span><span class="s"><b>Рекомендация GigaChat</b> простыми словами, над списком вузов</span></li>
+            <li class="h"><span>Вопрос</span><span>Почему это сложно</span><span>Что делает калькулятор</span></li>
+            <li><small>Подбор</small><span class="m">В мониторинге ВШЭ 815 вузов, и каждый публикует условия приёма на своём сайте. Сравнить их можно только вручную или через сторонние навигаторы.</span><span class="s"><b>Один список</b> вузов по введённым баллам, с фильтром и сортировкой</span></li>
+            <li><small>Цена</small><span class="m">Обучение подорожало на 13,9% за год при инфляции 8,9%. На платной основе в 2025 году зачислили около 227 тыс. человек, почти 39% приёма.</span><span class="s"><b>Цена за год</b> в карточке вуза рядом с проходными баллами</span></li>
+            <li><small>Баллы</small><span class="m">Проходной балл известен только по итогам прошлых лет. Средний балл на бюджет по стране почти не меняется (70,2 и 70,1), но о конкретной программе он ничего не говорит.</span><span class="s"><b>Проходной балл с динамикой</b> год к году и пояснением, что она значит</span></li>
+            <li><small>Шансы</small><span class="m">Бюджет важен для 83,4% поступающих, а конкурсов у одного человека может быть до 25. Сопоставлять свои баллы с каждым из них приходится самому.</span><span class="s"><b>Шкала шансов</b> из четырёх состояний, от «очень реалистично» до «только платное»</span></li>
+            <li><small>Что дальше</small><span class="m">Решение часто принимают вместе с семьёй: совет родителей важен для 52,3%. Таблица цифр не объясняет, что выбрать и почему.</span><span class="s"><b>Рекомендация GigaChat</b> простыми словами, над списком вузов</span></li>
           </ol>
         </div>
 
         <div class="rs-sec">
           <div class="side">
             <h3>Вывод</h3>
-            <p>Абитуриенту не хватает не данных, а способа быстро превратить их в решение. Поэтому удобный инструмент должен закрывать три задачи сразу, в одном сценарии.</p>
-            <p>Калькулятор решает все три задачи прямо в мессенджере. За этот опыт проект «Калькулятор поступления в вуз» стал победителем <a href="https://customerforceawards.ru/winners2025" target="_blank" rel="noopener" style="color:var(--paper);text-underline-offset:4px">Customer Force Awards 2025</a> в номинации «Лучший digital-опыт. Банки».</p>
+            <p>Абитуриенту не хватает не данных, а способа быстро превратить их в решение. Поэтому удобный инструмент должен закрывать три задачи сразу, в одном сценарии.</p>
+            <p>Калькулятор решает все три задачи прямо в мессенджере. За этот опыт проект «Калькулятор поступления в вуз» стал победителем <a href="https://customerforceawards.ru/winners2025" target="_blank" rel="noopener" style="color:var(--paper);text-underline-offset:4px">Customer Force Awards 2025</a> в номинации «Лучший digital-опыт. Банки».</p>
           </div>
           <div class="rs-out">
-            <div><b>Собрать</b><span>Баллы, цены и направления разных вузов в одной выдаче вместо десятка сайтов</span></div>
-            <div><b>Посчитать</b><span>Сравнить баллы человека с проходными и показать шанс на бюджет, а не голую цифру</span></div>
-            <div><b>Объяснить</b><span>Сказать, что делать дальше, понятным языком, и честно предупредить, что данные ориентировочные</span></div>
+            <div><b>Собрать</b><span>Баллы, цены и направления разных вузов в одной выдаче вместо десятка сайтов</span></div>
+            <div><b>Посчитать</b><span>Сравнить баллы человека с проходными и показать шанс на бюджет, а не голую цифру</span></div>
+            <div><b>Объяснить</b><span>Сказать, что делать дальше, понятным языком, и честно предупредить, что данные ориентировочные</span></div>
           </div>
         </div>
 
@@ -423,10 +426,10 @@ h2{font-family:var(--f-display);font-weight:600;font-size:var(--h2);line-height:
             <h3>Ограничения</h3>
           </div>
           <ul class="rs-list">
-            <li>Опрос РСР и RAEX проводился онлайн на портале агентства, выборка не репрезентативна для всех абитуриентов.</li>
-            <li>Мониторинг ВШЭ учитывает очный бакалавриат и специалитет вузов, где по ЕГЭ зачислили более 300 человек. Доля платного приёма посчитана по таблицам мониторинга и приблизительна.</li>
-            <li>Число «до 25 конкурсов» описывает верхнюю границу по правилам приёма, а не типичное поведение абитуриента.</li>
-            <li>Здесь собраны открытые данные о рынке. Результаты опроса аудитории калькулятора, по которым появилась шкала шансов, в этот блок не вошли.</li>
+            <li>Опрос РСР и RAEX проводился онлайн на портале агентства, выборка не репрезентативна для всех абитуриентов.</li>
+            <li>Мониторинг ВШЭ учитывает очный бакалавриат и специалитет вузов, где по ЕГЭ зачислили более 300 человек. Доля платного приёма посчитана по таблицам мониторинга и приблизительна.</li>
+            <li>Число «до 25 конкурсов» описывает верхнюю границу по правилам приёма, а не типичное поведение абитуриента.</li>
+            <li>Здесь собраны открытые данные о рынке. Результаты опроса аудитории калькулятора, по которым появилась шкала шансов, в этот блок не вошли.</li>
           </ul>
         </div>
 
@@ -435,10 +438,10 @@ h2{font-family:var(--f-display);font-weight:600;font-size:var(--h2);line-height:
             <h3>Источники</h3>
           </div>
           <ol class="rs-list">
-            <li><a href="https://www.hse.ru/ege2025" target="_blank" rel="noopener">НИУ ВШЭ. Мониторинг качества приёма в вузы, 2025</a></li>
-            <li><a href="https://t-j.ru/news/university-admissions-hse-2025/" target="_blank" rel="noopener">Т—Ж. Обзор мониторинга ВШЭ 2025: цены и платный приём</a></li>
-            <li><a href="https://www.kommersant.ru/doc/5446120" target="_blank" rel="noopener">Коммерсантъ. Опрос РСР и RAEX «Поступление в вуз: что влияет на выбор абитуриента», июль 2022</a></li>
-            <li><a href="https://xn--h1alcedd.xn--d1aqf.xn--p1ai/instructions/kak-postupit-v-vuz-v-godu/" target="_blank" rel="noopener">Объясняем.рф. Как поступить в вуз в 2024 году</a></li>
+            <li><a href="https://www.hse.ru/ege2025" target="_blank" rel="noopener">НИУ ВШЭ. Мониторинг качества приёма в вузы, 2025</a></li>
+            <li><a href="https://t-j.ru/news/university-admissions-hse-2025/" target="_blank" rel="noopener">Т—Ж. Обзор мониторинга ВШЭ 2025: цены и платный приём</a></li>
+            <li><a href="https://www.kommersant.ru/doc/5446120" target="_blank" rel="noopener">Коммерсантъ. Опрос РСР и RAEX «Поступление в вуз: что влияет на выбор абитуриента», июль 2022</a></li>
+            <li><a href="https://xn--h1alcedd.xn--d1aqf.xn--p1ai/instructions/kak-postupit-v-vuz-v-godu/" target="_blank" rel="noopener">Объясняем.рф. Как поступить в вуз в 2024 году</a></li>
             <li><a href="https://customerforceawards.ru/winners2025" target="_blank" rel="noopener">Customer Force Awards. Победители 2025</a></li>
           </ol>
         </div>
@@ -550,7 +553,7 @@ h2{font-family:var(--f-display);font-weight:600;font-size:var(--h2);line-height:
     <div class="stack">
       <p class="eyebrow" data-r>Карточка вуза</p>
       <h2 data-r style="--i:1">Проходной балл с динамикой</h2>
-      <p class="copy mute" data-r style="--i:2">Цифра без контекста пугает. Поэтому рядом с баллом показано, как он изменился за год, и что это значит для абитуриента.</p>
+      <p class="copy mute" data-r style="--i:2">Цифра без контекста пугает. Поэтому рядом с баллом показано, как он изменился за год, и что это значит для абитуриента.</p>
       <p class="copy mute" data-r style="--i:3">Ниже: стоимость, места, форма обучения и кредит на обучение.</p>
     </div>
     <div style="display:flex;flex-direction:column;gap:30px">
@@ -589,7 +592,7 @@ h2{font-family:var(--f-display);font-weight:600;font-size:var(--h2);line-height:
       <h2 data-r style="--i:1;max-width:11ch">Рекомендации GigaChat</h2>
       <ul class="facts" data-r style="--i:2;max-width:760px">
         <li><b>Видит всё, что ввёл человек:</b> баллы по предметам и индивидуальные достижения</li>
-        <li><b>Объясняет, что это значит:</b> какие программы реалистичны, где нужна осторожность</li>
+        <li><b>Объясняет, что это значит:</b> какие программы реалистичны, где нужна осторожность</li>
         <li><b>Говорит первым:</b> совет стоит над списком вузов и сворачивается</li>
         <li><b>Не обещает лишнего:</b> под формой подпись, что данные ориентировочные и не гарантируют поступления</li>
       </ul>
@@ -641,13 +644,13 @@ h2{font-family:var(--f-display);font-weight:600;font-size:var(--h2);line-height:
   <div class="glow" style="width:760px;height:760px;right:60px;top:120px;--glow-c:var(--mint);opacity:.22"></div>
   <div class="cols" style="grid-template-columns:minmax(0,1fr) auto;gap:80px;position:relative">
     <div class="stack">
-      <p class="eyebrow" data-r>До и после</p>
-      <h2 data-r style="--i:1;max-width:12ch">От быстрого MVP к понятному сервису</h2>
+      <p class="eyebrow" data-r>До и после</p>
+      <h2 data-r style="--i:1;max-width:12ch">От быстрого MVP к понятному сервису</h2>
       <ul class="facts" data-r style="--i:2;max-width:600px">
-        <li>Меньше экранов ввода, подписи в полях подсказывают</li>
-        <li>Тумблеры там, где выбор из двух, редкое ушло в фильтры</li>
-        <li>Выдача компактнее: цена и проходные баллы на бюджет и платное рядом</li>
-        <li>Проходной балл с динамикой год к году</li>
+        <li>Меньше экранов ввода, подписи в полях подсказывают</li>
+        <li>Тумблеры там, где выбор из двух, редкое ушло в фильтры</li>
+        <li>Выдача компактнее: цена и проходные баллы на бюджет и платное рядом</li>
+        <li>Проходной балл с динамикой год к году</li>
       </ul>
     </div>
     <div class="ba-pairs" data-r style="--i:3">
@@ -664,7 +667,7 @@ h2{font-family:var(--f-display);font-weight:600;font-size:var(--h2);line-height:
     <div class="stack">
       <p class="eyebrow" data-r>Результаты</p>
       <h2 data-r style="--i:1">Рост после запуска</h2>
-      <p class="copy mute" data-r style="--i:2;color:var(--mute-d)">Конверсия и глубина использования выросли за 3 месяца после первого запуска по сравнению с первой версией. Сессий стало больше, потому что пользователи начали проверять разные баллы и сценарии.</p>
+      <p class="copy mute" data-r style="--i:2;color:var(--mute-d)">Конверсия и глубина использования выросли за 3 месяца после первого запуска по сравнению с первой версией. Сессий стало больше, потому что пользователи начали проверять разные баллы и сценарии.</p>
     </div>
     <div class="ledger" data-r style="--i:2">
       <div class="row hl" style="--mint:#e8eaec"><div class="v">+30<i>%</i></div><div class="l">конверсия в целевое действие<small>подбор списка вузов и переход на страницу вуза</small></div></div>
