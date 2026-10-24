@@ -939,7 +939,9 @@ a:focus-visible{outline:2px solid var(--cobalt-400);outline-offset:2px}
 .rs>summary::-webkit-details-marker{display:none}
 .rs>summary::after{content:"";flex:none;width:.5em;height:.5em;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-.15em) rotate(45deg);transition:transform .25s ease}
 .rs[open]>summary::after{transform:translateY(.15em) rotate(-135deg)}
+.rs.closing>summary::after{transform:translateY(-.15em) rotate(45deg)}
 .rs>summary .c{display:none}.rs[open]>summary .o{display:none}.rs[open]>summary .c{display:inline}
+.rs.closing>summary .c{display:none}.rs.closing>summary .o{display:inline}
 .rs>summary:focus-visible{outline:2px solid var(--border-focus);outline-offset:3px}
 .rs>summary:active{background:var(--button-primary-pressed);transform:scale(.98)}
 @media (hover:hover) and (pointer:fine){.rs>summary:hover{background:var(--button-primary-hover)}}
@@ -1473,5 +1475,32 @@ a:focus-visible{outline:2px solid var(--cobalt-400);outline-offset:2px}
 })();
 </script>
 
+<script>
+(function(){
+  function animateDetails(d,onFrame){
+    var s=d.querySelector('summary'),b=d.querySelector('.rs-body'),rm=matchMedia('(prefers-reduced-motion:reduce)'),anim=null;
+    if(!s||!b||!b.animate)return;
+    function loop(){if(!anim)return;onFrame&&onFrame();requestAnimationFrame(loop)}
+    s.addEventListener('click',function(e){
+      if(rm.matches)return;
+      e.preventDefault();
+      var opening=!d.open||d.classList.contains('closing'),from=d.open?b.offsetHeight:0,to;
+      if(anim)anim.cancel();
+      b.style.overflow='hidden';
+      if(opening){d.classList.remove('closing');d.open=true;to=b.scrollHeight}
+      else{d.classList.add('closing');to=0}
+      anim=b.animate([{height:from+'px',opacity:opening?0:1},{height:to+'px',opacity:opening?1:0}],
+        {duration:Math.round(Math.min(650,320+Math.abs(to-from)/12)),easing:'cubic-bezier(.2,.7,.2,1)'});
+      anim.onfinish=function(){
+        anim=null;b.style.overflow='';
+        if(!opening){d.open=false;d.classList.remove('closing')}
+        onFrame&&onFrame();
+      };
+      requestAnimationFrame(loop);
+    });
+  }
+  [].forEach.call(document.querySelectorAll('details.rs'),function(d){animateDetails(d)});
+})();
+</script>
 </body>
 </html>

@@ -150,6 +150,14 @@ h2{font-family:var(--f-display);font-weight:600;font-size:var(--h2);line-height:
 .cv-main{display:flex;flex-direction:column;gap:38px}
 .cv-main .sub{max-width:20ch}
 .tags{display:flex;gap:14px;flex-wrap:wrap;color:var(--mute-d)}
+.cv-award{align-self:flex-start;display:inline-flex;flex-direction:column;align-items:flex-start;gap:6px;padding:20px 30px 22px;border-radius:24px;background:#2c3034;border:1.5px solid rgba(200,204,209,.25);color:var(--paper);text-decoration:none;font-size:24px;line-height:1.3;transition:border-color .2s,background .2s}
+.cv-award .k{font-family:var(--f-mono);font-size:var(--small);letter-spacing:.1em;text-transform:uppercase;color:var(--mute-d);margin-bottom:4px}
+.cv-award .t{font-weight:600}
+.cv-award .n{color:var(--mute-d)}
+.cv-award .ar{display:inline-block;color:var(--mute-d);transition:transform .2s,color .2s}
+.cv-award:hover{border-color:#e8eaec;background:var(--mint-d)}
+.cv-award:hover .ar{color:var(--paper);transform:translate(2px,-2px)}
+.cv-award:focus-visible{outline:2px solid var(--paper);outline-offset:4px}
 .cv-phones{position:absolute;right:90px;top:0;bottom:0;width:860px}
 .cv-phones .phone{position:absolute;width:390px;aspect-ratio:auto;height:1050px}
 .cv-phones .p-a{left:30px;top:270px}
@@ -203,6 +211,8 @@ h2{font-family:var(--f-display);font-weight:600;font-size:var(--h2);line-height:
   .byline{flex-wrap:wrap;gap:6px 18px;font-size:12px}
   .cover .sub{font-size:19px}
   .tag{font-size:12px;padding:7px 14px}
+  .cv-award{font-size:15px;padding:14px 18px;border-radius:16px;gap:3px}
+  .cv-award .k{font-size:11px}
   /* blocks */
   .qlist li{grid-template-columns:1fr;gap:4px;font-size:23px;padding:20px 0}
   .qlist li.ai{margin:0 -12px;padding-left:12px;padding-right:12px}
@@ -244,8 +254,10 @@ h2{font-family:var(--f-display);font-weight:600;font-size:var(--h2);line-height:
 .rs>summary:focus-visible{outline:2px solid var(--paper);outline-offset:6px}
 .rs>summary::after{content:"";flex:none;width:.6em;height:.6em;border-right:.14em solid currentColor;border-bottom:.14em solid currentColor;transform:translateY(-.2em) rotate(45deg);transition:transform .25s}
 .rs[open]>summary::after{transform:translateY(.15em) rotate(-135deg)}
+.rs.closing>summary::after{transform:translateY(-.2em) rotate(45deg)}
 @media (prefers-reduced-motion:reduce){.rs>summary,.rs>summary::after{transition:none}}
 .rs>summary .c{display:none}.rs[open]>summary .o{display:none}.rs[open]>summary .c{display:inline}
+.rs.closing>summary .c{display:none}.rs.closing>summary .o{display:inline}
 .rs-body{display:flex;flex-direction:column;gap:88px;padding-top:72px}
 .rs-sec{display:grid;grid-template-columns:520px minmax(0,1fr);gap:96px;border-top:2px solid var(--mute-d);padding-top:40px}
 .rs-sec h3{font-family:var(--f-display);font-weight:500;font-size:46px;letter-spacing:-.02em;line-height:1.1;text-wrap:balance}
@@ -324,6 +336,7 @@ h2{font-family:var(--f-display);font-weight:600;font-size:var(--h2);line-height:
       <h1 data-r style="--i:1">Калькулятор вузов</h1>
       <p class="sub" data-r style="--i:2">Mini app на базе ИИ: подбор университета по баллам ЕГЭ</p>
       <div class="tags" data-r style="--i:3"><span class="tag">Telegram</span><span class="tag">MAX</span><span class="tag">GigaChat</span></div>
+      <a class="cv-award" href="https://customerforceawards.ru/winners2025" target="_blank" rel="noopener" data-r style="--i:4"><span class="k">Победитель</span><span class="t">Customer Force Awards 2025<span class="ar" aria-hidden="true"> ↗</span></span><span class="n">Лучший digital-опыт. Банки</span></a>
     </div>
     <div class="byline" data-r style="--i:4"><span>Роль: <b>продуктовый дизайнер, единственный в команде</b></span><span>Сценарии + интерфейс</span></div>
   </div>
@@ -732,7 +745,29 @@ h2{font-family:var(--f-display);font-weight:600;font-size:var(--h2);line-height:
       bar.style.width=(h>0?Math.min(100,pageYOffset/h*100):0)+'%';tick=false;
     });
   },{passive:true});
-  var rs=document.getElementById('research');if(rs)rs.addEventListener('toggle',fit);
+  var rs=document.getElementById('research');if(rs){rs.addEventListener('toggle',fit);animateDetails(rs,fit)}
+  function animateDetails(d,onFrame){
+    var s=d.querySelector('summary'),b=d.querySelector('.rs-body'),rm=matchMedia('(prefers-reduced-motion:reduce)'),anim=null;
+    if(!s||!b||!b.animate)return;
+    function loop(){if(!anim)return;onFrame&&onFrame();requestAnimationFrame(loop)}
+    s.addEventListener('click',function(e){
+      if(rm.matches)return;
+      e.preventDefault();
+      var opening=!d.open||d.classList.contains('closing'),from=d.open?b.offsetHeight:0,to;
+      if(anim)anim.cancel();
+      b.style.overflow='hidden';
+      if(opening){d.classList.remove('closing');d.open=true;to=b.scrollHeight}
+      else{d.classList.add('closing');to=0}
+      anim=b.animate([{height:from+'px',opacity:opening?0:1},{height:to+'px',opacity:opening?1:0}],
+        {duration:Math.round(Math.min(650,320+Math.abs(to-from)/12)),easing:'cubic-bezier(.2,.7,.2,1)'});
+      anim.onfinish=function(){
+        anim=null;b.style.overflow='';
+        if(!opening){d.open=false;d.classList.remove('closing')}
+        onFrame&&onFrame();
+      };
+      requestAnimationFrame(loop);
+    });
+  }
   addEventListener('resize',fit);
   fit();
 })();
