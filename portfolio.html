@@ -11,14 +11,14 @@
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="Антон Данилов">
 <meta property="og:title" content="Портфолио, Антон Данилов">
-<meta property="og:description" content="Кейсы продуктового дизайнера Антона Данилова: калькулятор вузов GigaChat, MyWay и школьные сервисы Сбера.">
+<meta property="og:description" content="Кейсы продуктового дизайнера Антона Данилова: калькулятор вузов GigaChat, MyWay, DripWise и школьные сервисы Сбера.">
 <meta property="og:url" content="https://ncc-1701-tony.github.io/MyCV/portfolio.html">
 <meta property="og:image" content="https://ncc-1701-tony.github.io/MyCV/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Антон Данилов, продуктовый дизайнер">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="description" content="Кейсы продуктового дизайнера Антона Данилова: калькулятор вузов GigaChat, MyWay и школьные сервисы Сбера.">
+<meta name="description" content="Кейсы продуктового дизайнера Антона Данилова: калькулятор вузов GigaChat, MyWay, DripWise и школьные сервисы Сбера.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -99,6 +99,8 @@ a.cover.brand:hover svg{transform:scale(1.05)}
 .cover.gc{background:radial-gradient(90% 70% at 22% 12%,#7ff5d4 0%,transparent 60%),linear-gradient(155deg,#1fcca0 0%,#0f8a73 48%,#232629 100%)}
 .cover.mw{background:radial-gradient(90% 70% at 78% 12%,#b3cbf5 0%,transparent 60%),linear-gradient(160deg,#428be0 0%,#1767d1 46%,#0b3c81 100%)}
 .cover.mw svg{width:34%}
+.cover.dw{background:radial-gradient(90% 70% at 24% 14%,#5a3a26 0%,transparent 62%),linear-gradient(160deg,#3a2719 0%,#2b1d14 55%,#1a120c 100%)}
+.cover.dw svg{width:30%}
 @media (prefers-reduced-motion:reduce){.cover.brand svg{transition:none}}
 
 /* Обложка проекта под NDA: без макетов, только замок на сетке */
@@ -155,12 +157,13 @@ a.cover.brand:hover svg{transform:scale(1.05)}
       <div>
         <p class="eyebrow">Антон Данилов, продуктовый дизайнер</p>
         <h1>Портфолио</h1>
-        <p class="lead">ИИ-сервисы Сбера, стартап и госплатформа. Два кейса с макетами, о двух проектах расскажу на интервью.</p>
+        <p class="lead">ИИ-сервисы Сбера, стартап, свой продукт и госплатформа. Три кейса с макетами, о двух проектах расскажу на интервью.</p>
       </div>
       <nav aria-label="Проекты">
         <ul class="toc">
           <li><a href="#p-gc">Калькулятор вузов GigaChat <span>Кейс</span></a></li>
           <li><a href="#p-mw">MyWay <span>Кейс</span></a></li>
+          <li><a href="#p-dw">DripWise <span>Кейс</span></a></li>
           <li><a href="#p-school">Школьные сервисы для ИИ-школ <span>NDA</span></a></li>
           <li><a href="#p-gisp">ГИСП, Минпромторг <span>Госпроект</span></a></li>
         </ul>
@@ -206,6 +209,26 @@ a.cover.brand:hover svg{transform:scale(1.05)}
           <li><b>Google Play</b>релиз в июне 2026</li>
         </ul>
         <a class="btn" href="MyWay-case.html" target="_blank" rel="noopener">
+          Смотреть кейс
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+        </a>
+      </div>
+    </article>
+
+    <article class="project" aria-labelledby="p-dw">
+      <a class="cover brand dw" href="case-dripwise.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+        <svg viewBox="0 0 96 120" aria-hidden="true"><path fill="#e8dfd3" d="M42.1881 0C53.0051 3.02865e-05 62.4315 2.05996 70.4671 6.18064C78.5028 10.3015 84.7367 15.9176 89.1667 23.0261C93.5962 30.1345 95.8111 38.1189 95.8111 46.9786C95.8111 54.7048 94.4722 61.6845 91.7938 67.9172C89.1152 74.1501 85.3797 79.4566 80.5893 83.835C75.7989 88.2131 70.2871 91.5862 64.0545 93.9556C57.8216 96.3251 51.2539 97.5105 44.3513 97.5106C42.5767 97.5106 40.5636 97.4589 38.3117 97.3635V94.2421C39.6699 94.3598 41.1685 94.4194 42.8066 94.4194C49.9148 94.4194 56.1993 92.7194 61.6592 89.3198C67.1192 85.9199 71.4211 80.9488 74.5632 74.407C77.7052 67.8654 79.2765 59.8551 79.2765 50.3773C79.2763 41.5177 77.8329 33.5075 74.9483 26.3477C72.0637 19.1878 67.9683 13.5213 62.6628 9.34902C57.3573 5.1769 51.0471 3.09107 43.7329 3.09107C37.6551 3.09109 33.3029 3.65742 30.6757 4.79049C28.0486 5.92372 26.7343 8.70597 26.7343 13.1359V75.6336C23.7328 69.8811 20.5756 65.1297 19.3984 62.5628C18.2205 65.1312 15.0611 69.887 12.0581 75.6441H12.0535V12.8267C12.0535 9.83902 11.7712 7.59713 11.2046 6.10332C10.6379 4.60979 9.52962 3.58034 7.88156 3.01376C6.2332 2.44714 3.70899 2.16329 0.309259 2.16329C0.103224 2.16329 0 1.85364 0 1.23552C8.29256e-05 0.617898 0.103307 0.309273 0.309259 0.309259C2.98767 0.309259 5.92361 0.386688 9.11708 0.541203C12.3107 0.695733 15.7625 0.773144 19.4712 0.773148C23.0769 0.773148 27.0176 0.644111 31.2928 0.386573C35.5683 0.129018 39.2005 0 42.1881 0Z"/><path fill="#ff6a1f" d="M19.3984 71.8769C21.9148 77.2907 33.3696 92.5011 33.3696 106.251C33.3696 113.844 27.1152 120 19.3984 120C11.6832 120 5.42719 113.844 5.42719 106.251C5.42719 92.5011 16.8836 77.2907 19.3984 71.8769Z"/></svg>
+      </a>
+      <div>
+        <p class="where">Свой продукт, веб-приложение (PWA)</p>
+        <h2 id="p-dw">DripWise</h2>
+        <p class="desc">Приложение для заваривания кофе: рецепт под кофемолку и вкус, таймер проливов и паспорт с марками стран. Сделал один: бренд, интерфейс, графика и анимации.</p>
+        <ul class="facts">
+          <li><b>4 шага</b>рецепт, таймер, вкус, поправка</li>
+          <li><b>71 сорт</b>из 29 стран с рецептами</li>
+          <li><b>dripwise.ru</b>бета, работает без интернета</li>
+        </ul>
+        <a class="btn" href="case-dripwise.html" target="_blank" rel="noopener">
           Смотреть кейс
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
         </a>
