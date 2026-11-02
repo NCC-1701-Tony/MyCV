@@ -84,23 +84,24 @@ svg{flex:none}
 /* ---------- Проекты ---------- */
 /* Карточка: обложка, шапка с тегами, три колонки «Задача · Как я делал · Результат» */
 main{padding:clamp(28px,5vw,64px) 0 clamp(56px,8vw,96px)}
-.project{display:grid;grid-template-columns:clamp(200px,20vw,248px) minmax(0,1fr);grid-template-areas:"cover head" "cover story" "cover foot";gap:0 clamp(28px,3.4vw,48px);align-items:start;
+.project{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"cover" "head" "story" "foot";align-items:start;
   padding:clamp(20px,3vw,36px);background:var(--surface);border:1px solid var(--line);border-radius:28px}
 .project + .project{margin-top:clamp(16px,2vw,24px)}
 .project h2{scroll-margin-top:24px}
 
-.cover{grid-area:cover;display:block;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--surface);aspect-ratio:1/1}
+/* Обложка — широкий баннер со знаком продукта над текстом */
+.cover{grid-area:cover;display:block;height:clamp(140px,17vw,220px);margin-bottom:clamp(20px,2.6vw,32px);border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--surface)}
 
 /* Обложка-знак: логотип продукта на градиенте из цветов макетов */
 .cover.brand{display:grid;place-items:center;border:0;position:relative;isolation:isolate}
 .cover.brand::after{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;box-shadow:inset 0 0 0 1px rgb(255 255 255 / .14)}
-.cover.brand svg{width:38%;height:auto;filter:drop-shadow(0 12px 28px rgb(0 0 0 / .22));transition:transform .5s var(--ease)}
+.cover.brand svg{height:52%;width:auto;filter:drop-shadow(0 12px 28px rgb(0 0 0 / .22));transition:transform .5s var(--ease)}
 a.cover.brand:hover svg{transform:scale(1.05)}
 .cover.gc{background:radial-gradient(90% 70% at 22% 12%,#7ff5d4 0%,transparent 60%),linear-gradient(155deg,#1fcca0 0%,#0f8a73 48%,#232629 100%)}
 .cover.mw{background:radial-gradient(90% 70% at 78% 12%,#b3cbf5 0%,transparent 60%),linear-gradient(160deg,#428be0 0%,#1767d1 46%,#0b3c81 100%)}
-.cover.mw svg{width:34%}
+.cover.mw svg{height:56%}
 .cover.dw{background:radial-gradient(90% 70% at 24% 14%,#5a3a26 0%,transparent 62%),linear-gradient(160deg,#3a2719 0%,#2b1d14 55%,#1a120c 100%)}
-.cover.dw svg{width:30%}
+.cover.dw svg{height:54%}
 @media (prefers-reduced-motion:reduce){.cover.brand svg{transition:none}}
 
 /* Обложка проекта под NDA: без макетов, только замок на сетке */
@@ -108,7 +109,7 @@ a.cover.brand:hover svg{transform:scale(1.05)}
   linear-gradient(var(--line) 1px,transparent 1px) 0 0/32px 32px,
   linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/32px 32px,
   var(--cobalt-soft)}
-.lock{display:grid;place-items:center;width:min(80px,40%);aspect-ratio:1/1;border-radius:24%;background:var(--surface);color:var(--cobalt-ink);border:1px solid var(--line)}
+.lock{display:grid;place-items:center;height:min(80px,46%);aspect-ratio:1/1;border-radius:24%;background:var(--surface);color:var(--cobalt-ink);border:1px solid var(--line)}
 .lock svg{width:50%;height:auto}
 
 .head{grid-area:head;min-width:0}
@@ -137,14 +138,8 @@ a.cover.brand:hover svg{transform:scale(1.05)}
 .nda.gov{background:var(--bg);color:var(--ink);border:1px solid var(--line)}
 .nda-note{margin:0;font-size:15px;color:var(--muted)}
 
-/* Планшет: обложка становится иконкой у заголовка, колонки идут строками */
+/* Планшет: колонки идут строками, подпись слева */
 @media (max-width:1099px){
-  .project{grid-template-columns:96px minmax(0,1fr);grid-template-areas:"cover where" "cover title" "tags tags" "story story" "foot foot";grid-template-rows:1fr auto;gap:0 20px}
-  .head{display:contents}
-  .where{grid-area:where;align-self:end}
-  .project h2{grid-area:title;align-self:start}
-  .tags{grid-area:tags;margin-top:20px}
-  .cover{border-radius:22px}
   .story{grid-template-columns:1fr;gap:0;padding-top:0;border-top:0}
   .col{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-top:1px solid var(--line)}
   .col h3{padding-top:3px}
@@ -152,9 +147,9 @@ a.cover.brand:hover svg{transform:scale(1.05)}
   .res-note{grid-column:2}
   .facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 20px}
 }
-/* Телефон: подписи над текстом, иконка поменьше */
+/* Телефон: подписи над текстом */
 @media (max-width:599px){
-  .project{grid-template-columns:64px minmax(0,1fr);gap:0 16px;border-radius:24px}
+  .project{border-radius:24px}
   .cover{border-radius:16px}
   .where{font-size:14px}
   .tags{margin-top:16px}
@@ -235,7 +230,7 @@ a.cover.brand:hover svg{transform:scale(1.05)}
       <div class="head">
         <p class="where">Стартап, мобильное приложение</p>
         <h2 id="p-mw">MyWay</h2>
-        <ul class="tags" aria-label="Сферы дизайна в проекте"><li>Дизайн-система</li><li>UX/UI-дизайн</li><li>Лид команды</li><li>UX-исследования</li><li>UX-райтинг</li></ul>
+        <ul class="tags" aria-label="Сферы дизайна в проекте"><li>Дизайн-система</li><li>Брендинг</li><li>UX/UI-дизайн</li><li>Лид команды</li><li>UX-исследования</li><li>UX-райтинг</li></ul>
       </div>
       <div class="story">
         <section class="col"><h3>Задача</h3><p>Приложение для путешествий по городам. Человек не сразу понимал, зачем оно ему. Нужно было сократить путь до первой ценности и собрать разрозненный визуал в одну систему.</p></section>
