@@ -133,11 +133,16 @@ h3{font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.5vw,32px);lin
 /* ---------- 01 проблема ---------- */
 .shot{margin-top:clamp(48px,6vw,80px)}
 .shot .frame{box-shadow:var(--shadow)}
-.cmp{margin:0;display:grid;gap:10px}
-.cmp li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:6px 24px;padding:20px 24px;border-radius:16px;background:var(--card);border:1px solid var(--line);align-items:baseline}
-.cmp b{font-weight:700}
-.cmp span{font-size:15.5px;color:var(--ink-2)}
-.cmp span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);margin-right:12px;translate:0 -1px}
+.cmp{margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.cmp li{display:flex;flex-direction:column;padding:24px 24px 26px;border-radius:20px;background:var(--card);border:1px solid var(--line)}
+.cmp h4{margin:0 0 20px;font-family:var(--serif);font-weight:600;font-size:21px;line-height:1.2;letter-spacing:-.005em}
+.cmp dl{margin:auto 0 0;display:grid;gap:16px}
+.cmp dl div{display:grid;gap:4px}
+.cmp dt{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.cmp dd{margin:0;font-size:15.5px;line-height:1.45;color:var(--ink-2)}
+.cmp .mi{padding-top:16px;border-top:1px solid var(--line)}
+.cmp .mi dt{color:var(--accent)}
+.cmp .mi dd{color:var(--ink)}
 .verdict{margin:clamp(40px,5vw,64px) 0 0;font-family:var(--serif);font-weight:500;font-size:clamp(24px,2.6vw,34px);line-height:1.28;max-width:30ch}
 .verdict em{font-style:normal;color:var(--accent)}
 
@@ -344,6 +349,7 @@ h3{font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.5vw,32px);lin
 
 /* ---------- адаптив ---------- */
 @media (max-width:1000px){
+  .cmp{grid-template-columns:repeat(2,minmax(0,1fr))}
   .c-track{grid-template-columns:repeat(6,minmax(0,1fr))}
   .hero-grid,.head2,.sub,.construct,.two,.res,.globe-wrap{grid-template-columns:minmax(0,1fr)}
   .sub{align-items:start}
@@ -379,7 +385,7 @@ h3{font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.5vw,32px);lin
   .stage .p1{left:4%}
   .stage .p3{right:4%}
   .stage .p2{width:44vw}
-  .cmp li{grid-template-columns:minmax(0,1fr);gap:4px}
+  .cmp{grid-template-columns:minmax(0,1fr)}
   .loop{grid-template-columns:minmax(0,1fr)}
   .loop li{min-height:0}
   .loop li::after{display:none}
@@ -469,13 +475,12 @@ h3{font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.5vw,32px);lin
       </div>
       <p class="copy">Я разобрал, куда человек идёт за помощью. Ни один вариант не связывает рецепт, кофемолку и вкус.</p>
     </div>
-    <ol class="cmp rv" aria-label="Чего не хватает альтернативам">
-      <li><b>Beanconqueror</b><span>Мощный журнал, но не говорит, что делать дальше</span></li>
-      <li><b>Filtru и таймеры</b><span>Рецепт статичный, под тебя не меняется</span></li>
-      <li><b>Acaia, Fellow, Timemore</b><span>Работают только со своими весами</span></li>
-      <li><b>YouTube и блоги</b><span>Не применяются к твоей пачке и кофемолке</span></li>
-    </ol>
-    <p class="verdict rv">Нужен не ещё один рецепт, а <em>рецепт, который подстраивается сам.</em></p>
+    <ol class="cmp rv" aria-label="Чем сейчас пользуются для заваривания">
+      <li><h4>Beanconqueror</h4><dl><div class="pl"><dt>Сильная сторона</dt><dd>Мощный журнал заварок</dd></div><div class="mi"><dt>Чего не хватает</dt><dd>Сложный и не говорит, что делать дальше</dd></div></dl></li>
+      <li><h4>Filtru и таймеры</h4><dl><div class="pl"><dt>Сильная сторона</dt><dd>Красивые и простые</dd></div><div class="mi"><dt>Чего не хватает</dt><dd>Рецепт статичный, под тебя не меняется</dd></div></dl></li>
+      <li><h4>Acaia, Fellow, Timemore</h4><dl><div class="pl"><dt>Сильная сторона</dt><dd>Точные данные с весов</dd></div><div class="mi"><dt>Чего не хватает</dt><dd>Работают только со своим железом</dd></div></dl></li>
+      <li><h4>YouTube и блоги</h4><dl><div class="pl"><dt>Сильная сторона</dt><dd>Глубина и объяснения</dd></div><div class="mi"><dt>Чего не хватает</dt><dd>Не применяются к твоей пачке и кофемолке</dd></div></dl></li>
+    </ol>    <p class="verdict rv">Нужен не ещё один рецепт, а <em>рецепт, который подстраивается сам.</em></p>
   </div>
 </section>
 
