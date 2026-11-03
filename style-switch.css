@@ -1,0 +1,36 @@
+/* Переключатель стиля сайта: «Синий» (по умолчанию) и «Кирпич» (тестовый, белый фон).
+   Цвета берёт из шапки, в которой стоит (currentColor), поэтому одинаково живёт
+   на синей, кирпичной, светлой и тёмной шапке. Выбор хранится в localStorage («cv-style»). */
+.style-switch{
+  display:inline-flex;align-items:center;gap:2px;flex:none;
+  padding:3px;border-radius:999px;
+  border:1px solid color-mix(in srgb,currentColor 30%,transparent);
+  font-family:inherit;font-size:13px;font-weight:600;line-height:1;letter-spacing:0;
+}
+.style-switch button{
+  appearance:none;-webkit-appearance:none;margin:0;
+  display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 12px 0 9px;
+  border:0;border-radius:999px;background:transparent;color:inherit;font:inherit;cursor:pointer;
+  transition:background-color .2s ease;
+}
+.style-switch button:hover{background:color-mix(in srgb,currentColor 9%,transparent)}
+/* Активный вариант — контур, а не заливка: светлая подложка на синем и кирпичном опускала бы контраст подписи ниже AA */
+.style-switch button[aria-pressed="true"]{box-shadow:inset 0 0 0 1.5px currentColor;cursor:default}
+.style-switch button[aria-pressed="true"]:hover{background:transparent}
+.style-switch button:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+.style-switch i{
+  width:14px;height:14px;border-radius:50%;flex:none;
+  box-shadow:0 0 0 1.5px currentColor;
+}
+.style-switch .ss-blue i{background:#3156e0}
+.style-switch .ss-bold i{background:#b83822}
+/* Узкий экран: только кружки, подписи остаются для скринридера в aria-label */
+@media (max-width:359px){
+  .style-switch button{padding:0 11px}
+  .style-switch span{display:none}
+}
+/* Плавная смена палитры при переключении, без движения */
+html.ss-anim,html.ss-anim *,html.ss-anim *::before,html.ss-anim *::after{
+  transition:background-color .35s ease,color .35s ease,border-color .35s ease,box-shadow .35s ease,fill .35s ease !important;
+}
+@media print{.style-switch{display:none}}
