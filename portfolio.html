@@ -177,8 +177,8 @@ a.cover.brand:hover svg{transform:scale(1.05)}
 @media (prefers-reduced-motion:reduce){.float{transition:none}}
 @media print{.float{display:none}}
 
-/* ---------- Стиль «Кирпич» (тестовый): белый фон, кирпичный #B83822 как несущий цвет ----------
-   Те же токены, что в index.html. Залитый кирпичом блок один: шапка. Обложки продуктов не меняются. */
+/* ---------- Стиль «Кирпич» (тестовый): белый фон, кирпичная шапка #B83822 ----------
+   Те же токены, что в index.html. Кирпичные только шапка и цифры, кнопки и подписи чёрные. Обложки продуктов не меняются. */
 @media screen{
   html[data-style="bold"]{
     color-scheme:light;
@@ -187,21 +187,23 @@ a.cover.brand:hover svg{transform:scale(1.05)}
     --ink:       oklch(22% 0.02 32);
     --muted:     oklch(46% 0.02 32);
     --line:      oklch(90% 0.012 32);
-    --cobalt:    #b83822;
-    --cobalt-ink:#b83822;
-    --cobalt-soft:oklch(95.5% 0.025 32);
+    --brick:     #b83822;
+    --cobalt:    oklch(22% 0.02 32);     /* кнопки: чёрные */
+    --cobalt-ink:oklch(22% 0.02 32);     /* подписи, ссылки, теги, иконки: чёрные */
+    --cobalt-soft:oklch(96.5% 0.004 32);
     --on-cobalt: #fff;
-    --hover:     oklch(46% 0.16 32);
-    --hero-bg:   var(--cobalt);
+    --hover:     oklch(34% 0.02 32);
+    --hero-bg:   var(--brick);
     --hero-muted:oklch(93% 0.03 32);
   }
   html[data-style="bold"] .toc,
   html[data-style="bold"] .toc a{border-color:rgb(255 255 255 / .32)}
   html[data-style="bold"] .toc a:hover{border-bottom-color:#fff}
-  html[data-style="bold"] .col h3{color:var(--cobalt-ink)}
+  /* Кирпичным остаются только цифры результатов, всё остальное чёрное */
+  html[data-style="bold"] .facts b.fig{color:var(--brick)}
   html[data-style="bold"] .btn:hover,
   html[data-style="bold"] .float:hover{background:var(--hover)}
-  html[data-style="bold"] .float{box-shadow:0 6px 20px oklch(30% 0.1 32 / .28)}
+  html[data-style="bold"] .float{box-shadow:0 6px 20px oklch(20% 0.02 32 / .28)}
 }
 
 @media (max-width:760px){
@@ -218,10 +220,7 @@ a.cover.brand:hover svg{transform:scale(1.05)}
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18 9 12l6-6"/></svg>
         Резюме
       </a>
-      <div class="style-switch" role="group" aria-label="Цвет сайта">
-        <button type="button" class="ss-blue" data-style-set="blue" aria-pressed="true" aria-label="Синий стиль"><i></i><span>Синий</span></button>
-        <button type="button" class="ss-bold" data-style-set="bold" aria-pressed="false" aria-label="Кирпичный стиль"><i></i><span>Кирпич</span></button>
-      </div>
+      <button type="button" class="style-switch" data-style-toggle aria-label="Сменить цвет сайта" title="Сменить цвет сайта"><i></i></button>
     </div>
     <div class="top-grid">
       <div>
@@ -259,7 +258,7 @@ a.cover.brand:hover svg{transform:scale(1.05)}
       <div class="story">
         <section class="col"><h3>Задача</h3><p>Абитуриент сам собирает проходные баллы, цены и шансы с десятков сайтов. Нужен был один сервис, который превращает эти данные в решение: куда реально поступить.</p></section>
         <section class="col"><h3>Как я делал</h3><p>Единственный дизайнер в команде с PM, аналитиком и разработчиками. Сценарии <span class="nw">end-to-end</span>, интерфейс <span class="nw">mini app</span>, шкала шансов и рекомендации GigaChat. Три итерации по <span class="nw">A/B-тестам</span> и опросам.</p></section>
-        <section class="col res"><h3>Результат</h3><ul class="facts"><li><b>+30%</b><span>конверсия в целевое действие</span></li><li><b>×3</b><span>сессий на клиента за 3 месяца</span></li><li><b>128+ тыс.</b><span>пользователей в 2026 году</span></li><li><b>Customer Force Awards</b><span>победитель</span></li></ul></section>
+        <section class="col res"><h3>Результат</h3><ul class="facts"><li><b class="fig">+30%</b><span>конверсия в целевое действие</span></li><li><b class="fig">×3</b><span>сессий на клиента за 3 месяца</span></li><li><b class="fig">128+ тыс.</b><span>пользователей в 2026 году</span></li><li><b>Customer Force Awards</b><span>победитель</span></li></ul></section>
       </div>
       <div class="foot"><a class="btn" href="case-gigachat.html" target="_blank" rel="noopener">Смотреть кейс <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
     </article>
@@ -278,7 +277,7 @@ a.cover.brand:hover svg{transform:scale(1.05)}
       <div class="story">
         <section class="col"><h3>Задача</h3><p>Приложение для путешествий по городам. Человек не сразу понимал, зачем оно ему. Нужно было сократить путь до первой ценности и собрать разрозненный визуал в одну систему.</p></section>
         <section class="col"><h3>Как я делал</h3><p>Lead-дизайнер, веду трёх дизайнеров. Собрал <span class="nw">дизайн-систему</span> с нуля, на её компонентах спроектировал экраны от входа до витрины туров. Цвет выбрал по исследованию и проверил на контраст.</p></section>
-        <section class="col res"><h3>Результат</h3><ul class="facts"><li><b>27</b><span>компонентов, 192 переменные</span></li><li><b>100+</b><span>экранов в 10 сценариях</span></li><li><b>Google Play</b><span>релиз в июне 2026</span></li><li><b>Юзабилити-тест</b><span>пройден положительно</span></li></ul></section>
+        <section class="col res"><h3>Результат</h3><ul class="facts"><li><b class="fig">27</b><span>компонентов, 192 переменные</span></li><li><b class="fig">100+</b><span>экранов в 10 сценариях</span></li><li><b>Google Play</b><span>релиз в июне 2026</span></li><li><b>Юзабилити-тест</b><span>пройден положительно</span></li></ul></section>
       </div>
       <div class="foot"><a class="btn" href="MyWay-case.html" target="_blank" rel="noopener">Смотреть кейс <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
     </article>
@@ -297,7 +296,7 @@ a.cover.brand:hover svg{transform:scale(1.05)}
       <div class="story">
         <section class="col"><h3>Задача</h3><p>Рецепт кофе из интернета писали не под твою кофемолку и воду, поэтому чашка выходит горькой или кислой. Нужен был рецепт, который подстраивается сам и с каждой чашкой становится лучше.</p></section>
         <section class="col"><h3>Как я делал</h3><p>Сделал один примерно за две недели: разбор конкурентов, имя и знак, палитра, интерфейс, марки и наклейки паспорта, анимации приёмов.</p></section>
-        <section class="col res"><h3>Результат</h3><ul class="facts"><li><b>4 шага</b><span>рецепт, таймер, вкус, поправка</span></li><li><b>71 сорт</b><span>из 29 стран с рецептами</span></li><li><b>16 экранов</b><span>в одной системе, две темы</span></li><li><b>dripwise.ru</b><span>бета, работает без интернета</span></li></ul></section>
+        <section class="col res"><h3>Результат</h3><ul class="facts"><li><b class="fig">4 шага</b><span>рецепт, таймер, вкус, поправка</span></li><li><b class="fig">71 сорт</b><span>из 29 стран с рецептами</span></li><li><b class="fig">16 экранов</b><span>в одной системе, две темы</span></li><li><b>dripwise.ru</b><span>бета, работает без интернета</span></li></ul></section>
       </div>
       <div class="foot"><a class="btn" href="case-dripwise.html" target="_blank" rel="noopener">Смотреть кейс <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
     </article>
@@ -318,7 +317,7 @@ a.cover.brand:hover svg{transform:scale(1.05)}
       <div class="story">
         <section class="col"><h3>Задача</h3><p>Цифровые сервисы ИИ-школы были разрознены. Нужна единая точка входа: проходы, меню буфета, ачивки за школьные активности и геймификация.</p></section>
         <section class="col"><h3>Как я делал</h3><p>Веду полный цикл: исследую потребности школ и учеников, проектирую структуру и сценарии, готовлю макеты к передаче в разработку.</p></section>
-        <section class="col res"><h3>Результат</h3><ul class="facts"><li><b>10 школ</b><span>закрытый тест с сентября 2026</span></li><li><b>10 000 школ</b><span>цель программы к Q2 2027</span></li></ul></section>
+        <section class="col res"><h3>Результат</h3><ul class="facts"><li><b class="fig">10 школ</b><span>закрытый тест с сентября 2026</span></li><li><b class="fig">10 000 школ</b><span>цель программы к Q2 2027</span></li></ul></section>
       </div>
       <div class="foot"><span class="nda"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> Проект под NDA</span><p class="nda-note">Макетов здесь нет. Процесс и решения расскажу на интервью.</p></div>
     </article>
@@ -339,7 +338,7 @@ a.cover.brand:hover svg{transform:scale(1.05)}
       <div class="story">
         <section class="col"><h3>Задача</h3><p>Через ГИСП крупные предприятия подают заявки в Минпромторг и ФГАУ «НИИ ЦЭПП». Подача была долгой, а статус заявки непонятным.</p></section>
         <section class="col"><h3>Как я делал</h3><p>Разобрал процесс обработки заявок, убрал лишние шаги и сделал статусы прозрачными. Переработал информационную архитектуру и навигацию для неподготовленных пользователей.</p></section>
-        <section class="col res"><h3>Результат</h3><ul class="facts"><li><b>×3</b><span>быстрее обработка заявок</span></li><li><b>×2</b><span>меньше обращений в поддержку</span></li><li><b>100+</b><span>крупных предприятий: Северсталь, Норникель и другие</span></li></ul><p class="res-note">Сравнение с прежним процессом, замер сразу после релиза.</p></section>
+        <section class="col res"><h3>Результат</h3><ul class="facts"><li><b class="fig">×3</b><span>быстрее обработка заявок</span></li><li><b class="fig">×2</b><span>меньше обращений в поддержку</span></li><li><b class="fig">100+</b><span>крупных предприятий: Северсталь, Норникель и другие</span></li></ul><p class="res-note">Сравнение с прежним процессом, замер сразу после релиза.</p></section>
       </div>
       <div class="foot"><span class="nda gov"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M12 3 4 7v3h16V7l-8-4z"/><path d="M7 10v8M12 10v8M17 10v8"/></svg> Государственный проект</span><p class="nda-note">Публичных макетов нет. Процесс и метрики расскажу на интервью.</p></div>
     </article>
