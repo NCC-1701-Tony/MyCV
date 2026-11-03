@@ -44,8 +44,8 @@
 .seg-ctl button[aria-pressed="true"]{background:var(--surface);box-shadow:0 1px 3px rgb(0 0 0 / .14),inset 0 0 0 1px var(--line)}
 .seg-ctl button:focus-visible{outline:2px solid var(--ink);outline-offset:1px}
 .seg-ctl i{width:12px;height:12px;border-radius:50%;flex:none}
-.seg-ctl .sw-blue{background:#3156e0}
-.seg-ctl .sw-bold{background:#b83822}
+.seg-ctl .sw-blue{background:#2645c8}
+.seg-ctl .sw-bold{background:#9f2a16}
 
 /* Плавная смена палитры: браузер делает снимок страницы до и после и растворяет один в другом.
    Так текст, иконки и фон меняются строго одновременно (раньше в Safari вложенные иконки

@@ -22,9 +22,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style-switch.css?v=6">
+<link rel="stylesheet" href="style-switch.css?v=7">
 <script>try{var d=document.documentElement,s=localStorage.getItem('cv-style'),t=localStorage.getItem('cv-theme');if(s==='bold')d.setAttribute('data-style','bold');if(t==='light'||t==='dark')d.setAttribute('data-theme',t)}catch(e){}</script>
-<script src="style-switch.js?v=6" defer></script>
+<script src="style-switch.js?v=7" defer></script>
 <style>
 /* Те же токены, что в index.html: страница читается как продолжение резюме. */
 :root{
@@ -33,7 +33,7 @@
   --ink:       oklch(22% 0.02 267);
   --muted:     oklch(46% 0.02 267);
   --line:      oklch(89% 0.01 267);
-  --cobalt:    oklch(52% 0.22 267);
+  --cobalt:    oklch(46% 0.205 267);
   --cobalt-ink:oklch(47% 0.22 267);
   --cobalt-soft:oklch(94% 0.04 267);
   --on-cobalt: oklch(97.5% 0.008 267);
@@ -149,7 +149,7 @@ a.cover.brand:hover svg{transform:scale(1.05)}
 
 .foot{grid-area:foot;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:clamp(22px,2.6vw,32px)}
 .btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 20px;border-radius:999px;background:var(--cobalt);color:var(--on-cobalt);font-weight:600;font-size:16px;text-decoration:none;transition:transform .25s var(--ease),background-color .2s}
-.btn:hover{background:oklch(46% 0.22 267)}
+.btn:hover{background:oklch(40% 0.19 267)}
 .btn:active{transform:translateY(1px) scale(.985)}
 
 .nda{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border-radius:999px;background:var(--cobalt-soft);color:var(--cobalt-ink);font-weight:600;font-size:15px}
@@ -183,7 +183,7 @@ a.cover.brand:hover svg{transform:scale(1.05)}
   background:var(--cobalt);color:var(--on-cobalt);font-weight:600;font-size:16px;text-decoration:none;
   box-shadow:0 6px 20px oklch(30% 0.12 267 / .28);
   transition:opacity .3s var(--ease),transform .3s var(--ease),visibility .3s,background-color .2s}
-.float:hover{background:oklch(46% 0.22 267)}
+.float:hover{background:oklch(40% 0.19 267)}
 .float.is-hidden{opacity:0;visibility:hidden;transform:translateY(12px)}
 @media (prefers-reduced-motion:reduce){.float{transition:none}}
 @media print{.float{display:none}}
@@ -198,7 +198,7 @@ a.cover.brand:hover svg{transform:scale(1.05)}
     --ink:       oklch(22% 0.02 32);
     --muted:     oklch(46% 0.02 32);
     --line:      oklch(90% 0.012 32);
-    --brick:     #b83822;
+    --brick:     #9f2a16;
     --cobalt:    oklch(22% 0.02 32);     /* кнопки: чёрные */
     --cobalt-ink:oklch(22% 0.02 32);     /* подписи, ссылки, теги, иконки: чёрные */
     --cobalt-soft:oklch(96.5% 0.004 32);
