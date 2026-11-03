@@ -19,6 +19,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style-switch.css">
+<script>try{if(localStorage.getItem('cv-style')==='bold')document.documentElement.setAttribute('data-style','bold')}catch(e){}</script>
+<script src="style-switch.js" defer></script>
 <style>
 /* Layout concept: 16:9 stage, alternating ink and paper slides; real app screens are the hero, framed as live phones that scroll themselves. */
 :root{
@@ -322,9 +325,21 @@ h2{font-family:var(--f-display);font-weight:600;font-size:var(--h2);line-height:
 }
 @media (max-width:360px){.rs-card{padding:18px 14px}}
 @media (prefers-reduced-motion:reduce){.slide.on [data-r]{animation:none}}
+
+/* ---------- Переключатель стиля сайта и тестовый стиль «Кирпич» ----------
+   Кейс собран как презентация в графите, она не перекрашивается. В «Кирпиче» светлые слайды
+   становятся белыми, подписи на них и полоса прогресса кирпичные. */
+.gc-switch{position:absolute;z-index:21;top:16px;right:max(16px,env(safe-area-inset-right,0px));color:var(--paper);font-family:var(--f-body)}
+html[data-style="bold"] .light{background:#fff}
+html[data-style="bold"] .light .eyebrow{color:#b83822}
+html[data-style="bold"] .bar{background:#b83822}
 </style>
 
 <div class="bar" id="bar"></div>
+<div class="style-switch gc-switch" role="group" aria-label="Цвет сайта">
+  <button type="button" class="ss-blue" data-style-set="blue" aria-pressed="true" aria-label="Синий стиль"><i></i><span>Синий</span></button>
+  <button type="button" class="ss-bold" data-style-set="bold" aria-pressed="false" aria-label="Кирпичный стиль"><i></i><span>Кирпич</span></button>
+</div>
 <div class="wrap" id="wrap"><main class="stage" id="stage">
 
 <!-- 1 COVER -->
