@@ -1006,15 +1006,10 @@ a:focus-visible{outline:2px solid var(--cobalt-400);outline-offset:2px}
 }
 
 
-/* ---------- Переключатель стиля сайта и тестовый стиль «Кирпич» ----------
-   Палитра MyWay — часть кейса и не меняется. В «Кирпиче» белеет фон страницы,
-   а кирпичным становятся только подписи разделов и навигация, как на остальных страницах. */
+/* ---------- Переключатель стиля сайта ----------
+   Кейс показывает палитру MyWay, поэтому стиль «Кирпич» здесь ничего не перекрашивает: только кнопка. */
 .topbar .brand{margin-right:auto}
-.topbar .style-switch{background:rgba(255,255,255,.75);border-color:transparent;box-shadow:var(--shadow-soft)}
-html[data-style="bold"]{--bg:#fff}
-html[data-style="bold"] .hero .kicker b,
-html[data-style="bold"] .band:not(.s-screens):not(.s-result) .kicker b{color:#b83822}
-@media (hover:hover) and (pointer:fine){html[data-style="bold"] .toc a:hover{background:#fbe9e5;color:#b83822}}
+.topbar .style-switch{margin-block:-1px}
 </style>
 
 </head>
@@ -1024,10 +1019,7 @@ html[data-style="bold"] .band:not(.s-screens):not(.s-result) .kicker b{color:#b8
     <div class="topbar">
       <div class="brand"><i><svg aria-hidden="true" width="86" height="109" viewBox="0 0 86 109" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M80.7227 56.9844C84.6724 56.9844 87.2185 61.1648 85.4033 64.6699L74.9678 84.8213C73.0027 88.6158 67.5715 88.6158 65.6064 84.8213L63.7588 81.2549L71.9033 65.5908C73.5005 62.5187 72.6613 59.09 70.4502 56.9844H80.7227Z" fill="#428BE0" fill-opacity="0.5"></path><path d="M47.5619 106.151C45.5868 109.95 40.1196 109.95 38.1444 106.151L16.5774 64.6681C14.7549 61.1626 17.3156 56.9839 21.2862 56.9839L64.4202 56.9839C68.3908 56.9839 70.9514 61.1626 69.1289 64.6681L47.5619 106.151Z" fill="#428BE0"></path><path d="M15.2558 56.9844C13.0447 59.09 12.2055 62.5188 13.8026 65.5908L22.0936 81.5371L20.3934 84.8213C18.4284 88.6158 12.9972 88.6158 11.0321 84.8213L0.59659 64.6699C-1.21863 61.1648 1.32746 56.9844 5.27725 56.9844H15.2558Z" fill="#428BE0" fill-opacity="0.5"></path><path d="M38.2653 3.07539C40.2506 -0.722965 45.7493 -0.72296 47.7346 3.0754L69.42 44.5648C71.251 48.0679 68.6766 52.2427 64.6854 52.2427L21.3146 52.2427C17.3233 52.2427 14.7489 48.0679 16.5799 44.5648L38.2653 3.07539Z" fill="white" fill-opacity="0.9"></path><path d="M65.6064 24.2053C67.5716 20.3748 73.0027 20.3747 74.9678 24.2053L85.4033 44.5491C87.2184 48.0876 84.6724 52.3079 80.7227 52.3079H70.6621C72.9336 50.2121 73.8187 46.751 72.1924 43.6389L63.8369 27.6536L65.6064 24.2053Z" fill="white" fill-opacity="0.5"></path><path d="M11.0321 24.2053C12.9972 20.3747 18.4283 20.3748 20.3934 24.2053L22.161 27.6526L13.8065 43.6389C12.1804 46.7509 13.0654 50.2121 15.3368 52.3079H5.27721C1.32745 52.3079 -1.21858 48.0876 0.59655 44.5491L11.0321 24.2053ZM23.2801 29.8323L15.5799 44.5647C15.5227 44.6742 15.4695 44.7842 15.4208 44.8948C15.4694 44.7843 15.5218 44.6741 15.579 44.5647L23.2792 29.8313L23.2801 29.8323Z" fill="white" fill-opacity="0.5"></path></svg></i>MyWay</div>
       <nav class="toc" aria-label="Разделы"><a href="#product">Продукт</a><a href="#screens">Экраны</a><a href="#color">Цвет</a><a href="#system">Система</a><a href="#voice">Голос</a><a href="#result">Итог</a></nav>
-      <div class="style-switch" role="group" aria-label="Цвет сайта">
-        <button type="button" class="ss-blue" data-style-set="blue" aria-pressed="true" aria-label="Синий стиль"><i></i><span>Синий</span></button>
-        <button type="button" class="ss-bold" data-style-set="bold" aria-pressed="false" aria-label="Кирпичный стиль"><i></i><span>Кирпич</span></button>
-      </div>
+      <button type="button" class="style-switch" data-style-toggle aria-label="Сменить цвет сайта" title="Сменить цвет сайта"><i></i></button>
     </div>
     <div class="hero-grid">
       <div>
