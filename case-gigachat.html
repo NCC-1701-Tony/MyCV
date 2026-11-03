@@ -326,13 +326,9 @@ h2{font-family:var(--f-display);font-weight:600;font-size:var(--h2);line-height:
 @media (max-width:360px){.rs-card{padding:18px 14px}}
 @media (prefers-reduced-motion:reduce){.slide.on [data-r]{animation:none}}
 
-/* ---------- Переключатель стиля сайта и тестовый стиль «Кирпич» ----------
-   Кейс собран как презентация в графите, она не перекрашивается. В «Кирпиче» светлые слайды
-   становятся белыми, подписи на них и полоса прогресса кирпичные. */
+/* ---------- Переключатель стиля сайта ----------
+   Кейс собран как презентация в графите, стиль «Кирпич» её не перекрашивает: только кнопка. */
 .gc-switch{position:absolute;z-index:21;top:16px;right:max(16px,env(safe-area-inset-right,0px));color:var(--paper);font-family:var(--f-body)}
-html[data-style="bold"] .light{background:#fff}
-html[data-style="bold"] .light .eyebrow{color:#b83822}
-html[data-style="bold"] .bar{background:#b83822}
 </style>
 
 <div class="bar" id="bar"></div>

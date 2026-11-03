@@ -1006,15 +1006,10 @@ a:focus-visible{outline:2px solid var(--cobalt-400);outline-offset:2px}
 }
 
 
-/* ---------- Переключатель стиля сайта и тестовый стиль «Кирпич» ----------
-   Палитра MyWay — часть кейса и не меняется. В «Кирпиче» белеет фон страницы,
-   а кирпичным становятся только подписи разделов и навигация, как на остальных страницах. */
+/* ---------- Переключатель стиля сайта ----------
+   Кейс показывает палитру MyWay, поэтому стиль «Кирпич» здесь ничего не перекрашивает: только кнопка. */
 .topbar .brand{margin-right:auto}
 .topbar .style-switch{background:rgba(255,255,255,.75);border-color:transparent;box-shadow:var(--shadow-soft)}
-html[data-style="bold"]{--bg:#fff}
-html[data-style="bold"] .hero .kicker b,
-html[data-style="bold"] .band:not(.s-screens):not(.s-result) .kicker b{color:#b83822}
-@media (hover:hover) and (pointer:fine){html[data-style="bold"] .toc a:hover{background:#fbe9e5;color:#b83822}}
 </style>
 
 </head>

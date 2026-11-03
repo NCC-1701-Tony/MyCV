@@ -415,21 +415,9 @@ h3{font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.5vw,32px);lin
   .foot .wrap{flex-direction:column;justify-content:center;padding:18px 0;text-align:center}
 }
 
-/* ---------- Переключатель стиля сайта и тестовый стиль «Кирпич» ----------
-   Бренд DripWise (эспрессо, песок, оранжевый) — часть кейса и не меняется. В «Кирпиче»
-   страница всегда светлая на белом фоне, подписи разделов кирпичные, как на остальных страницах. */
+/* ---------- Переключатель стиля сайта ----------
+   Кейс показывает бренд DripWise, поэтому стиль «Кирпич» здесь ничего не перекрашивает: только кнопка. */
 .topbar .back{margin-right:auto}
-@media screen{
-  html[data-style="bold"]{
-    color-scheme:light;
-    --bg:#fff; --card:#fff; --sunk:#f5f2ee; --line:#e4e0db;
-    --ink:#1a1814; --ink-2:#4b4742; --ink-3:#68645d;
-    --accent:#c13b00; --accent-soft:#ffebde; --on-accent:#fffefc;
-    --good:#337344; --bed:#6b4430;
-    --shadow:0 1px 2px rgb(26 24 20/.06),0 10px 30px rgb(26 24 20/.07);
-  }
-  html[data-style="bold"] .band:not(.s-brand):not(.s-result) .kicker{color:#b83822}
-}
 </style>
 </head>
 <body>
