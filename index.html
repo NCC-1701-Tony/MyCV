@@ -165,11 +165,13 @@ main{padding:clamp(44px,6vw,80px) 0 0}
 .case h4{margin:0;font-size:clamp(19px,2vw,22px);letter-spacing:-0.015em;font-weight:700}
 .case p{margin:10px 0 0;max-width:66ch}
 
-.metrics{margin-top:24px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 32px;max-width:560px}
+.metrics{margin-top:24px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:560px}
+/* Главные цифры — в карточках того же семейства, что .award и .rollout: подпись читается рядом с крупной цифрой */
+.m-main{padding:18px 20px 20px;border-radius:14px;background:var(--cobalt-soft);border:1px solid var(--line)}
 .metrics .m-sub{margin-top:8px}
 .m-main b{display:block;font-size:clamp(44px,5.4vw,60px);line-height:1;font-weight:800;letter-spacing:-0.04em;color:var(--cobalt-ink);font-variant-numeric:tabular-nums}
-.m-main span{display:block;margin-top:8px;font-size:15px;color:var(--muted);max-width:26ch}
-.m-note{grid-column:1/-1;margin:0!important;font-size:14px;color:var(--muted)}
+.m-main span{display:block;margin-top:10px;font-size:15px;font-weight:500;line-height:1.35;color:var(--ink);max-width:26ch}
+.m-note{grid-column:1/-1;margin:4px 0 0!important;font-size:14px;color:var(--muted)}
 .m-sub{display:flex;gap:10px;align-items:baseline;padding-top:14px;border-top:1px solid var(--line);font-size:15px;color:var(--muted)}
 .m-sub b{font-size:22px;font-weight:700;letter-spacing:-0.02em;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
 
@@ -326,8 +328,10 @@ main{padding:clamp(44px,6vw,80px) 0 0}
 }
 @media (max-width:520px){
   body{font-size:16px}
-  .metrics{gap:18px 16px}
-  .m-main b{font-size:40px}
+  .metrics{gap:10px}
+  .m-main{padding:14px 14px 16px}
+  .m-main b{font-size:clamp(32px,10vw,40px)}
+  .m-main span{font-size:14px}
   .m-sub{flex-direction:column;gap:2px}
   .rollout{grid-template-columns:1fr}
   .rollout div + div{border-left:0;border-top:1px solid var(--line)}
@@ -347,7 +351,7 @@ main{padding:clamp(44px,6vw,80px) 0 0}
   .contacts a,.contacts span{border-bottom-color:#cfcfcf;min-height:0;padding:2px 0}
   .seg.d{border-color:#1f36c9}
   .axis,.career h2{color:#444;border-color:#cfcfcf}
-  .seg,.award,.rollout div,.case{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .seg,.award,.rollout div,.m-main,.case{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .seg{animation:none}
   .job,.case{break-inside:avoid}
   .btn,.btn-hero{background:none;color:#1f36c9;border:1px solid #1f36c9}
