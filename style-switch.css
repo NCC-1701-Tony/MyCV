@@ -47,8 +47,8 @@
 .seg-ctl .sw-blue{background:#3156e0}
 .seg-ctl .sw-bold{background:#b83822}
 
-/* Плавная смена палитры при переключении, без движения */
-html.ss-anim,html.ss-anim *,html.ss-anim *::before,html.ss-anim *::after{
-  transition:background-color .35s ease,color .35s ease,border-color .35s ease,box-shadow .35s ease,fill .35s ease !important;
-}
+/* Плавная смена палитры: браузер делает снимок страницы до и после и растворяет один в другом.
+   Так текст, иконки и фон меняются строго одновременно (раньше в Safari вложенные иконки
+   отставали от текста). Браузеры без View Transitions переключают мгновенно. */
+::view-transition-old(root),::view-transition-new(root){animation-duration:.35s;animation-timing-function:ease}
 @media print{.settings{display:none}}

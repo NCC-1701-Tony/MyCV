@@ -16,8 +16,8 @@
   }
   function set(name,v){
     try{localStorage.setItem(OPTS[name].key,v)}catch(e){}
-    if(!reduce){root.classList.add('ss-anim');clearTimeout(set.t);set.t=setTimeout(function(){root.classList.remove('ss-anim')},450)}
-    apply(name,v);
+    if(!reduce&&document.startViewTransition) document.startViewTransition(function(){apply(name,v)});
+    else apply(name,v);
   }
   function syncAll(){for(var n in OPTS) apply(n,read(OPTS[n]))}
 
