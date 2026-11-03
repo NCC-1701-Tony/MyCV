@@ -1,6 +1,6 @@
-/* Тихий переключатель стиля сайта: одна точка в шапке справа.
-   Точка показывает цвет, на который переключит: на синем сайте она кирпичная, на кирпичном синяя.
-   Для автора, не для посетителей, поэтому без подписей и без акцента. Обводка берёт цвет шапки (currentColor).
+/* Тихий переключатель стиля сайта: одна точка в шапке справа, для автора, не для посетителей.
+   Цвет точки не зависит от стиля: это цвет текста шапки (currentColor), белая на цветной
+   и тёмной шапке, тёмная на светлой. Без подписей и без акцента.
    Выбор хранится в localStorage («cv-style»). */
 .style-switch{
   appearance:none;-webkit-appearance:none;margin:0;padding:0;flex:none;
@@ -11,11 +11,10 @@
 .style-switch:hover{background:color-mix(in srgb,currentColor 10%,transparent)}
 .style-switch:focus-visible{outline:2px solid currentColor;outline-offset:2px}
 .style-switch i{
-  width:12px;height:12px;border-radius:50%;
-  background:#b83822;
-  box-shadow:0 0 0 1.5px color-mix(in srgb,currentColor 70%,transparent);
+  width:10px;height:10px;border-radius:50%;
+  background:currentColor;opacity:.85;
 }
-html[data-style="bold"] .style-switch i{background:#3156e0}
+.style-switch:hover i{opacity:1}
 /* Плавная смена палитры при переключении, без движения */
 html.ss-anim,html.ss-anim *,html.ss-anim *::before,html.ss-anim *::after{
   transition:background-color .35s ease,color .35s ease,border-color .35s ease,box-shadow .35s ease,fill .35s ease !important;
