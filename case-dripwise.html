@@ -362,6 +362,11 @@ h3{font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.5vw,32px);lin
   .stage .p2{width:clamp(176px,35vw,244px)}
   .loop{grid-template-columns:repeat(2,minmax(0,1fr))}
   .loop li:nth-child(2)::after{display:none}
+  /* 2 и 1 колонка: стрелка не может дойти до шага 1, остаётся только подпись */
+  .back-arrow{height:auto;margin:20px 0 0;border:0;border-radius:0;text-align:center}
+  .back-arrow::before{display:none}
+  .back-arrow span{position:static;display:block;translate:none;padding:0;background:none}
+  .back-arrow span::first-letter{text-transform:uppercase}
   .lines{grid-template-columns:minmax(0,1fr)}
   .sw{grid-template-columns:repeat(5,minmax(0,1fr))}
   .gallery{grid-template-columns:repeat(6,minmax(0,1fr))}
