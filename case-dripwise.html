@@ -240,6 +240,33 @@ h3{font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.5vw,32px);lin
 .globe canvas:active{cursor:grabbing}
 .globe-legend{display:flex;gap:18px;justify-content:center;margin-top:10px;font-size:13px;color:var(--ink-3)}
 .globe-legend i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);margin-right:8px;translate:0 -1px}
+/* каталог: география сортов */
+.geo{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px clamp(24px,3vw,48px);margin-top:clamp(40px,5vw,64px)}
+.geo-am{grid-column:span 2}
+.geo-am ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(24px,3vw,48px)}
+.geo-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 12px;margin:0 0 6px;font-size:12px;line-height:20px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.geo-h span{font-size:13px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.geo li{padding:12px 0 14px;border-top:1px solid var(--line)}
+.geo-n{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.geo-n b{font-weight:600;font-size:15.5px;line-height:1.35}
+.geo-n > span{flex:none;font-weight:700;font-size:15.5px;font-variant-numeric:tabular-nums}
+.geo-n em{margin-right:8px;font-style:normal;font-size:13px;font-weight:700;color:var(--accent)}
+.geo-d{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
+.geo-d i{width:8px;height:8px;border-radius:50%;background:var(--ink-3);opacity:.55}
+.geo-d .nw-d{background:var(--accent);opacity:1}
+.geo-legend{display:flex;flex-wrap:wrap;gap:8px 24px;margin:28px 0 0;font-size:13px;color:var(--ink-3)}
+.geo-legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;translate:0 -1px;background:var(--ink-3);opacity:.55}
+.geo-legend i.nw-d{background:var(--accent);opacity:1}
+.cat{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr) minmax(0,5fr);gap:40px clamp(24px,3vw,48px);margin-top:clamp(56px,7vw,88px)}
+.cat > li{padding-top:22px;border-top:1px solid var(--line)}
+.cat b{display:block;font-family:var(--serif);font-weight:600;font-size:clamp(28px,2.6vw,36px);line-height:1.1}
+.cat p{margin:10px 0 0;font-size:15px;line-height:1.5;color:var(--ink-2);max-width:36ch}
+.pbar{display:flex;gap:3px;height:12px;margin-top:18px;border-radius:6px;overflow:hidden}
+.pbar i{flex:var(--n) 1 0;min-width:6px;background:var(--c)}
+.pleg{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:14px;font-size:13.5px;line-height:1.4;color:var(--ink-2)}
+.pleg li{display:inline-flex;align-items:center;gap:7px}
+.pleg li::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--c)}
+.pleg b{display:inline;font-family:var(--sans);font-size:13.5px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
 /* уровни марки */
 .tiers{overflow:hidden;padding:20px 16px 28px;margin:clamp(16px,2.5vw,36px) -16px -28px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,48px);}
 .tc{display:flex;flex-direction:column;align-items:center;text-align:center}
@@ -375,6 +402,10 @@ h3{font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.5vw,32px);lin
   .back-arrow span{position:static;display:block;translate:none;padding:0;background:none}
   .back-arrow span::first-letter{text-transform:uppercase}
   .lines{grid-template-columns:minmax(0,1fr)}
+  .geo{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .geo-am{order:3}
+  .cat{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .cat > li:first-child{grid-column:1/-1}
   .sw{grid-template-columns:repeat(5,minmax(0,1fr))}
   .gallery{grid-template-columns:repeat(6,minmax(0,1fr))}
   .gallery figure:nth-child(5){grid-column:span 2}
@@ -425,6 +456,14 @@ h3{font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.5vw,32px);lin
   .nal ul{column-gap:10px}
   .nal small{font-size:11.5px}
   .res-list{grid-template-columns:minmax(0,1fr)}
+  .geo{grid-template-columns:minmax(0,1fr);row-gap:32px}
+  .geo-am{grid-column:auto;order:0}
+  .geo li{padding:10px 0 12px}
+  .geo ul,.geo-am ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:16px}
+  .geo-n{flex-direction:column;gap:0}
+  .geo-n b{font-size:14.5px}
+  .geo-n > span{font-size:14px;color:var(--ink-2)}
+  .cat{grid-template-columns:minmax(0,1fr)}
   .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
   .scroll img{min-width:640px}
   .foot .wrap{flex-direction:column;justify-content:center;padding:18px 0;text-align:center}
@@ -705,10 +744,27 @@ h3{font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.5vw,32px);lin
       </div>
     </div>
 
+    <div class="block" id="catalog">
+      <div class="sub rv">
+        <div>
+          <p class="kicker"><b>5.2</b>Каталог</p>
+          <h3>96 сортов из 29 стран</h3>
+        </div>
+        <p class="copy">Страна делится на регионы, и у каждого свой вкус. В версии 0.7.68 добавил 25 регионов в тех же странах: каталог вырос с 71 до 96 сортов. Точка — один сорт с рецептом под кофемолку.</p>
+      </div>
+      <div class="geo rv"><div class="geo-g geo-af"><p class="geo-h">Африка<span>7 стран · 29 сортов</span></p><ul><li><span class="sr">Эфиопия: 10 сортов, из них 3 новых</span><span class="geo-n" aria-hidden="true"><b>Эфиопия</b><span><em>+3</em>10</span></span><span class="geo-d" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="nw-d"></i><i class="nw-d"></i><i class="nw-d"></i></span></li><li><span class="sr">Кения: 7 сортов, из них 3 новых</span><span class="geo-n" aria-hidden="true"><b>Кения</b><span><em>+3</em>7</span></span><span class="geo-d" aria-hidden="true"><i></i><i></i><i></i><i></i><i class="nw-d"></i><i class="nw-d"></i><i class="nw-d"></i></span></li><li><span class="sr">Руанда: 4 сорта</span><span class="geo-n" aria-hidden="true"><b>Руанда</b><span>4</span></span><span class="geo-d" aria-hidden="true"><i></i><i></i><i></i><i></i></span></li><li><span class="sr">Танзания: 3 сорта</span><span class="geo-n" aria-hidden="true"><b>Танзания</b><span>3</span></span><span class="geo-d" aria-hidden="true"><i></i><i></i><i></i></span></li><li><span class="sr">Бурунди: 2 сорта</span><span class="geo-n" aria-hidden="true"><b>Бурунди</b><span>2</span></span><span class="geo-d" aria-hidden="true"><i></i><i></i></span></li><li><span class="sr">Уганда: 2 сорта</span><span class="geo-n" aria-hidden="true"><b>Уганда</b><span>2</span></span><span class="geo-d" aria-hidden="true"><i></i><i></i></span></li><li><span class="sr">ДР Конго: 1 сорт</span><span class="geo-n" aria-hidden="true"><b>ДР Конго</b><span>1</span></span><span class="geo-d" aria-hidden="true"><i></i></span></li></ul></div><div class="geo-g geo-am"><p class="geo-h">Америка<span>14 стран · 51 сорт</span></p><ul><li><span class="sr">Колумбия: 9 сортов, из них 3 новых</span><span class="geo-n" aria-hidden="true"><b>Колумбия</b><span><em>+3</em>9</span></span><span class="geo-d" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i class="nw-d"></i><i class="nw-d"></i><i class="nw-d"></i></span></li><li><span class="sr">Бразилия: 6 сортов, из них 2 новых</span><span class="geo-n" aria-hidden="true"><b>Бразилия</b><span><em>+2</em>6</span></span><span class="geo-d" aria-hidden="true"><i></i><i></i><i></i><i></i><i class="nw-d"></i><i class="nw-d"></i></span></li><li><span class="sr">Гватемала: 6 сортов, из них 3 новых</span><span class="geo-n" aria-hidden="true"><b>Гватемала</b><span><em>+3</em>6</span></span><span class="geo-d" aria-hidden="true"><i></i><i></i><i></i><i class="nw-d"></i><i class="nw-d"></i><i class="nw-d"></i></span></li><li><span class="sr">Коста-Рика: 6 сортов, из них 3 новых</span><span class="geo-n" aria-hidden="true"><b>Коста-Рика</b><span><em>+3</em>6</span></span><span class="geo-d" aria-hidden="true"><i></i><i></i><i></i><i class="nw-d"></i><i class="nw-d"></i><i class="nw-d"></i></span></li><li><span class="sr">Гондурас: 5 сортов, из них 2 новых</span><span class="geo-n" aria-hidden="true"><b>Гондурас</b><span><em>+2</em>5</span></span><span class="geo-d" aria-hidden="true"><i></i><i></i><i></i><i class="nw-d"></i><i class="nw-d"></i></span></li><li><span class="sr">Мексика: 3 сорта, из них 1 новый</span><span class="geo-n" aria-hidden="true"><b>Мексика</b><span><em>+1</em>3</span></span><span class="geo-d" aria-hidden="true"><i></i><i></i><i class="nw-d"></i></span></li><li><span class="sr">Никарагуа: 3 сорта, из них 1 новый</span><span class="geo-n" aria-hidden="true"><b>Никарагуа</b><span><em>+1</em>3</span></span><span class="geo-d" aria-hidden="true"><i></i><i></i><i class="nw-d"></i></span></li><li><span class="sr">Панама: 3 сорта, из них 1 новый</span><span class="geo-n" aria-hidden="true"><b>Панама</b><span><em>+1</em>3</span></span><span class="geo-d" aria-hidden="true"><i></i><i></i><i class="nw-d"></i></span></li><li><span class="sr">Перу: 3 сорта, из них 1 новый</span><span class="geo-n" aria-hidden="true"><b>Перу</b><span><em>+1</em>3</span></span><span class="geo-d" aria-hidden="true"><i></i><i></i><i class="nw-d"></i></span></li><li><span class="sr">Сальвадор: 3 сорта, из них 1 новый</span><span class="geo-n" aria-hidden="true"><b>Сальвадор</b><span><em>+1</em>3</span></span><span class="geo-d" aria-hidden="true"><i></i><i></i><i class="nw-d"></i></span></li><li><span class="sr">Боливия: 1 сорт</span><span class="geo-n" aria-hidden="true"><b>Боливия</b><span>1</span></span><span class="geo-d" aria-hidden="true"><i></i></span></li><li><span class="sr">Гавайи (США): 1 сорт</span><span class="geo-n" aria-hidden="true"><b>Гавайи (США)</b><span>1</span></span><span class="geo-d" aria-hidden="true"><i></i></span></li><li><span class="sr">Эквадор: 1 сорт</span><span class="geo-n" aria-hidden="true"><b>Эквадор</b><span>1</span></span><span class="geo-d" aria-hidden="true"><i></i></span></li><li><span class="sr">Ямайка: 1 сорт</span><span class="geo-n" aria-hidden="true"><b>Ямайка</b><span>1</span></span><span class="geo-d" aria-hidden="true"><i></i></span></li></ul></div><div class="geo-g geo-as"><p class="geo-h">Азия и Океания<span>8 стран · 16 сортов</span></p><ul><li><span class="sr">Индонезия: 6 сортов, из них 1 новый</span><span class="geo-n" aria-hidden="true"><b>Индонезия</b><span><em>+1</em>6</span></span><span class="geo-d" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i class="nw-d"></i></span></li><li><span class="sr">Индия: 2 сорта</span><span class="geo-n" aria-hidden="true"><b>Индия</b><span>2</span></span><span class="geo-d" aria-hidden="true"><i></i><i></i></span></li><li><span class="sr">Йемен: 2 сорта</span><span class="geo-n" aria-hidden="true"><b>Йемен</b><span>2</span></span><span class="geo-d" aria-hidden="true"><i></i><i></i></span></li><li><span class="sr">Китай: 2 сорта</span><span class="geo-n" aria-hidden="true"><b>Китай</b><span>2</span></span><span class="geo-d" aria-hidden="true"><i></i><i></i></span></li><li><span class="sr">Вьетнам: 1 сорт</span><span class="geo-n" aria-hidden="true"><b>Вьетнам</b><span>1</span></span><span class="geo-d" aria-hidden="true"><i></i></span></li><li><span class="sr">Мьянма: 1 сорт</span><span class="geo-n" aria-hidden="true"><b>Мьянма</b><span>1</span></span><span class="geo-d" aria-hidden="true"><i></i></span></li><li><span class="sr">Папуа — Новая Гвинея: 1 сорт</span><span class="geo-n" aria-hidden="true"><b>Папуа — Новая Гвинея</b><span>1</span></span><span class="geo-d" aria-hidden="true"><i></i></span></li><li><span class="sr">Таиланд: 1 сорт</span><span class="geo-n" aria-hidden="true"><b>Таиланд</b><span>1</span></span><span class="geo-d" aria-hidden="true"><i></i></span></li></ul></div></div>
+      <p class="geo-legend rv"><span><i></i>Было в каталоге</span><span><i class="nw-d"></i>Новые регионы, 0.7.68 от 14 ноября 2026</span></p>
+      <ul class="cat rv">
+        <li><b>5 способов обработки</b><div class="pbar" aria-hidden="true"><i style="--n:63;--c:var(--accent)"></i><i style="--n:17;--c:var(--bed)"></i><i style="--n:10;--c:var(--sand-2)"></i><i style="--n:3;--c:var(--ink-3)"></i><i style="--n:3;--c:var(--ink-2)"></i></div><ul class="pleg"><li style="--c:var(--accent)">Мытая <b>63</b></li><li style="--c:var(--bed)">Натуральная <b>17</b></li><li style="--c:var(--sand-2)">Хани <b>10</b></li><li style="--c:var(--ink-3)">Анаэробная <b>3</b></li><li style="--c:var(--ink-2)">Влажная очистка <b>3</b></li></ul></li>
+        <li><b>59 из 96</b><p>сортов с типичным диапазоном оценки Q. Где надёжных данных по региону нет, оценку не показываю.</p></li>
+        <li><b>81 нота</b><p>на колесе вкусов SCA: 9 категорий, 99 описателей. Проверка данных не пропустит ноту мимо колеса.</p></li>
+      </ul>
+    </div>
+
     <div class="block" id="tier">
       <div class="sub rv">
         <div>
-          <p class="kicker"><b>5.2</b>Марка</p>
+          <p class="kicker"><b>5.3</b>Марка</p>
           <h3>Растёт вместе с тем, что ты узнал о стране</h3>
         </div>
         <p class="copy">Четыре состояния одной марки. У каждого перехода своя короткая анимация.</p>
@@ -724,7 +780,7 @@ h3{font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.5vw,32px);lin
     <div class="block">
       <div class="sub rv">
         <div>
-          <p class="kicker"><b>5.3</b>Марки стран</p>
+          <p class="kicker"><b>5.4</b>Марки стран</p>
           <h3>29 стран, одни правила</h3>
         </div>
       </div>
@@ -739,7 +795,7 @@ h3{font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.5vw,32px);lin
     <div class="block">
       <div class="sub rv">
         <div>
-          <p class="kicker"><b>5.4</b>Наклейки</p>
+          <p class="kicker"><b>5.5</b>Наклейки</p>
           <h3>За регионы и привычки</h3>
         </div>
         <div><div class="seg" role="group" aria-label="Состояние наклеек"><button type="button" id="son" aria-pressed="true">Получены</button><button type="button" id="soff" aria-pressed="false">Ещё закрыты</button></div></div>
@@ -757,7 +813,7 @@ h3{font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.5vw,32px);lin
     <div class="block">
       <div class="sub rv">
         <div>
-          <p class="kicker"><b>5.5</b>Анимации приёмов</p>
+          <p class="kicker"><b>5.6</b>Анимации приёмов</p>
           <h3>Движение объясняет, а не украшает</h3>
         </div>
         <p class="copy">Одни и те же схемы живут в таймере и в школе, поэтому приём узнаётся, а не учится заново.</p>
@@ -768,7 +824,7 @@ h3{font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.5vw,32px);lin
     <div class="block">
       <div class="sub rv">
         <div>
-          <p class="kicker"><b>5.6</b>Аватары</p>
+          <p class="kicker"><b>5.7</b>Аватары</p>
           <h3>Кофейные дудлы вместо фото</h3>
         </div>
       </div>
@@ -784,7 +840,7 @@ h3{font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.5vw,32px);lin
     <div class="res">
       <ul class="res-list">
         <li><b>4 шага</b><span>Петля «рецепт, таймер, вкус, поправка» работает в бете</span></li>
-        <li><b>71 сорт</b><span>из 29 стран с рецептами под кофемолку</span></li>
+        <li><b>96 сортов</b><span>из 29 стран с рецептами под кофемолку</span></li>
         <li><b>16 экранов</b><span>в одной системе, две темы</span></li>
         <li><b>4,5:1</b><span>минимальный контраст текста</span></li>
       </ul>
